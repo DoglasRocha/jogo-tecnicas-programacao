@@ -2,8 +2,9 @@
 // Created by doglasrocha on 10/6/22.
 //
 #include <iostream>
+using namespace std;
 
 int main(void)
 {
-    std::cout << "aaa" << std::endl;
+    cout << "aaa" << std::endl;
 }
