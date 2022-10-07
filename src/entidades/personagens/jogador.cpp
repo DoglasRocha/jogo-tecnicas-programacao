@@ -1,0 +1,7 @@
+namespace Entidades 
+{
+	namespace Personagens
+	{
+		
+	}
+}
