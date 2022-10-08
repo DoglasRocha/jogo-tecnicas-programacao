@@ -1,11 +1,11 @@
 class Base
 {
     protected:
-    int id;
+        int id;
 
     public:
-    Base();
-    virtual ~Base();
-    virtual void executar();
-    void desenhar();
+        Base();
+        virtual ~Base();
+        virtual void executar();
+        void desenhar();
 };

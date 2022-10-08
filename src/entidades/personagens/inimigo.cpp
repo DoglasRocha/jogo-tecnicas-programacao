@@ -1,7 +1,0 @@
-namespace Entidades 
-{
-	namespace Personagens
-	{
-		
-	}
-}

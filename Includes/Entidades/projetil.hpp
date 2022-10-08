@@ -1,6 +1,10 @@
-#include "../entidade.hpp"
+#pragma once
+#include "entidade.hpp"
 
-class Projetil:public Entidade
+namespace entidades
 {
+	class Projetil : public Entidade
+	{
 
-};
+	};
+}

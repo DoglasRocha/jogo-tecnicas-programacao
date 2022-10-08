@@ -5,7 +5,7 @@ sources := main.cpp $(wildcard ./src/*.cpp) $(entidades) $(fases) $(gerenciadore
 
 main: $(all)
 	g++ -o game $(sources) -I./SFML/include -L./SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
-	export LD_LIBRARY_PATH=./SFML/lib ./game
+	# export LD_LIBRARY_PATH=./SFML/lib ./game
 
 clean:
 	rm -f game

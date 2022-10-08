@@ -1,6 +1,12 @@
-#include "../personagem.hpp"
+#pragma once
+#include "personagem.hpp"
 
-class Jogador:public Personagem
+using entidades::personagens::Personagem;
+
+namespace entidades::personagens
 {
-
-};
+	class Jogador : public Personagem
+	{
+	
+	};	
+}

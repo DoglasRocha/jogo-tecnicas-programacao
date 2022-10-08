@@ -1,6 +1,6 @@
 #include "base.hpp"
 
-class Menu:public Base
+class Menu : public Base
 {
 
 };
