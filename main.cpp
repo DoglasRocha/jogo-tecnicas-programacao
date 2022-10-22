@@ -7,6 +7,7 @@ using namespace std;
 
 int main(void)
 {
+    cout << "MORRA NARIGUDO" << endl;
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
     /*sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);*/
