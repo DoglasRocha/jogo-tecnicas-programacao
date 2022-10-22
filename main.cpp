@@ -20,7 +20,11 @@ int main(void)
     }
 
     sf::Sprite narigudo;
+    sf::Sprite narigudo2;
     narigudo.setTexture(textura);
+    narigudo2.setTexture(textura);
+    narigudo.scale(sf::Vector2f(1,.5));
+    narigudo2.scale(sf::Vector2f(.5,1));
     
     while (window.isOpen())
     {
@@ -34,8 +38,8 @@ int main(void)
         sf::FloatRect BorderColl(0, 0, 1000, 1000);
         sf::Vector2f BlobPosition = narigudo.getPosition();
         bool CheckBorderColl = BorderColl.contains(BlobPosition);
-        if (CheckBorderColl)
-        {
+        //if (CheckBorderColl)
+        //{
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
                 narigudo.move(1, 0);
 
@@ -47,10 +51,23 @@ int main(void)
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
                 narigudo.move(0, 1);
-        }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+                narigudo2.move(1, 0);
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+                narigudo2.move(-1, 0);
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+                narigudo2.move(0, -1);
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+                narigudo2.move(0, 1);
+        //}
 
         window.clear();
         window.draw(narigudo);
+        window.draw(narigudo2);
         // shape.move(1, 1);
         sf::sleep(sf::milliseconds(5));
         window.display();
