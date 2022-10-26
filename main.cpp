@@ -1,14 +1,13 @@
 //
 // Created by doglasrocha on 10/6/22.
 //
-#include "SFML/include/SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 #include <iostream>
 using namespace std;
 using namespace sf;
 
 int main(void)
 {
-    cout << "MORRA NARIGUDO" << endl;
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
     /*sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);*/
