@@ -4,6 +4,7 @@
 #include "SFML/include/SFML/Graphics.hpp"
 #include <iostream>
 using namespace std;
+using namespace sf;
 
 int main(void)
 {
@@ -13,18 +14,26 @@ int main(void)
     shape.setFillColor(sf::Color::Green);*/
 
     sf::Texture textura;
-    if (!textura.loadFromFile("texturas/narigudo.png")) 
+    sf::Texture texturaCJ;
+    if (!textura.loadFromFile("texturas/narigudo.png") || !texturaCJ.loadFromFile("texturas/cj_gordo.png")) 
     {
         std::cout << "Não possivel carregar a textura." << std::endl;
         return 0;
     }
 
+
     sf::Sprite narigudo;
-    sf::Sprite narigudo2;
+    sf::Sprite CJ;
+    sf::FloatRect BorderColl(0, 0, 1000, 1000);
     narigudo.setTexture(textura);
-    narigudo2.setTexture(textura);
-    narigudo.scale(sf::Vector2f(1,.5));
-    narigudo2.scale(sf::Vector2f(.5,1));
+    //narigudo.setTextureRect(IntRect(10, 10, 500, 500));
+    CJ.setTexture(texturaCJ);
+    //narigudo.scale(sf::Vector2f(1,.5));
+
+    int velX = 0;
+    int velY = 0;
+    int velXC = 0;
+    int velYC = 0;
     
     while (window.isOpen())
     {
@@ -33,42 +42,106 @@ int main(void)
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            if (event.type == Event::KeyPressed)
+            {
+                switch (event.key.code)
+                {
+                    case (Keyboard::D):
+                        velX = 1;
+                        break;
+
+                    case (Keyboard::A):
+                        velX = -1;
+                        break;
+
+                    case (Keyboard::W):
+                        velY = -1;
+                        break;
+
+                    case (Keyboard::S):
+                        velY = 1;
+                        break;
+
+                    case (Keyboard::Right):
+                        velXC = 1;
+                        break;
+
+                    case (Keyboard::Left):
+                        velXC = -1;
+                        break;
+
+                    case (Keyboard::Up):
+                        velYC = -1;
+                        break;
+
+                    case (Keyboard::Down):
+                        velYC = 1;
+                        break;
+                }
+            }
+
+            if (event.type == Event::KeyReleased)
+            {
+                switch (event.key.code)
+                {
+                    case (Keyboard::D):
+                        velX = 0;
+                        break;
+
+                    case (Keyboard::A):
+                        velX = 0;
+                        break;
+
+                    case (Keyboard::W):
+                        velY = 0;
+                        break;
+
+                    case (Keyboard::S):
+                        velY = 0;
+                        break;
+
+                    case (Keyboard::Right):
+                        velXC = 0;
+                        break;
+
+                    case (Keyboard::Left):
+                        velXC = 0;
+                        break;
+
+                    case (Keyboard::Up):
+                        velYC = 0;
+                        break;
+
+                    case (Keyboard::Down):
+                        velYC = 0;
+                        break;
+                }
+            }
         }
 
-        sf::FloatRect BorderColl(0, 0, 1000, 1000);
-        sf::Vector2f BlobPosition = narigudo.getPosition();
-        bool CheckBorderColl = BorderColl.contains(BlobPosition);
-        //if (CheckBorderColl)
-        //{
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-                narigudo.move(1, 0);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-                narigudo.move(-1, 0);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-                narigudo.move(0, -1);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-                narigudo.move(0, 1);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-                narigudo2.move(1, 0);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-                narigudo2.move(-1, 0);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-                narigudo2.move(0, -1);
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-                narigudo2.move(0, 1);
-        //}
+        sf::FloatRect BlobPosition = narigudo.getGlobalBounds();
+        sf::FloatRect CJBounds = CJ.getGlobalBounds();
+        BlobPosition.left += velX;
+        BlobPosition.top += velY;
+        CJBounds.left += velXC;
+        CJBounds.top += velYC;
+        
+        // if (BorderColl.intersects(BlobPosition))
+        if (BlobPosition.top >= 0 && (BlobPosition.top + BlobPosition.height) <= 1000 
+            && BlobPosition.left >= 0 && (BlobPosition.left + BlobPosition.width) <= 1000)
+        {
+            narigudo.move(velX, velY);
+        }
+        if (CJBounds.top >= 0 && (CJBounds.top + CJBounds.height) <= 1000 
+            && CJBounds.left >= 0 && (CJBounds.left + CJBounds.width) <= 1000)
+        {
+            CJ.move(velXC, velYC);
+        }
 
         window.clear();
         window.draw(narigudo);
-        window.draw(narigudo2);
-        // shape.move(1, 1);
+        window.draw(CJ);
         sf::sleep(sf::milliseconds(5));
         window.display();
     }
