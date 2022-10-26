@@ -13,3 +13,7 @@ cmake-build-debug/
 .idea/
 .vscode/
 SFML/
+main.exe
+main
+game.exe
+game

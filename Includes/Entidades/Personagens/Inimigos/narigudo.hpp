@@ -1,7 +1,8 @@
 #include "inimigo.hpp"
+#include <SFML/Graphics.hpp>
 using namespace entidades::personagens::inimigos;
 
-class InimigoB:public Inimigo
+class Narigudo:public Inimigo
 {
 
 };

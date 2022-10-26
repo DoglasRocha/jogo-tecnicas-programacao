@@ -1,7 +1,7 @@
 //
 // Created by doglasrocha on 10/6/22.
 //
-#include <SFML/include/Graphics.hpp>
+#include "SFML/include/SFML/Graphics.hpp"
 #include <iostream>
 using namespace std;
 
