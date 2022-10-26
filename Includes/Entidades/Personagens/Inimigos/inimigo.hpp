@@ -14,7 +14,7 @@ namespace entidades
     			sf::Sprite sprite;
 
     			public:
-    			virtual void setSprite(sf::Texture textura);
+    			void setSprite(sf::Texture textura);
 			};
 		}
 	}
