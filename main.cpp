@@ -12,9 +12,14 @@ int main(void)
     /*sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);*/
 
-    sf::Texture textura;
+    int frame = 1;
+    sf::Texture textura1, textura2, textura3;
     sf::Texture texturaCJ;
-    if (!textura.loadFromFile("texturas/narigudo.png") || !texturaCJ.loadFromFile("texturas/cj_gordo.png")) 
+    if (!textura1.loadFromFile("texturas/narigudo.png") ||
+        !textura2.loadFromFile("texturas/narigudo2.png") ||
+        !textura3.loadFromFile("texturas/narigudo3.png") ||
+        !texturaCJ.loadFromFile("texturas/cj_gordo.png")
+        ) 
     {
         std::cout << "Não possivel carregar a textura." << std::endl;
         return 0;
@@ -24,7 +29,7 @@ int main(void)
     sf::Sprite narigudo;
     sf::Sprite CJ;
     sf::FloatRect BorderColl(0, 0, 1000, 1000);
-    narigudo.setTexture(textura);
+    narigudo.setTexture(textura1);
     //narigudo.setTextureRect(IntRect(10, 10, 500, 500));
     CJ.setTexture(texturaCJ);
     //narigudo.scale(sf::Vector2f(1,.5));
@@ -139,10 +144,17 @@ int main(void)
         }
 
         window.clear();
+        if (!(frame % 3))
+            narigudo.setTexture(textura3);
+        else if (!(frame % 2))
+            narigudo.setTexture(textura2);
+        else
+            narigudo.setTexture(textura1);
         window.draw(narigudo);
         window.draw(CJ);
         sf::sleep(sf::milliseconds(5));
         window.display();
+        frame++;
     }
 
     return 0;
