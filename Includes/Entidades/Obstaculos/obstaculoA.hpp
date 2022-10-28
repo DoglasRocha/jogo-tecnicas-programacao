@@ -1,6 +1,9 @@
-#include "../obstaculo.hpp"
+#pragma once
+#include "obstaculo.hpp"
 
-class ObstaculoA:public Obstaculo
+using entidades::obstaculos::Obstaculo;
+
+class ObstaculoA : public Obstaculo
 {
 
 };

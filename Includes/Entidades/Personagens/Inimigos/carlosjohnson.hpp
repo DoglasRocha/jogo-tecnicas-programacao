@@ -1,3 +1,4 @@
+#pragma once
 #include "inimigo.hpp"
 using namespace entidades::personagens::inimigos;
 
