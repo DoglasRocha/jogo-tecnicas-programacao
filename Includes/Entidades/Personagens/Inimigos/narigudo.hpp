@@ -26,5 +26,6 @@ namespace entidades::personagens::inimigos
         std::string getSentido();
         void setSentido(std::string novoSentido);
         Sprite *getSprite();
+        void processarEventos(Event evento);
     };
 }

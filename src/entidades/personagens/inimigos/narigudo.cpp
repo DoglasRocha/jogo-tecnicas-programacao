@@ -3,15 +3,17 @@
 
 using entidades::personagens::inimigos::Narigudo;
 
-Narigudo::Narigudo() {
+Narigudo::Narigudo() :
+entidades::personagens::inimigos::Inimigo() {
     frame = velX = velY = 0;
     sentido = "ESQUERDA";
     texturas[0].loadFromFile("texturas/narigudo.png");
     texturas[1].loadFromFile("texturas/narigudo2.png");
     texturas[2].loadFromFile("texturas/narigudo3.png");
     sprite.setTexture(texturas[frame % 3]);
-    FloatRect bounds = sprite.getLocalBounds();
+
     sprite.setPosition(200, 200);
+    FloatRect bounds = sprite.getLocalBounds();
     sprite.setOrigin(bounds.width / 2, bounds.height / 2);
 };
 
@@ -54,4 +56,56 @@ std::string Narigudo::getSentido() {
 
 void Narigudo::setSentido(std::string novoSentido) {
     sentido = novoSentido;
+}
+
+void Narigudo::processarEventos(Event evento) {
+    if (evento.type == Event::KeyPressed) {
+        switch (evento.key.code)
+        {
+            case (Keyboard::D):
+                if (sentido != "DIREITA") {
+                    sprite.scale(-1.f, 1.f);
+                    sentido = "DIREITA";
+                }
+                velX = 1;
+                break;
+
+            case (Keyboard::A):
+                if (sentido != "ESQUERDA") {
+                    sprite.scale(-1.f, 1.f);
+                    sentido = "ESQUERDA";
+                }
+                velX = -1;
+                break;
+
+            case (Keyboard::W):
+                velY = -1;
+                break;
+
+            case (Keyboard::S):
+                velY = 1;
+                break;
+        }
+    }
+
+    else if (evento.type == Event::KeyReleased) {
+        switch (evento.key.code)
+        {
+            case (Keyboard::D):
+                velX = 0;
+                break;
+
+            case (Keyboard::A):
+                velX = 0;
+                break;
+
+            case (Keyboard::W):
+                velY = 0;
+                break;
+
+            case (Keyboard::S):
+                velY = 0;
+                break;
+        }
+    }
 }

@@ -44,34 +44,11 @@ Jogo::Jogo()
             if (event.type == sf::Event::Closed)
                 window->close();
 
+            narigudo.processarEventos(event);
             if (event.type == Event::KeyPressed)
             {
                 switch (event.key.code)
                 {
-                    case (Keyboard::D):
-                        if (narigudo.getSentido() != "DIREITA") {
-                            narigudo.getSprite()->scale(-1.f, 1.f);
-                            narigudo.setSentido("DIREITA");
-                        }
-                        narigudo.setVelX(1);
-                        break;
-
-                    case (Keyboard::A):
-                        if (narigudo.getSentido() != "ESQUERDA") {
-                            narigudo.getSprite()->scale(-1.f, 1.f);
-                            narigudo.setSentido("ESQUERDA");
-                        }
-                        narigudo.setVelX(-1);
-                        break;
-
-                    case (Keyboard::W):
-                        narigudo.setVelY(-1);
-                        break;
-
-                    case (Keyboard::S):
-                        narigudo.setVelY(1);
-                        break;
-
                     case (Keyboard::Right):
                         velXC = 1;
                         break;
@@ -94,22 +71,6 @@ Jogo::Jogo()
             {
                 switch (event.key.code)
                 {
-                    case (Keyboard::D):
-                        narigudo.setVelX(0);
-                        break;
-
-                    case (Keyboard::A):
-                        narigudo.setVelX(0);
-                        break;
-
-                    case (Keyboard::W):
-                        narigudo.setVelY(0);
-                        break;
-
-                    case (Keyboard::S):
-                        narigudo.setVelY(0);
-                        break;
-
                     case (Keyboard::Right):
                         velXC = 0;
                         break;
