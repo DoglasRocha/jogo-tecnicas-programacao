@@ -14,7 +14,7 @@ namespace entidades::personagens
         Personagem();
         virtual ~Personagem();
         virtual void desenhar(RenderWindow *window) = 0;
-        void mover();
+        virtual void mover();
         void setVelX(int novaVel);
         void setVelY(int novaVel);
         int getVelX();

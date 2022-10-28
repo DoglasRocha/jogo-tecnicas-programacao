@@ -9,7 +9,7 @@ namespace entidades::personagens::inimigos
     class Narigudo : public Inimigo
     {
     private:
-        int frame, velX, velY;
+        int frame;
         Texture texturas[3];
         Sprite sprite;
         std::string sentido;
@@ -18,14 +18,10 @@ namespace entidades::personagens::inimigos
         Narigudo();
         ~Narigudo();
         void desenhar(RenderWindow *window);
-        void mover();
-        void setVelX(int novaVel);
-        void setVelY(int novaVel);
-        int getVelX();
-        int getVelY();
         std::string getSentido();
         void setSentido(std::string novoSentido);
         Sprite *getSprite();
         void processarEventos(Event evento);
+        void mover();
     };
 }

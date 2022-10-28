@@ -5,7 +5,7 @@ using entidades::personagens::inimigos::Narigudo;
 
 Narigudo::Narigudo() :
 entidades::personagens::inimigos::Inimigo() {
-    frame = velX = velY = 0;
+    frame = 0;
     sentido = "ESQUERDA";
     texturas[0].loadFromFile("texturas/narigudo.png");
     texturas[1].loadFromFile("texturas/narigudo2.png");
@@ -23,27 +23,6 @@ void Narigudo::desenhar(RenderWindow *window) {
     window->draw(sprite);
     frame++;
     sprite.setTexture(texturas[frame % 3]);
-}
-
-void Narigudo::mover() {
-    sprite.move(velX, velY);
-}
-
-void Narigudo::setVelX(int novaVel) {
-    velX = novaVel;
-}
-
-void Narigudo::setVelY(int novaVel) {
-    velY = novaVel;
-}
-
-int Narigudo::getVelX()
-{
-    return velX;
-}
-
-int Narigudo::getVelY() {
-    return velY;
 }
 
 Sprite *Narigudo::getSprite() {
@@ -108,4 +87,8 @@ void Narigudo::processarEventos(Event evento) {
                 break;
         }
     }
+}
+
+void entidades::personagens::inimigos::Narigudo::mover() {
+    sprite.move(velX, velY);
 }

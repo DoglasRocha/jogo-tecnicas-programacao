@@ -1,10 +1,11 @@
 #include "../../../Includes/Entidades/Personagens/personagem.hpp"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace sf;
 
 entidades::personagens::Personagem::Personagem() {
-
+    velX = velY = 0;
 }
 
 entidades::personagens::Personagem::~Personagem() {
