@@ -2,20 +2,14 @@
 #include "../personagem.hpp"
 #include <SFML/Graphics.hpp>
 
-namespace entidades 
+namespace entidades::personagens::inimigos
 {
-	namespace personagens
-	{
-		namespace inimigos
-		{
-			class Inimigo : public Personagem
-			{
-				protected:
-    			sf::Sprite sprite;
+    class Inimigo : public Personagem
+    {
+    protected:
+        sf::Sprite sprite;
 
-    			public:
-    			void setSprite(sf::Texture textura);
-			};
-		}
-	}
+    public:
+    	void setSprite(sf::Texture textura);
+	};
 }

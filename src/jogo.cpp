@@ -12,6 +12,7 @@
 #include <iostream>
 
 using namespace Gerenciadores;
+using namespace entidades::personagens::inimigos;
 GerenciadorGrafico *GerenciadorGrafico::instance = nullptr;
 
 Jogo::Jogo()
@@ -19,28 +20,19 @@ Jogo::Jogo()
 	janela = GerenciadorGrafico::getInstance();
     RenderWindow *window = janela->getWindow();
 
-	int frame = 1;
-    sf::Texture textura1, textura2, textura3;
+    Narigudo narigudo;
+
     sf::Texture texturaCJ;
-    if (!textura1.loadFromFile("texturas/narigudo.png") ||
-        !textura2.loadFromFile("texturas/narigudo2.png") ||
-        !textura3.loadFromFile("texturas/narigudo3.png") ||
-        !texturaCJ.loadFromFile("texturas/cj_gordo.png")) 
+    if (!texturaCJ.loadFromFile("texturas/cj_gordo.png"))
     {
         std::cout << "Não possivel carregar a textura." << std::endl;
     }
 
-
-    sf::Sprite narigudo;
     sf::Sprite CJ;
     sf::FloatRect BorderColl(0, 0, 1000, 1000);
-    narigudo.setTexture(textura1);
-    //narigudo.setTextureRect(IntRect(10, 10, 500, 500));
     CJ.setTexture(texturaCJ);
     //narigudo.scale(sf::Vector2f(1,.5));
 
-    int velX = 0;
-    int velY = 0;
     int velXC = 0;
     int velYC = 0;
     
@@ -57,19 +49,27 @@ Jogo::Jogo()
                 switch (event.key.code)
                 {
                     case (Keyboard::D):
-                        velX = 1;
+                        if (narigudo.getSentido() != "DIREITA") {
+                            narigudo.getSprite()->scale(-1.f, 1.f);
+                            narigudo.setSentido("DIREITA");
+                        }
+                        narigudo.setVelX(1);
                         break;
 
                     case (Keyboard::A):
-                        velX = -1;
+                        if (narigudo.getSentido() != "ESQUERDA") {
+                            narigudo.getSprite()->scale(-1.f, 1.f);
+                            narigudo.setSentido("ESQUERDA");
+                        }
+                        narigudo.setVelX(-1);
                         break;
 
                     case (Keyboard::W):
-                        velY = -1;
+                        narigudo.setVelY(-1);
                         break;
 
                     case (Keyboard::S):
-                        velY = 1;
+                        narigudo.setVelY(1);
                         break;
 
                     case (Keyboard::Right):
@@ -95,19 +95,19 @@ Jogo::Jogo()
                 switch (event.key.code)
                 {
                     case (Keyboard::D):
-                        velX = 0;
+                        narigudo.setVelX(0);
                         break;
 
                     case (Keyboard::A):
-                        velX = 0;
+                        narigudo.setVelX(0);
                         break;
 
                     case (Keyboard::W):
-                        velY = 0;
+                        narigudo.setVelY(0);
                         break;
 
                     case (Keyboard::S):
-                        velY = 0;
+                        narigudo.setVelY(0);
                         break;
 
                     case (Keyboard::Right):
@@ -129,10 +129,10 @@ Jogo::Jogo()
             }
         }
 
-        sf::FloatRect BlobPosition = narigudo.getGlobalBounds();
+        sf::FloatRect BlobPosition = narigudo.getSprite()->getGlobalBounds();
         sf::FloatRect CJBounds = CJ.getGlobalBounds();
-        BlobPosition.left += velX;
-        BlobPosition.top += velY;
+        BlobPosition.left += narigudo.getVelX();
+        BlobPosition.top += narigudo.getVelY();
         CJBounds.left += velXC;
         CJBounds.top += velYC;
         
@@ -140,7 +140,7 @@ Jogo::Jogo()
         if (BlobPosition.top >= 0 && (BlobPosition.top + BlobPosition.height) <= 1000 
             && BlobPosition.left >= 0 && (BlobPosition.left + BlobPosition.width) <= 1000)
         {
-            narigudo.move(velX, velY);
+            narigudo.mover();
         }
         if (CJBounds.top >= 0 && (CJBounds.top + CJBounds.height) <= 1000 
             && CJBounds.left >= 0 && (CJBounds.left + CJBounds.width) <= 1000)
@@ -149,17 +149,10 @@ Jogo::Jogo()
         }
 
         window->clear();
-        if (!(frame % 3))
-            narigudo.setTexture(textura3);
-        else if (!(frame % 2))
-            narigudo.setTexture(textura2);
-        else
-            narigudo.setTexture(textura1);
-        window->draw(narigudo);
+        narigudo.desenhar(window);
         window->draw(CJ);
         sf::sleep(sf::milliseconds(5));
         window->display();
-        frame++;
     }
 }
 
