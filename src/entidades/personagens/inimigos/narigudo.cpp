@@ -1,29 +1,48 @@
 #include "../../../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
 #include "../../../../Includes/Gerenciadores/gerenciador_grafico.hpp"
+#include "../../../../Includes/listas/lista_circular.hpp"
 #include <iostream>
 
 using entidades::personagens::inimigos::Narigudo;
 
 Narigudo::Narigudo() :
 entidades::personagens::inimigos::Inimigo() {
-    frame = 0;
     sentido = "ESQUERDA";
-    texturas[0].loadFromFile("texturas/narigudo.png");
-    texturas[1].loadFromFile("texturas/narigudo2.png");
-    texturas[2].loadFromFile("texturas/narigudo3.png");
-    sprite.setTexture(texturas[frame % 3]);
+
+    Texture *textura1 = new Texture(),
+            *textura2 = new Texture(),
+            *textura3 = new Texture();
+
+    textura1->loadFromFile("texturas/narigudo.png");
+    textura2->loadFromFile("texturas/narigudo2.png");
+    textura3->loadFromFile("texturas/narigudo3.png");
+
+    listaTexturas.
+        append(textura1)->
+        append(textura2)->
+        append(textura3);
+
+    noAtual = listaTexturas.end();
+
+    sprite.setTexture(*(noAtual->getDado()));
 
     sprite.setPosition(200, 200);
-    FloatRect bounds = sprite.getLocalBounds();
-    sprite.setOrigin(bounds.width / 2, bounds.height / 2);
+    setOriginToCenter();
 };
 
-Narigudo::~Narigudo() {}
+Narigudo::~Narigudo() {
+    ListaCircular<Texture>::Node *tmp;
+    for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
+        tmp = noAtual->getNext();
+        delete noAtual->getDado();
+    }
+    delete noAtual->getDado();
+}
 
 void Narigudo::desenhar(RenderWindow *window) {
     window->draw(sprite);
-    frame++;
-    sprite.setTexture(texturas[frame % 3]);
+    noAtual = noAtual->getNext();
+    sprite.setTexture(*(noAtual->getDado()));
 }
 
 void Narigudo::processarEventos(Event evento) {
@@ -77,7 +96,3 @@ void Narigudo::processarEventos(Event evento) {
         }
     }
 }
-
-/*void entidades::personagens::inimigos::Narigudo::mover() {
-    sprite.move(velX, velY);
-}*/

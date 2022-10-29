@@ -7,8 +7,7 @@ entidades::personagens::inimigos::Inimigo() {
     sprite.setTexture(textura);
 
     sprite.setPosition(400, 400);
-    FloatRect bounds = sprite.getLocalBounds();
-    sprite.setOrigin(bounds.width / 2, bounds.height / 2);
+    setOriginToCenter();
 }
 
 entidades::personagens::inimigos::CarlosJohnson::~CarlosJohnson() {

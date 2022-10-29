@@ -25,5 +25,6 @@ namespace entidades::personagens
         virtual void processarEventos(Event evento) = 0;
         std::string getSentido();
         void setSentido(std::string novoSentido);
+        void setOriginToCenter();
     };
 }

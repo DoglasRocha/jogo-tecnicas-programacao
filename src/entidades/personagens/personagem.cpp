@@ -43,3 +43,8 @@ std::string entidades::personagens::Personagem::getSentido() {
 void entidades::personagens::Personagem::setSentido(std::string novoSentido) {
     sentido = novoSentido;
 }
+
+void entidades::personagens::Personagem::setOriginToCenter() {
+    FloatRect bounds = sprite.getLocalBounds();
+    sprite.setOrigin(bounds.width / 2, bounds.height / 2);
+}
