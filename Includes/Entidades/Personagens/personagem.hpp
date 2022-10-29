@@ -1,6 +1,7 @@
 #pragma once
 #include "../entidade.hpp"
 #include <SFML/Graphics.hpp>
+#include <string>
 using namespace sf;
 
 namespace entidades::personagens
@@ -9,6 +10,7 @@ namespace entidades::personagens
     protected:
         int num_vidas, hp, velX, velY;
         Sprite sprite;
+        std::string sentido;
 
     public:
         Personagem();
@@ -21,5 +23,7 @@ namespace entidades::personagens
         int getVelY();
         Sprite *getSprite();
         virtual void processarEventos(Event evento) = 0;
+        std::string getSentido();
+        void setSentido(std::string novoSentido);
     };
 }

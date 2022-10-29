@@ -15,6 +15,7 @@ using namespace Gerenciadores;
 class Jogo {
 private:
 	GerenciadorGrafico *janela;
+    GerenciadorColisoes *gerenciadorColisoes;
 
 public:
 	Jogo();

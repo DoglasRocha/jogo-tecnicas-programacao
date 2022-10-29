@@ -11,17 +11,11 @@ namespace entidades::personagens::inimigos
     private:
         int frame;
         Texture texturas[3];
-        Sprite sprite;
-        std::string sentido;
 
     public:
         Narigudo();
         ~Narigudo();
         void desenhar(RenderWindow *window);
-        std::string getSentido();
-        void setSentido(std::string novoSentido);
-        Sprite *getSprite();
         void processarEventos(Event evento);
-        void mover();
     };
 }

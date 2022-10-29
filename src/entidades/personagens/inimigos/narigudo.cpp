@@ -1,5 +1,6 @@
 #include "../../../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
 #include "../../../../Includes/Gerenciadores/gerenciador_grafico.hpp"
+#include <iostream>
 
 using entidades::personagens::inimigos::Narigudo;
 
@@ -23,18 +24,6 @@ void Narigudo::desenhar(RenderWindow *window) {
     window->draw(sprite);
     frame++;
     sprite.setTexture(texturas[frame % 3]);
-}
-
-Sprite *Narigudo::getSprite() {
-    return &sprite;
-}
-
-std::string Narigudo::getSentido() {
-    return sentido;
-}
-
-void Narigudo::setSentido(std::string novoSentido) {
-    sentido = novoSentido;
 }
 
 void Narigudo::processarEventos(Event evento) {
@@ -89,6 +78,6 @@ void Narigudo::processarEventos(Event evento) {
     }
 }
 
-void entidades::personagens::inimigos::Narigudo::mover() {
+/*void entidades::personagens::inimigos::Narigudo::mover() {
     sprite.move(velX, velY);
-}
+}*/

@@ -13,7 +13,7 @@ entidades::personagens::Personagem::~Personagem() {
 }
 
 void entidades::personagens::Personagem::mover() {
-    sprite.move(velX, velY);
+    sprite.move((float)velX, (float)velY);
 }
 
 void entidades::personagens::Personagem::setVelX(int novaVel) {
@@ -34,4 +34,12 @@ int entidades::personagens::Personagem::getVelY() {
 
 Sprite *entidades::personagens::Personagem::getSprite() {
     return &sprite;
+}
+
+std::string entidades::personagens::Personagem::getSentido() {
+    return sentido;
+}
+
+void entidades::personagens::Personagem::setSentido(std::string novoSentido) {
+    sentido = novoSentido;
 }
