@@ -9,20 +9,18 @@ Narigudo::Narigudo() :
 entidades::personagens::inimigos::Inimigo() {
     sentido = "ESQUERDA";
 
-    Texture *textura1 = new Texture(),
-            *textura2 = new Texture(),
-            *textura3 = new Texture();
-
-    textura1->loadFromFile("texturas/narigudo.png");
-    textura2->loadFromFile("texturas/narigudo2.png");
-    textura3->loadFromFile("texturas/narigudo3.png");
-
     listaTexturas.
-        append(textura1)->
-        append(textura2)->
-        append(textura3);
+            append(new Texture())->
+            append(new Texture())->
+            append(new Texture());
 
-    noAtual = listaTexturas.end();
+    noAtual = listaTexturas.begin();
+    noAtual->getDado()->loadFromFile("texturas/narigudo.png");
+    noAtual = noAtual->getNext();
+    noAtual->getDado()->loadFromFile("texturas/narigudo2.png");
+    noAtual = noAtual->getNext();
+    noAtual->getDado()->loadFromFile("texturas/narigudo3.png");
+    noAtual = noAtual->getNext();
 
     sprite.setTexture(*(noAtual->getDado()));
 
@@ -41,8 +39,6 @@ Narigudo::~Narigudo() {
 
 void Narigudo::desenhar(RenderWindow *window) {
     window->draw(sprite);
-    noAtual = noAtual->getNext();
-    sprite.setTexture(*(noAtual->getDado()));
 }
 
 void Narigudo::processarEventos(Event evento) {
@@ -54,6 +50,7 @@ void Narigudo::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1.f);
                     sentido = "DIREITA";
                 }
+                animar();
                 velX = 1;
                 break;
 
@@ -63,6 +60,7 @@ void Narigudo::processarEventos(Event evento) {
                     sentido = "ESQUERDA";
                 }
                 velX = -1;
+                animar();
                 break;
 
             case (Keyboard::W):
@@ -80,10 +78,12 @@ void Narigudo::processarEventos(Event evento) {
         {
             case (Keyboard::D):
                 velX = 0;
+                resetAnimacao();
                 break;
 
             case (Keyboard::A):
                 velX = 0;
+                resetAnimacao();
                 break;
 
             case (Keyboard::W):
