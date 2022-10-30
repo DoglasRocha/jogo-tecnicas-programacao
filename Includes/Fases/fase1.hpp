@@ -1,6 +1,9 @@
-#include "../fase.hpp"
+#pragma once
+#include "fase.hpp"
 
-class Fase1:public Fase
+using fases::Fase;
+
+class Fase1 : public Fase
 {
 
 };

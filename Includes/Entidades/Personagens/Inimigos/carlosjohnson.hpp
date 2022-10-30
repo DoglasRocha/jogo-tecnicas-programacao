@@ -1,7 +1,18 @@
+#pragma once
 #include "inimigo.hpp"
-using namespace entidades::personagens::inimigos;
+#include "../../../listas/lista_circular.hpp"
 
-class CarlosJohnson:public Inimigo
-{
+using namespace sf;
+using Listas::ListaCircular;
 
-};
+namespace entidades::personagens::inimigos {
+    class CarlosJohnson : public Inimigo
+    {
+
+    public:
+        CarlosJohnson();
+        ~CarlosJohnson();
+        void desenhar(RenderWindow *window);
+        void processarEventos(Event evento);
+    };
+}

@@ -17,3 +17,5 @@ main.exe
 main
 game.exe
 game
+obj/
+*.o
