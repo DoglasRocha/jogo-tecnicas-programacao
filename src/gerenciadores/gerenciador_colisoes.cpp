@@ -5,7 +5,7 @@ using namespace sf;
 namespace Gerenciadores
 {
 
-    GerenciadorColisoes::GerenciadorColisoes() {
+    GerenciadorColisoes::GerenciadorColisoes():gravidade(1) {
         personagens[0] = personagens[1] = nullptr;
     }
 
@@ -25,8 +25,16 @@ namespace Gerenciadores
         delete instance;
     }
 
+    void GerenciadorColisoes::aplicaGravidade()
+    {
+        for (int i = 0; i < 2; i++) {
+            personagens[i]->setVelY(personagens[i]->getVelY() + gravidade);
+        }
+    }
+
     void GerenciadorColisoes::executar() {
         // colisao com tela
+        aplicaGravidade();
         for (int i = 0; i < 2; i++) {
             FloatRect boundsPersonagem = personagens[i]->getSprite()->getGlobalBounds();
             boundsPersonagem.left += personagens[i]->getVelX();

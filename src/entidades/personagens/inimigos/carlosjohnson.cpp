@@ -63,11 +63,7 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
                 break;
 
             case (Keyboard::Up):
-                velY = -1;
-                break;
-
-            case (Keyboard::Down):
-                velY = 1;
+                velY = -2;
                 break;
         }
     }
@@ -87,10 +83,6 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
                 break;
 
             case (Keyboard::Up):
-                velY = 0;
-                break;
-
-            case (Keyboard::Down):
                 velY = 0;
                 break;
         }
