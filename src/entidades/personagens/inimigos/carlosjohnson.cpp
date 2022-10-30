@@ -36,7 +36,6 @@ entidades::personagens::inimigos::CarlosJohnson::~CarlosJohnson() {
 
 void entidades::personagens::inimigos::CarlosJohnson::desenhar(RenderWindow *window) {
     window->draw(sprite);
-
 }
 
 void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event evento) {
@@ -63,7 +62,9 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
                 break;
 
             case (Keyboard::Up):
-                velY = -2;
+                if (velY >= 0 && qtdPulos < 2)
+                    velY = -50, qtdPulos++;
+		        animar();
                 break;
         }
     }
@@ -83,8 +84,10 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
                 break;
 
             case (Keyboard::Up):
+		        resetAnimacao();
                 velY = 0;
                 break;
+
         }
     }
 }

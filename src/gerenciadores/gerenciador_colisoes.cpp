@@ -1,4 +1,5 @@
 #include "../../Includes/Gerenciadores/gerenciador_colisoes.hpp"
+#include <iostream>
 
 using namespace sf;
 
@@ -25,26 +26,33 @@ namespace Gerenciadores
         delete instance;
     }
 
-    void GerenciadorColisoes::aplicaGravidade()
+    void GerenciadorColisoes::aplicaGravidade(Personagem *personagem)
     {
-        for (int i = 0; i < 2; i++) {
-            personagens[i]->setVelY(personagens[i]->getVelY() + gravidade);
-        }
+        personagem->setVelY(personagem->getVelY() + gravidade);
     }
 
     void GerenciadorColisoes::executar() {
         // colisao com tela
-        aplicaGravidade();
         for (int i = 0; i < 2; i++) {
             FloatRect boundsPersonagem = personagens[i]->getSprite()->getGlobalBounds();
             boundsPersonagem.left += personagens[i]->getVelX();
             boundsPersonagem.top += personagens[i]->getVelY();
 
             if (boundsPersonagem.top >= 0 &&
-                (boundsPersonagem.top + boundsPersonagem.height) <= TAM_TELA[1]) personagens[i]->moverY();
+                (boundsPersonagem.top + boundsPersonagem.height) <= TAM_TELA[1])
+            {
+                aplicaGravidade(personagens[i]);
+                personagens[i]->moverY();
+            }
+            else
+            {
+                personagens[i]->setQtdPulos(0);
+                personagens[i]->setVelY(0);
+            }
             
             if (boundsPersonagem.left >= 0 &&
-                (boundsPersonagem.left + boundsPersonagem.width) <= TAM_TELA[0]) personagens[i]->moverX();
+                (boundsPersonagem.left + boundsPersonagem.width) <= TAM_TELA[0])
+                personagens[i]->moverX();
         }
     }
 }

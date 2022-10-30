@@ -8,7 +8,7 @@ namespace entidades::personagens
 {
     class Personagem : public Entidade {
     protected:
-        int num_vidas, hp, velX, velY;
+        int num_vidas, hp, velX, velY, qtdPulos;
         Sprite sprite;
         std::string sentido;
 
@@ -22,6 +22,8 @@ namespace entidades::personagens
         void setVelY(int novaVel);
         int getVelX();
         int getVelY();
+        void setQtdPulos(int pulos);
+        int getQtdPulos();
         Sprite *getSprite();
         virtual void processarEventos(Event evento) = 0;
         std::string getSentido();

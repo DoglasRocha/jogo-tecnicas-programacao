@@ -18,7 +18,7 @@ namespace Gerenciadores {
         ~GerenciadorColisoes();
         static GerenciadorColisoes *getInstance();
         void setPersonagens(Personagem *ptrPersonagem1, Personagem *ptrPersonagem2);
-        void aplicaGravidade();
+        void aplicaGravidade(Personagem *personagem);
         void executar();
     };
 }

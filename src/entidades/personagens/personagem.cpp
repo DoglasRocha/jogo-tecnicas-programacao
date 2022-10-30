@@ -5,7 +5,7 @@
 using namespace sf;
 
 entidades::personagens::Personagem::Personagem() {
-    velX = velY = 0;
+    velX = velY = qtdPulos = 0;
 }
 
 entidades::personagens::Personagem::~Personagem() {
@@ -51,4 +51,12 @@ void entidades::personagens::Personagem::setSentido(std::string novoSentido) {
 void entidades::personagens::Personagem::setOriginToCenter() {
     FloatRect bounds = sprite.getLocalBounds();
     sprite.setOrigin(bounds.width / 2, bounds.height / 2);
+}
+
+void entidades::personagens::Personagem::setQtdPulos(int pulos) {
+    qtdPulos = pulos;
+}
+
+int entidades::personagens::Personagem::getQtdPulos() {
+    return qtdPulos;
 }
