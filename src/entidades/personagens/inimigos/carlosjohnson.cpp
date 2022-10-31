@@ -49,7 +49,7 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
                     sentido = "DIREITA";
                 }
                 animar();
-                velX = 1;
+                velX = 3;
                 break;
 
             case (Keyboard::Left):
@@ -58,12 +58,12 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
                     sentido = "ESQUERDA";
                 }
                 animar();
-                velX = -1;
+                velX = -3;
                 break;
 
             case (Keyboard::Up):
-                if (velY >= 0 && qtdPulos < 2)
-                    velY = -50, qtdPulos++;
+                if (qtdPulos < 2)
+                    empuxo = -6, qtdPulos++;
 		        animar();
                 break;
         }
@@ -85,7 +85,6 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
 
             case (Keyboard::Up):
 		        resetAnimacao();
-                velY = 0;
                 break;
 
         }

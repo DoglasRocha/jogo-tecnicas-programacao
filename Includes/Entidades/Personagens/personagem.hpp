@@ -29,5 +29,6 @@ namespace entidades::personagens
         std::string getSentido();
         void setSentido(std::string novoSentido);
         void setOriginToCenter();
+        void setEmpuxo(int novoEmpuxo);
     };
 }

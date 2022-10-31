@@ -5,7 +5,7 @@
 using namespace sf;
 
 entidades::personagens::Personagem::Personagem() {
-    velX = velY = qtdPulos = 0;
+    velX = velY = qtdPulos = empuxo = 0;
 }
 
 entidades::personagens::Personagem::~Personagem() {
@@ -59,4 +59,8 @@ void entidades::personagens::Personagem::setQtdPulos(int pulos) {
 
 int entidades::personagens::Personagem::getQtdPulos() {
     return qtdPulos;
+}
+
+void entidades::personagens::Personagem::setEmpuxo(int novoEmpuxo) {
+    empuxo = novoEmpuxo;
 }

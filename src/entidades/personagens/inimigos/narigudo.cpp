@@ -62,11 +62,6 @@ void Narigudo::processarEventos(Event evento) {
                 velX = -1;
                 animar();
                 break;
-
-            case (Keyboard::W):
-                velY = -1;
-                animar();
-		        break;
         }
     }
 

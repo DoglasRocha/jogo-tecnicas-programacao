@@ -34,7 +34,7 @@ Jogo::Jogo()
         window->clear();
         narigudo.desenhar(window);
         cj.desenhar(window);
-        sleep(milliseconds(5));
+        sleep(milliseconds(20));
         window->display();
     }
 }

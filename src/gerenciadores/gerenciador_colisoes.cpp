@@ -28,7 +28,8 @@ namespace Gerenciadores
 
     void GerenciadorColisoes::aplicaGravidade(Personagem *personagem)
     {
-        personagem->setVelY(personagem->getVelY() + gravidade);
+        personagem->setVelY(personagem->getVelY() + gravidade + personagem->getEmpuxo());
+        personagem->setEmpuxo(personagem->getEmpuxo() + gravidade);
     }
 
     void GerenciadorColisoes::executar() {
@@ -36,7 +37,7 @@ namespace Gerenciadores
         for (int i = 0; i < 2; i++) {
             FloatRect boundsPersonagem = personagens[i]->getSprite()->getGlobalBounds();
             boundsPersonagem.left += personagens[i]->getVelX();
-            boundsPersonagem.top += personagens[i]->getVelY();
+            boundsPersonagem.top += personagens[i]->getVelY() + personagens[i]->getEmpuxo();
 
             if (boundsPersonagem.top >= 0 &&
                 (boundsPersonagem.top + boundsPersonagem.height) <= TAM_TELA[1])

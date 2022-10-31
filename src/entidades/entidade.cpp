@@ -16,3 +16,7 @@ void Entidade::executar()
 {
 
 }
+
+int entidades::Entidade::getEmpuxo() const {
+    return empuxo;
+}
