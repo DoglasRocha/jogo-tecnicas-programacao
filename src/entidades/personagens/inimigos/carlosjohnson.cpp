@@ -63,7 +63,7 @@ void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event eve
 
             case (Keyboard::Up):
                 if (qtdPulos < 2)
-                    empuxo = -6, qtdPulos++;
+                    empuxo = -5, qtdPulos++;
 		        animar();
                 break;
         }

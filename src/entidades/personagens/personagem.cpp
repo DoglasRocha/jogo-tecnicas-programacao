@@ -62,5 +62,6 @@ int entidades::personagens::Personagem::getQtdPulos() {
 }
 
 void entidades::personagens::Personagem::setEmpuxo(int novoEmpuxo) {
-    empuxo = novoEmpuxo;
+    if (empuxo < 0)
+        empuxo = novoEmpuxo;
 }

@@ -12,7 +12,7 @@ file(GLOB SOURCES main.cpp ${ENTIDADES} ${FASES} ${GERENCIADORES})
 add_executable(jogo_tecnicas_programacao ${SOURCES})
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+#set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 find_package(SFML REQUIRED system window graphics network audio)
 #if(SFML_FOUND)
 #    include_directories(${SFML_INCLUDE_DIR})
