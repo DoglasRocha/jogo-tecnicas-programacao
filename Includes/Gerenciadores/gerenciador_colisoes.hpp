@@ -1,13 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Entidades/Personagens/Inimigo/inimigo.hpp"
+#include "../Entidades/Personagens/Inimigos/inimigo.hpp"
 #include "../Entidades/Obstaculos/obstaculo.hpp"
 
 #include <vector>
 #include <list>
 
 using namespace sf;
-using entidades::personagens::Inimigo;
+using namespace entidades::personagens;
 using entidades::obstaculos::Obstaculo;
 
 namespace Gerenciadores {
