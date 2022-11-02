@@ -8,8 +8,6 @@ namespace entidades::personagens
     class Inimigo : public Personagem
     {
     protected:
-        Listas::ListaCircular<sf::Texture> listaTexturas;
-        Listas::ListaCircular<sf::Texture>::Node *noAtual;
         sf::Clock relogioAnimacao;
         const sf::Time tempoAnimacao;
     public:

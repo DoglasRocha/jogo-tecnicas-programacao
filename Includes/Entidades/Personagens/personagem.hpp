@@ -1,8 +1,10 @@
 #pragma once
 #include "../entidade.hpp"
+#include "../../listas/lista_circular.hpp"
 #include <SFML/Graphics.hpp>
 #include <string>
 using namespace sf;
+using namespace Listas;
 
 namespace entidades::personagens
 {
@@ -10,6 +12,8 @@ namespace entidades::personagens
     protected:
         int num_vidas, hp, velX, velY, qtdPulos;
         Sprite sprite;
+        ListaCircular<Texture> listaTexturas;
+        ListaCircular<Texture>::Node *noAtual;
         std::string sentido;
 
     public:
@@ -30,5 +34,6 @@ namespace entidades::personagens
         void setSentido(std::string novoSentido);
         void setOriginToCenter();
         void setEmpuxo(int novoEmpuxo);
+        void carregarTexturas(std::string endereco, int comeco, int fim);
     };
 }

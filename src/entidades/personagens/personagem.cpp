@@ -1,6 +1,8 @@
 #include "../../../Includes/Entidades/Personagens/personagem.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 using namespace sf;
 
@@ -68,4 +70,21 @@ int entidades::personagens::Personagem::getQtdPulos() {
 void entidades::personagens::Personagem::setEmpuxo(int novoEmpuxo) {
     if (empuxo < 0)
         empuxo = novoEmpuxo;
+}
+
+void entidades::personagens::Personagem::carregarTexturas(std::string endereco, int comeco, int fim) {
+    Texture *textura;
+
+    for (int i = comeco; i <= fim; i++)
+    {
+        std::stringstream buffer;
+        buffer << "texturas/" << endereco << i << ".png";
+        textura = new Texture();
+        if (!textura->loadFromFile(buffer.str()))
+            std::cout << "Erro ao carregar textura" << std::endl;
+        else
+        {
+            listaTexturas.append(textura);
+        }
+    }
 }

@@ -2,6 +2,7 @@
 #include "../../../../Includes/Gerenciadores/gerenciador_grafico.hpp"
 #include "../../../../Includes/listas/lista_circular.hpp"
 #include <iostream>
+#include <sstream>
 
 using entidades::personagens::Narigudo;
 
@@ -9,18 +10,21 @@ Narigudo::Narigudo() :
 entidades::personagens::Inimigo() {
     sentido = "ESQUERDA";
 
-    listaTexturas.
-            append(new Texture())->
-            append(new Texture())->
-            append(new Texture());
-
+    carregarTexturas("Sprites/narigudo", 1, 3);
+//    listaTexturas.
+//            append(new Texture())->
+//            append(new Texture())->
+//            append(new Texture());
+//
     noAtual = listaTexturas.begin();
-    noAtual->getDado()->loadFromFile("texturas/narigudo.png");
-    noAtual = noAtual->getNext();
-    noAtual->getDado()->loadFromFile("texturas/narigudo2.png");
-    noAtual = noAtual->getNext();
-    noAtual->getDado()->loadFromFile("texturas/narigudo3.png");
-    noAtual = noAtual->getNext();
+//    noAtual->getDado()->loadFromFile("texturas/narigudo.png");
+//    noAtual = noAtual->getNext();
+//    noAtual->getDado()->loadFromFile("texturas/narigudo2.png");
+//    noAtual = noAtual->getNext();
+//    noAtual->getDado()->loadFromFile("texturas/narigudo3.png");
+//    noAtual = noAtual->getNext();
+
+
 
     sprite.setTexture(*(noAtual->getDado()));
 

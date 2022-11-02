@@ -7,7 +7,7 @@ namespace Gerenciadores
 {
 
     GerenciadorColisoes::GerenciadorColisoes():gravidade(1) {
-        personagens[0] = personagens[1] = nullptr;
+
     }
 
     GerenciadorColisoes *GerenciadorColisoes::getInstance() {
@@ -40,25 +40,25 @@ namespace Gerenciadores
     void GerenciadorColisoes::executar() {
         // colisao com tela
         for (int i = 0; i < 2; i++) {
-            FloatRect boundsPersonagem = personagens[i]->getSprite()->getGlobalBounds();
-            int x = personagens[i]->getX() + personagens[i]->getVelX(),
-            y = personagens[i]->getY() + personagens[i]->getVelY() + personagens[i]->getEmpuxo();
+            FloatRect boundsPersonagem = vetorInimigos[i]->getSprite()->getGlobalBounds();
+            int x = vetorInimigos[i]->getX() + vetorInimigos[i]->getVelX(),
+            y = vetorInimigos[i]->getY() + vetorInimigos[i]->getVelY() + vetorInimigos[i]->getEmpuxo();
 
             if (y >= 0 &&
                 (y + boundsPersonagem.height) <= TAM_TELA[1])
             {
-                aplicaGravidade(personagens[i]);
-                personagens[i]->moverY();
+                aplicaGravidade(vetorInimigos[i]);
+                vetorInimigos[i]->moverY();
             }
             else
             {
-                personagens[i]->setQtdPulos(0);
-                personagens[i]->setVelY(0);
+                vetorInimigos[i]->setQtdPulos(0);
+                vetorInimigos[i]->setVelY(0);
             }
             
             if (x >= 0 &&
                 (x + boundsPersonagem.width) <= TAM_TELA[0])
-                personagens[i]->moverX();
+                vetorInimigos[i]->moverX();
         }
     }
 }

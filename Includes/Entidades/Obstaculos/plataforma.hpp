@@ -4,7 +4,7 @@
 
 #ifndef JOGO_TECNICAS_PROGRAMACAO_PLATAFORMA_HPP
 #define JOGO_TECNICAS_PROGRAMACAO_PLATAFORMA_HPP
-#include "../entidade.hpp"
+#include "obstaculo.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;

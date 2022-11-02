@@ -18,7 +18,8 @@ Jogo::Jogo()
     Narigudo narigudo;
     CarlosJohnson cj;
 
-    gerenciadorColisoes->setPersonagens(&narigudo, &cj);
+    gerenciadorColisoes->addInimigo(&narigudo);
+    gerenciadorColisoes->addInimigo(&cj);
     
     while (window->isOpen())
     {
