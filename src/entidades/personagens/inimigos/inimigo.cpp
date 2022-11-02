@@ -1,24 +1,24 @@
 #include "../../../../Includes/Entidades/Personagens/Inimigos/inimigo.hpp"
 #include "../../../../Includes/Entidades/Personagens/personagem.hpp"
 
-using entidades::personagens::inimigos::Inimigo;
+using entidades::personagens::Inimigo;
 
 void Inimigo::setSprite(sf::Texture textura)
 {
     sprite.setTexture(textura);
 }
 
-entidades::personagens::inimigos::Inimigo::Inimigo() :
+entidades::personagens::Inimigo::Inimigo() :
 entidades::personagens::Personagem(),
 tempoAnimacao(sf::milliseconds(125)){
 
 }
 
-entidades::personagens::inimigos::Inimigo::~Inimigo() {
+entidades::personagens::Inimigo::~Inimigo() {
 
 }
 
-void entidades::personagens::inimigos::Inimigo::animar() {
+void entidades::personagens::Inimigo::animar() {
     if (relogioAnimacao.getElapsedTime() >= tempoAnimacao) {
         noAtual = noAtual->getNext();
         sprite.setTexture(*(noAtual->getDado()));
@@ -26,7 +26,7 @@ void entidades::personagens::inimigos::Inimigo::animar() {
     }
 }
 
-void entidades::personagens::inimigos::Inimigo::resetAnimacao() {
+void entidades::personagens::Inimigo::resetAnimacao() {
     noAtual = listaTexturas.begin();
     sprite.setTexture(*(noAtual->getDado()));
 }

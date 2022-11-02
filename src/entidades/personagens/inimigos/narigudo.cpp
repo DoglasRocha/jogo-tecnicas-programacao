@@ -3,10 +3,10 @@
 #include "../../../../Includes/listas/lista_circular.hpp"
 #include <iostream>
 
-using entidades::personagens::inimigos::Narigudo;
+using entidades::personagens::Narigudo;
 
 Narigudo::Narigudo() :
-entidades::personagens::inimigos::Inimigo() {
+entidades::personagens::Inimigo() {
     sentido = "ESQUERDA";
 
     listaTexturas.

@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "../../../listas/lista_circular.hpp"
 
-namespace entidades::personagens::inimigos
+namespace entidades::personagens
 {
     class Inimigo : public Personagem
     {

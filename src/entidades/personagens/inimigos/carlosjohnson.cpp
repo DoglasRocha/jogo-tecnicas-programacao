@@ -1,7 +1,7 @@
 #include "../../../../Includes/Entidades/Personagens/Inimigos/carlosjohnson.hpp"
 
-entidades::personagens::inimigos::CarlosJohnson::CarlosJohnson() :
-entidades::personagens::inimigos::Inimigo() {
+entidades::personagens::CarlosJohnson::CarlosJohnson() :
+entidades::personagens::Inimigo() {
     sentido = "ESQUERDA";
 
     listaTexturas.
@@ -26,7 +26,7 @@ entidades::personagens::inimigos::Inimigo() {
     setOriginToCenter();
 }
 
-entidades::personagens::inimigos::CarlosJohnson::~CarlosJohnson() {
+entidades::personagens::CarlosJohnson::~CarlosJohnson() {
     ListaCircular<Texture>::Node *tmp;
     for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
         tmp = noAtual->getNext();
@@ -35,11 +35,11 @@ entidades::personagens::inimigos::CarlosJohnson::~CarlosJohnson() {
     delete noAtual->getDado();
 }
 
-void entidades::personagens::inimigos::CarlosJohnson::desenhar(RenderWindow *window) {
+void entidades::personagens::CarlosJohnson::desenhar(RenderWindow *window) {
     window->draw(sprite);
 }
 
-void entidades::personagens::inimigos::CarlosJohnson::processarEventos(Event evento) {
+void entidades::personagens::CarlosJohnson::processarEventos(Event evento) {
     if (evento.type == Event::KeyPressed)
     {
         switch (evento.key.code)

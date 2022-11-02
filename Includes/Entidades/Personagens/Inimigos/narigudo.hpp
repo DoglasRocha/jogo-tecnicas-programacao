@@ -5,7 +5,7 @@
 using namespace sf;
 using Listas::ListaCircular;
 
-namespace entidades::personagens::inimigos
+namespace entidades::personagens
 {
     class Narigudo : public Inimigo
     {

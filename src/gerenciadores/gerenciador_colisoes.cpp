@@ -17,9 +17,14 @@ namespace Gerenciadores
         return instance;
     }
 
-    void GerenciadorColisoes::setPersonagens(Personagem *ptrPersonagem1, Personagem *ptrPersonagem2) {
-        personagens[0] = ptrPersonagem1,
-        personagens[1] = ptrPersonagem2;
+    GerenciadorColisoes *GerenciadorColisoes::addInimigo(Inimigo *ptrInimigo) {
+        vetorInimigos.push_back(ptrInimigo);
+        return instance;
+    }
+
+    GerenciadorColisoes *GerenciadorColisoes::addObstaculo(Obstaculo *ptrObstaculo) {
+        listaObstaculos.push_back(ptrObstaculo);
+        return instance;
     }
 
     GerenciadorColisoes::~GerenciadorColisoes() {
