@@ -36,11 +36,11 @@ namespace Gerenciadores
         // colisao com tela
         for (int i = 0; i < 2; i++) {
             FloatRect boundsPersonagem = personagens[i]->getSprite()->getGlobalBounds();
-            boundsPersonagem.left += personagens[i]->getVelX();
-            boundsPersonagem.top += personagens[i]->getVelY() + personagens[i]->getEmpuxo();
+            int x = personagens[i]->getX() + personagens[i]->getVelX(),
+            y = personagens[i]->getY() + personagens[i]->getVelY() + personagens[i]->getEmpuxo();
 
-            if (boundsPersonagem.top >= 0 &&
-                (boundsPersonagem.top + boundsPersonagem.height) <= TAM_TELA[1])
+            if (y >= 0 &&
+                (y + boundsPersonagem.height) <= TAM_TELA[1])
             {
                 aplicaGravidade(personagens[i]);
                 personagens[i]->moverY();
@@ -51,8 +51,8 @@ namespace Gerenciadores
                 personagens[i]->setVelY(0);
             }
             
-            if (boundsPersonagem.left >= 0 &&
-                (boundsPersonagem.left + boundsPersonagem.width) <= TAM_TELA[0])
+            if (x >= 0 &&
+                (x + boundsPersonagem.width) <= TAM_TELA[0])
                 personagens[i]->moverX();
         }
     }

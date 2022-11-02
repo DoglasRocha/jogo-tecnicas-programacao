@@ -7,7 +7,7 @@ namespace entidades
     class Entidade : public Base
     {
     protected:
-        int empuxo;
+        int empuxo, x, y;
     public:
         Entidade();
         ~Entidade();
@@ -16,5 +16,9 @@ namespace entidades
         virtual void processarEventos(sf::Event evento) = 0;
         int getEmpuxo() const;
         virtual void setEmpuxo(int novoEmpuxo) = 0;
+        int getX();
+        int getY();
+        void setX(int novoX);
+        void setY(int novoY);
     };
 }

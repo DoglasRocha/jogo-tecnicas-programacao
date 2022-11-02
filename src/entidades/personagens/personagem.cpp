@@ -14,10 +14,12 @@ entidades::personagens::Personagem::~Personagem() {
 
 void entidades::personagens::Personagem::moverX() {
     sprite.move((float)velX, 0.f);
+    x += velX;
 }
 
 void entidades::personagens::Personagem::moverY() {
     sprite.move(0.f, (float)velY);
+    y += velY;
 }
 
 void entidades::personagens::Personagem::setVelX(int novaVel) {
@@ -51,6 +53,8 @@ void entidades::personagens::Personagem::setSentido(std::string novoSentido) {
 void entidades::personagens::Personagem::setOriginToCenter() {
     FloatRect bounds = sprite.getLocalBounds();
     sprite.setOrigin(bounds.width / 2, bounds.height / 2);
+    x -= bounds.width / 2;
+    y -= bounds.height / 2;
 }
 
 void entidades::personagens::Personagem::setQtdPulos(int pulos) {

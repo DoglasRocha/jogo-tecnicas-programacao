@@ -25,6 +25,7 @@ entidades::personagens::inimigos::Inimigo() {
     sprite.setTexture(*(noAtual->getDado()));
 
     sprite.setPosition(200, 200);
+    x = y = 200;
     setOriginToCenter();
 };
 
