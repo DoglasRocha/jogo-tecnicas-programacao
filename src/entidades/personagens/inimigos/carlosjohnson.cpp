@@ -21,8 +21,8 @@ entidades::personagens::Inimigo() {
 //    noAtual->getDado()->loadFromFile("texturas/cj2.png");
 //    noAtual = noAtual->getNext();
     sprite.setTexture(*noAtual->getDado());
+    sprite.scale(7, 7);
 
-    sprite.scale(10, 10);
     sprite.setPosition(400, 400);
     x = y = 400;
     setOriginToCenter();

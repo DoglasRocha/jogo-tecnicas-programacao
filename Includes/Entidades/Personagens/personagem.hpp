@@ -10,7 +10,7 @@ namespace entidades::personagens
 {
     class Personagem : public Entidade {
     protected:
-        int num_vidas, hp, velX, velY, qtdPulos;
+        int num_vidas, velX, velY, qtdPulos;
         Sprite sprite;
         ListaCircular<Texture> listaTexturas;
         ListaCircular<Texture>::Node *noAtual;
