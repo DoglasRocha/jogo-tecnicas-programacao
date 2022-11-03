@@ -5,23 +5,11 @@ entidades::personagens::Inimigo() {
     sentido = "DIREITA";
 
     carregarTexturas("Sprites/cjandar", 0, 6);
-//    listaTexturas.
-//        append(new Texture())->
-//        append(new Texture())->
-//        append(new Texture())->
-//        append(new Texture());
 
     noAtual = listaTexturas.begin();
-//    noAtual->getDado()->loadFromFile("texturas/cj.png");
-//    noAtual = noAtual->getNext();
-//    noAtual->getDado()->loadFromFile("texturas/cj2.png");
-//    noAtual = noAtual->getNext();
-//    noAtual->getDado()->loadFromFile("texturas/cj3.png");
-//    noAtual = noAtual->getNext();
-//    noAtual->getDado()->loadFromFile("texturas/cj2.png");
-//    noAtual = noAtual->getNext();
     sprite.setTexture(*noAtual->getDado());
-    sprite.scale(7, 7);
+    sprite.scale(10, 10);
+    sprite.setColor(Color::Red);
 
     sprite.setPosition(400, 400);
     x = y = 400;

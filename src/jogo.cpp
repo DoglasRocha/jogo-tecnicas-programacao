@@ -13,7 +13,7 @@ Jogo::Jogo()
 	janela = GerenciadorGrafico::getInstance();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
     RenderWindow *window = janela->getWindow();
-    Plataforma plataforma(1400, 100, 0, 900);
+    //Plataforma plataforma(1400, 100, 0, 900);
 
     Narigudo narigudo;
     CarlosJohnson cj;
@@ -38,7 +38,7 @@ Jogo::Jogo()
         window->clear();
         narigudo.desenhar(window);
         cj.desenhar(window);
-        plataforma.desenhar(window);
+        //plataforma.desenhar(window);
         sleep(milliseconds(20));
         window->display();
     }
