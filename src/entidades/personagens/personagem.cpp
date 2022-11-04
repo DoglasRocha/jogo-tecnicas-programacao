@@ -53,10 +53,9 @@ void entidades::personagens::Personagem::setSentido(std::string novoSentido) {
 }
 
 void entidades::personagens::Personagem::setOriginToCenter() {
-    FloatRect bounds = sprite.getLocalBounds();
+    FloatRect bounds = sprite.getGlobalBounds();
     sprite.setOrigin(bounds.width / 2, bounds.height / 2);
-    x -= bounds.width / 2;
-    y -= bounds.height / 2;
+    sprite.setPosition(x + bounds.width / 2, y + bounds.height / 2);
 }
 
 void entidades::personagens::Personagem::setQtdPulos(int pulos) {

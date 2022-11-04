@@ -10,9 +10,8 @@ GerenciadorColisoes *GerenciadorColisoes::instance = nullptr;
 
 Jogo::Jogo()
 {
-	janela = GerenciadorGrafico::getInstance();
+	janela = GerenciadorGrafico::getGerenciadorGrafico();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
-    RenderWindow *window = janela->getWindow();
     //Plataforma plataforma(1400, 100, 0, 900);
 
     Narigudo narigudo;
@@ -21,26 +20,25 @@ Jogo::Jogo()
     gerenciadorColisoes->addInimigo(&narigudo);
     gerenciadorColisoes->addInimigo(&cj);
     
-    while (window->isOpen())
+    while (janela->verificaJanelaAberta())
     {
         Event event;
-        while (window->pollEvent(event))
+        while (janela->getWindow()->pollEvent(event))
         {
             if (event.type == Event::Closed)
-                window->close();
+                janela->fechaJanela();
 
             narigudo.processarEventos(event);
             cj.processarEventos(event);
         }
 
+        janela->limpaJanela();
         gerenciadorColisoes->executar();
-
-        window->clear();
-        narigudo.desenhar(window);
-        cj.desenhar(window);
+        janela->desenhaElemento(*cj.getSprite());
+        janela->desenhaElemento(*narigudo.getSprite());
         //plataforma.desenhar(window);
         sleep(milliseconds(20));
-        window->display();
+        janela->mostraElementos();
     }
 }
 

@@ -1,4 +1,5 @@
 #include "../../Includes/Gerenciadores/gerenciador_colisoes.hpp"
+#include "../../Includes/Gerenciadores/gerenciador_grafico.hpp"
 #include <iostream>
 
 using namespace sf;
@@ -43,7 +44,11 @@ namespace Gerenciadores
             FloatRect boundsPersonagem = vetorInimigos[i]->getSprite()->getGlobalBounds();
             int x = vetorInimigos[i]->getX() + vetorInimigos[i]->getVelX(),
             y = vetorInimigos[i]->getY() + vetorInimigos[i]->getVelY() + vetorInimigos[i]->getEmpuxo();
+            RectangleShape shape(Vector2f(boundsPersonagem.width, boundsPersonagem.height));
+            shape.setPosition(x, y);
+            shape.setFillColor(Color::White);
 
+            GerenciadorGrafico::getGerenciadorGrafico()->desenhaElemento(shape);
             if (y >= 0 &&
                 (y + boundsPersonagem.height) <= TAM_TELA[1])
             {

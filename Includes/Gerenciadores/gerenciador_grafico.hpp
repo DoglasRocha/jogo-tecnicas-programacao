@@ -7,7 +7,7 @@ namespace Gerenciadores
 	class GerenciadorGrafico 
 	{
 	private:
-		RenderWindow window;
+		RenderWindow *window;
 		static GerenciadorGrafico *instance;
 
 	protected:
@@ -15,7 +15,12 @@ namespace Gerenciadores
 
 	public:
 		~GerenciadorGrafico();
-		static GerenciadorGrafico *getInstance();
+		static GerenciadorGrafico *getGerenciadorGrafico();
 		RenderWindow *getWindow();
+        const bool verificaJanelaAberta();
+        void limpaJanela();
+        void desenhaElemento(Drawable &drawable);
+        void mostraElementos();
+        void fechaJanela();
 	};
 }

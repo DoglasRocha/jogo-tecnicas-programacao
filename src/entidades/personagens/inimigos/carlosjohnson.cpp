@@ -5,15 +5,14 @@ entidades::personagens::Inimigo() {
     sentido = "DIREITA";
 
     carregarTexturas("Sprites/cjandar", 0, 6);
-
     noAtual = listaTexturas.begin();
     sprite.setTexture(*noAtual->getDado());
-    sprite.scale(10, 10);
-    sprite.setColor(Color::Red);
-
-    sprite.setPosition(400, 400);
-    x = y = 400;
+    x = 700, y = 500;
     setOriginToCenter();
+    sprite.scale(10, 10);
+    FloatRect bounds = sprite.getGlobalBounds();
+    x = bounds.left;
+    y = bounds.top;
 }
 
 entidades::personagens::CarlosJohnson::~CarlosJohnson() {
