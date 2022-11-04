@@ -19,7 +19,6 @@ namespace entidades::personagens
     public:
         Personagem();
         virtual ~Personagem();
-        virtual void desenhar(RenderWindow *window) = 0;
         virtual void moverX();
         virtual void moverY();
         void setVelX(int novaVel);
@@ -35,5 +34,6 @@ namespace entidades::personagens
         void setOriginToCenter();
         void setEmpuxo(int novoEmpuxo);
         void carregarTexturas(std::string endereco, int comeco, int fim);
+        void escalarSprite(int fatorX, int fatorY);
     };
 }

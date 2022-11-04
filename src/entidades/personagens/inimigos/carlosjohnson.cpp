@@ -9,10 +9,7 @@ entidades::personagens::Inimigo() {
     sprite.setTexture(*noAtual->getDado());
     x = 700, y = 500;
     setOriginToCenter();
-    sprite.scale(10, 10);
-    FloatRect bounds = sprite.getGlobalBounds();
-    x = bounds.left;
-    y = bounds.top;
+    escalarSprite(10, 10);
 }
 
 entidades::personagens::CarlosJohnson::~CarlosJohnson() {
@@ -22,10 +19,6 @@ entidades::personagens::CarlosJohnson::~CarlosJohnson() {
         delete noAtual->getDado();
     }
     delete noAtual->getDado();
-}
-
-void entidades::personagens::CarlosJohnson::desenhar(RenderWindow *window) {
-    window->draw(sprite);
 }
 
 void entidades::personagens::CarlosJohnson::processarEventos(Event evento) {
@@ -54,7 +47,7 @@ void entidades::personagens::CarlosJohnson::processarEventos(Event evento) {
             case (Keyboard::Up):
                 if (qtdPulos < 2)
                     empuxo = -5, qtdPulos++;
-		        animar();
+		        //animar();
                 break;
         }
     }
@@ -72,11 +65,6 @@ void entidades::personagens::CarlosJohnson::processarEventos(Event evento) {
                 resetAnimacao();
                 velX = 0;
                 break;
-
-            case (Keyboard::Up):
-		        resetAnimacao();
-                break;
-
         }
     }
 }

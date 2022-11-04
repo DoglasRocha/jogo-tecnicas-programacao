@@ -14,7 +14,6 @@ namespace entidades::personagens
         Inimigo();
         virtual ~Inimigo();
     	void setSprite(sf::Texture textura);
-        virtual void desenhar(RenderWindow *window) = 0;
         virtual void processarEventos(Event evento) = 0;
         void animar();
         void resetAnimacao();

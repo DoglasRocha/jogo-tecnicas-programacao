@@ -12,7 +12,6 @@ namespace entidades
         Entidade();
         ~Entidade();
         virtual void executar();
-        virtual void desenhar(sf::RenderWindow *window) = 0;
         virtual void processarEventos(sf::Event evento) = 0;
         int getEmpuxo() const;
         virtual void setEmpuxo(int novoEmpuxo) = 0;

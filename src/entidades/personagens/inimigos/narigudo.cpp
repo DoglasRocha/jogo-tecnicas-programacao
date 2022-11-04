@@ -26,10 +26,6 @@ Narigudo::~Narigudo() {
     delete noAtual->getDado();
 }
 
-void Narigudo::desenhar(RenderWindow *window) {
-    window->draw(sprite);
-}
-
 void Narigudo::processarEventos(Event evento) {
     if (evento.type == Event::KeyPressed) {
         switch (evento.key.code)
