@@ -11,11 +11,14 @@
 #include "Fases/fase2.hpp"
 
 using namespace Gerenciadores;
+using namespace entidades::personagens;
 
 class Jogo {
 private:
 	GerenciadorGrafico *janela;
     GerenciadorColisoes *gerenciadorColisoes;
+    Narigudo narigudo;
+    CarlosJohnson cj;
 
 public:
 	Jogo();

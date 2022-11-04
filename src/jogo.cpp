@@ -14,9 +14,6 @@ Jogo::Jogo()
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
     //Plataforma plataforma(1400, 100, 0, 900);
 
-    Narigudo narigudo;
-    CarlosJohnson cj;
-
     gerenciadorColisoes->addInimigo(&narigudo);
     gerenciadorColisoes->addInimigo(&cj);
     
@@ -42,4 +39,5 @@ Jogo::Jogo()
     }
 }
 
-Jogo::~Jogo() {}
+Jogo::~Jogo() {
+}
