@@ -17,3 +17,7 @@ void Fase::gerencia_colisoes()
 {
 	gerenciadorColisoes->executar();
 }
+
+void fases::Fase::executar() {
+
+}

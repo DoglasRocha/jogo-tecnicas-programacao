@@ -1,6 +1,6 @@
 #pragma once
 #include "../entidade.hpp"
-#include "../../listas/lista_circular.hpp"
+#include "../../listas/lista_texturas.hpp"
 #include <SFML/Graphics.hpp>
 #include <string>
 using namespace sf;
@@ -12,8 +12,8 @@ namespace entidades::personagens
     protected:
         int num_vidas, velX, velY, qtdPulos;
         Sprite sprite;
-        ListaCircular<Texture> listaTexturas;
-        ListaCircular<Texture>::Node *noAtual;
+        ListaTexturas listaTexturas;
+        ListaTexturas::Node *noAtual;
         std::string sentido;
 
     public:

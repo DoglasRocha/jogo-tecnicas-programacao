@@ -41,7 +41,7 @@ namespace Listas {
             }
         };
 
-    private:
+    protected:
         Node *head, *tail;
         int length;
 
