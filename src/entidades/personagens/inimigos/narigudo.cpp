@@ -10,7 +10,7 @@ Narigudo::Narigudo() :
 entidades::personagens::Inimigo() {
     sentido = "ESQUERDA";
 
-    carregarTexturas("Sprites/narigudo", 1, 3);
+    carregarTexturas("Sprites/narigudo/narigudo", 1, 3);
     noAtual = listaTexturas.begin();
     sprite.setTexture(*(noAtual->getDado()));
     x = y = 200;

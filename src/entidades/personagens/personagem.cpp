@@ -41,10 +41,6 @@ int entidades::personagens::Personagem::getVelY() {
     return velY;
 }
 
-Sprite *entidades::personagens::Personagem::getSprite() {
-    return &sprite;
-}
-
 std::string entidades::personagens::Personagem::getSentido() {
     return sentido;
 }
@@ -107,4 +103,16 @@ void entidades::personagens::Personagem::animar() {
 void entidades::personagens::Personagem::resetAnimacao() {
     noAtual = listaTexturas.begin();
     sprite.setTexture(*(noAtual->getDado()));
+}
+
+Drawable *entidades::personagens::Personagem::getDraw() {
+    return &sprite;
+}
+
+Sprite *entidades::personagens::Personagem::getSprite() {
+    return &sprite;
+}
+
+void entidades::personagens::Personagem::desenhar(GerenciadorGrafico *gG) {
+    gG->desenhaElemento(sprite);
 }

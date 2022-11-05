@@ -15,11 +15,16 @@ namespace fases
         GerenciadorColisoes *gerenciadorColisoes;
         GerenciadorGrafico *gerenciadorGrafico;
         ListaEntidades listaDeEntidades;
+        Jogador *ptrJogador;
 
     public:
-        Fase(GerenciadorColisoes *gC=nullptr, GerenciadorGrafico *gG=nullptr);
+        Fase(GerenciadorColisoes *gC=nullptr,
+             GerenciadorGrafico *gG=nullptr,
+             Jogador *ptrJogador_=nullptr);
         ~Fase();
-        virtual void executar();
+        virtual void executar() = 0;
+        virtual void processaEventos() = 0;
+        void desenhar(GerenciadorGrafico *gG);
         void gerencia_colisoes();
     };
 }

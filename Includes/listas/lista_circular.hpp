@@ -39,6 +39,10 @@ namespace Listas {
             T *getDado() {
                 return dado;
             }
+
+            Node *operator++() {
+                return next;
+            }
         };
 
     protected:

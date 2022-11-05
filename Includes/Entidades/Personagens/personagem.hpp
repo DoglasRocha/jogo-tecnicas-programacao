@@ -29,7 +29,8 @@ namespace entidades::personagens
         int getVelY();
         void setQtdPulos(int pulos);
         int getQtdPulos();
-        Sprite *getSprite();
+        Drawable *getDraw();
+        Sprite* getSprite();
         virtual void processarEventos(Event evento) = 0;
         std::string getSentido();
         void setSentido(std::string novoSentido);
@@ -39,5 +40,6 @@ namespace entidades::personagens
         void escalarSprite(float fatorX, float fatorY);
         void animar();
         void resetAnimacao();
+        void desenhar(GerenciadorGrafico *gG);
     };
 }

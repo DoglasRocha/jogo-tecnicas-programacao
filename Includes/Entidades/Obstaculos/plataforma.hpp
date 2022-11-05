@@ -15,7 +15,6 @@ namespace entidades::obstaculos {
         public:
             Plataforma(int tamX_, int tamY_, int posX, int posY);
             ~Plataforma();
-            void desenhar(RenderWindow *window);
             void processarEventos(Event evento);
             void setEmpuxo(int novoEmpuxo);
         };

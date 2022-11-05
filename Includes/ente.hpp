@@ -1,4 +1,7 @@
 #pragma once
+#include "Gerenciadores/gerenciador_grafico.hpp"
+
+using Gerenciadores::GerenciadorGrafico;
 
 class Ente
 {
@@ -9,5 +12,5 @@ class Ente
         Ente();
         virtual ~Ente();
         virtual void executar();
-        void desenhar();
+        virtual void desenhar(GerenciadorGrafico *gG) = 0;
 };

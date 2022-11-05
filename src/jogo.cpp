@@ -13,7 +13,8 @@ Jogo::Jogo()
 	janela = GerenciadorGrafico::getGerenciadorGrafico();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
     gerenciadorColisoes->setJogador(&cj);
-    Plataforma plataforma(1400, 50, 0, 950);
+    Fase1 fase1(gerenciadorColisoes, janela, &cj);
+    /*Plataforma plataforma(1400, 50, 0, 950);
     Plataforma plataforma1(50, 1400, 0, 0);
     Plataforma plataforma2(50, 1400, 1350, 0);
     Plataforma plataforma3(1400, 50, 0, 0);
@@ -26,12 +27,12 @@ Jogo::Jogo()
     gerenciadorColisoes->addObstaculo(&plataforma2);
     gerenciadorColisoes->addObstaculo(&plataforma3);
     gerenciadorColisoes->addObstaculo(&plataforma4);
-    gerenciadorColisoes->addObstaculo(&plataforma5);
+    gerenciadorColisoes->addObstaculo(&plataforma5);*/
     
     while (janela->verificaJanelaAberta())
     {
         Event event;
-        while (janela->getWindow()->pollEvent(event))
+        /*while (janela->getWindow()->pollEvent(event))
         {
             if (event.type == Event::Closed)
                 janela->fechaJanela();
@@ -49,7 +50,9 @@ Jogo::Jogo()
         janela->desenhaElemento(*plataforma4.getShape());
         janela->desenhaElemento(*plataforma5.getShape());
         janela->desenhaElemento(*cj.getSprite());
-        janela->desenhaElemento(*narigudo.getSprite());
+        janela->desenhaElemento(*narigudo.getSprite());*/
+        fase1.executar();
+        fase1.gerencia_colisoes();
         sleep(milliseconds(20));
         janela->mostraElementos();
     }

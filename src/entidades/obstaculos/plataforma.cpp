@@ -23,10 +23,6 @@ entidades::obstaculos::Plataforma::~Plataforma() {
     delete shape;
 }
 
-void entidades::obstaculos::Plataforma::desenhar(RenderWindow *window) {
-    window->draw(*shape);
-}
-
 void entidades::obstaculos::Plataforma::processarEventos(Event evento) {
 
 }

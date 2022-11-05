@@ -5,7 +5,7 @@ using entidades::personagens::Jogador;
 entidades::personagens::Jogador::Jogador() {
     sentido = "DIREITA";
 
-    carregarTexturas("Sprites/cjandar", 0, 6);
+    carregarTexturas("Sprites/cj/cjandar", 0, 6);
     noAtual = listaTexturas.begin();
     sprite.setTexture(*noAtual->getDado());
     x = 700, y = 500;

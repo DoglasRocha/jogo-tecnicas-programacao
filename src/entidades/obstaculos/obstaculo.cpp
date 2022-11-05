@@ -18,6 +18,14 @@ void Obstaculo::setTamY(int novoTamY) {
     tamY = novoTamY;
 }
 
+Drawable *entidades::obstaculos::Obstaculo::getDraw() {
+    return shape;
+}
+
 Shape *entidades::obstaculos::Obstaculo::getShape() {
     return shape;
+}
+
+void entidades::obstaculos::Obstaculo::desenhar(GerenciadorGrafico *gG) {
+    gG->desenhaElemento(*shape);
 }

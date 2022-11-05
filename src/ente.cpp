@@ -14,8 +14,3 @@ void Ente::executar()
 {
 
 }
-
-void Ente::desenhar()
-{
-
-}
