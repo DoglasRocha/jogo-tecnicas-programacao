@@ -69,45 +69,44 @@ namespace Gerenciadores
     }
 
     void GerenciadorColisoes::executaColisoesObstaculos(Personagem *ptrPersonagem) {
-        std::list<Obstaculo *>::iterator it;
         bool moveX, moveY;
         moveX = moveY = true;
 
+        FloatRect bPersAtual = ptrPersonagem->getSprite()->getGlobalBounds(),
+            bPersFuturo = bPersAtual;
+        int deltaX = ptrPersonagem->getVelX(),
+            deltaY = ptrPersonagem->getVelY() + ptrPersonagem->getEmpuxo();
+
+        bPersFuturo.top += deltaY, bPersFuturo.left += deltaX;
+
+        std::list<Obstaculo *>::iterator it;
         for (it = listaObstaculos.begin(); it != listaObstaculos.end(); it++) {
-            FloatRect boundsObstaculo = (*it)->getShape()->getGlobalBounds(),
-                boundsPersonagem = ptrPersonagem->getSprite()->getGlobalBounds();
+            FloatRect boundsObstaculo = (*it)->getShape()->getGlobalBounds();
 
-            int xPers = ptrPersonagem->getX() + ptrPersonagem->getVelX(),
-                yPers = ptrPersonagem->getY() + ptrPersonagem->getVelY() + ptrPersonagem->getEmpuxo();
-
-            boundsPersonagem.left = xPers, boundsPersonagem.top = yPers;
-
-            if (boundsObstaculo.intersects(boundsPersonagem)) {
-                if (boundsPersonagem.top + boundsPersonagem.height >= boundsObstaculo.top) {
-                    ptrPersonagem->setQtdPulos(0);
-                    ptrPersonagem->setVelY(0);
-                    moveY = false;
-                    moveX = true;
+            if (boundsObstaculo.intersects(bPersFuturo)) {
+                bPersFuturo = bPersAtual;
+                bPersFuturo.left += deltaX;
+                if (boundsObstaculo.intersects(bPersFuturo)) {
+                    moveX = false;
                 }
-                else if (boundsPersonagem.top <= boundsObstaculo.top + boundsObstaculo.height) {
-                    ptrPersonagem->setVelY(0);
-                    moveX = true;
-                    moveY = false;
-                }
-                else
-                    aplicaGravidade(ptrPersonagem);
 
-//                if (!(boundsPersonagem.left <= boundsObstaculo.left + boundsPersonagem.width ||
-//                    boundsPersonagem.left + boundsPersonagem.width >= boundsObstaculo.left)) {
-//                    moveX = true;
-//                }
+                bPersFuturo = bPersAtual;
+                bPersFuturo.top += deltaY;
+                if (boundsObstaculo.intersects(bPersFuturo))
+                    moveY = false;
+
             }
-            else
-                aplicaGravidade(ptrPersonagem), moveX = moveY = true;
         }
 
+        bPersFuturo.left += deltaX;
+        // mostraHitbox(bPersFuturo.left, bPersFuturo.top, bPersFuturo.width, bPersFuturo.height);
         if (moveX) ptrPersonagem->moverX();
-        if (moveY) ptrPersonagem->moverY();
+        if (moveY)
+            ptrPersonagem->moverY(),
+            aplicaGravidade(ptrPersonagem);
+        else
+            ptrPersonagem->setVelY(0),
+            ptrPersonagem->setQtdPulos(0);
     }
 
     void GerenciadorColisoes::mostraHitbox(int x, int y, int width, int height) {
