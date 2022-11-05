@@ -1,10 +1,10 @@
 #pragma once
-#include "../base.hpp"
+#include "../ente.hpp"
 #include <SFML/Graphics.hpp>
 
 namespace entidades
 {
-    class Entidade : public Base
+    class Entidade : public Ente
     {
     protected:
         int empuxo, x, y;

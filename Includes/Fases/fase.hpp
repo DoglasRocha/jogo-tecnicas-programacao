@@ -1,14 +1,22 @@
 #pragma once
-#include "../base.hpp"
+#include "../ente.hpp"
+#include "../Gerenciadores/gerenciador_colisoes.hpp"
+#include "../Gerenciadores/gerenciador_grafico.hpp"
+
+using namespace Gerenciadores;
 
 namespace fases
 {
-    class Fase : public Base
+    class Fase : public Ente
     {
-        public:
-            Fase();
-            ~Fase();
-            virtual void executar();
-            void gerencia_colisoes();
+    protected:
+        GerenciadorColisoes *gerenciadorColisoes;
+        GerenciadorGrafico *gerenciadorGrafico;
+
+    public:
+        Fase(GerenciadorColisoes *gC=nullptr, GerenciadorGrafico *gG=nullptr);
+        ~Fase();
+        virtual void executar();
+        void gerencia_colisoes();
     };
 }

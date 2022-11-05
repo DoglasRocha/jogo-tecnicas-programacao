@@ -2,9 +2,10 @@
 
 using fases::Fase;
 
-Fase::Fase()
+Fase::Fase(GerenciadorColisoes *gC, GerenciadorGrafico *gG)
 {
-
+    gerenciadorColisoes = gC;
+    gerenciadorGrafico = gG;
 }
 
 Fase::~Fase()
@@ -12,12 +13,7 @@ Fase::~Fase()
 
 }
 
-void Fase::executar()
-{
-
-}
-
 void Fase::gerencia_colisoes()
 {
-	
+	gerenciadorColisoes->executar();
 }

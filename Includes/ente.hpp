@@ -1,13 +1,13 @@
 #pragma once
 
-class Base
+class Ente
 {
     protected:
         int id;
 
     public:
-        Base();
-        virtual ~Base();
+        Ente();
+        virtual ~Ente();
         virtual void executar();
         void desenhar();
 };

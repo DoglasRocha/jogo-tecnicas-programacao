@@ -1,7 +1,7 @@
 #pragma once
-#include "base.hpp"
+#include "ente.hpp"
 
-class Menu : public Base
+class Menu : public Ente
 {
 
 };
