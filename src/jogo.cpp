@@ -12,10 +12,13 @@ Jogo::Jogo()
 {
 	janela = GerenciadorGrafico::getGerenciadorGrafico();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
-    //Plataforma plataforma(1400, 100, 0, 900);
+    gerenciadorColisoes->setJogador(&cj);
+    Plataforma plataforma(1400, 100, 0, 900);
+    Plataforma plataforma1(100, 1400, 0, 0);
 
     gerenciadorColisoes->addInimigo(&narigudo);
-    gerenciadorColisoes->addInimigo(&cj);
+    gerenciadorColisoes->addObstaculo(&plataforma);
+    gerenciadorColisoes->addObstaculo(&plataforma1);
     
     while (janela->verificaJanelaAberta())
     {
@@ -33,7 +36,8 @@ Jogo::Jogo()
         gerenciadorColisoes->executar();
         janela->desenhaElemento(*cj.getSprite());
         janela->desenhaElemento(*narigudo.getSprite());
-        //plataforma.desenhar(window);
+        janela->desenhaElemento(*plataforma.getShape());
+        janela->desenhaElemento(*plataforma1.getShape());
         sleep(milliseconds(20));
         janela->mostraElementos();
     }

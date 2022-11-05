@@ -15,6 +15,8 @@ namespace entidades::personagens
         ListaTexturas listaTexturas;
         ListaTexturas::Node *noAtual;
         std::string sentido;
+        Clock relogioAnimacao;
+        const sf::Time tempoAnimacao;
 
     public:
         Personagem();
@@ -35,5 +37,7 @@ namespace entidades::personagens
         void setEmpuxo(int novoEmpuxo);
         void carregarTexturas(std::string endereco, int comeco, int fim);
         void escalarSprite(int fatorX, int fatorY);
+        void animar();
+        void resetAnimacao();
     };
 }

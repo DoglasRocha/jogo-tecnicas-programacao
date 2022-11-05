@@ -6,7 +6,7 @@
 #include "Entidades/Obstaculos/obstaculoB.hpp"
 #include "Entidades/Personagens/jogador.hpp"
 #include "Entidades/Personagens/Inimigos/narigudo.hpp"
-#include "Entidades/Personagens/Inimigos/carlosjohnson.hpp"
+#include "Entidades/Personagens/Inimigos/inimigo2.hpp"
 #include "Fases/fase1.hpp"
 #include "Fases/fase2.hpp"
 
@@ -18,7 +18,7 @@ private:
 	GerenciadorGrafico *janela;
     GerenciadorColisoes *gerenciadorColisoes;
     Narigudo narigudo;
-    CarlosJohnson cj;
+    Jogador cj;
 
 public:
 	Jogo();

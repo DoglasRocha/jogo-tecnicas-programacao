@@ -6,12 +6,12 @@ using namespace sf;
 using Listas::ListaCircular;
 
 namespace entidades::personagens {
-    class CarlosJohnson : public Inimigo
+    class Inimigo2 : public Inimigo
     {
 
     public:
-        CarlosJohnson();
-        ~CarlosJohnson();
+        Inimigo2();
+        ~Inimigo2();
         void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
     };

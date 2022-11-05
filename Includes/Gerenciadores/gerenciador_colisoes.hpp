@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Entidades/Personagens/Inimigos/inimigo.hpp"
 #include "../Entidades/Obstaculos/obstaculo.hpp"
+#include "../Entidades/Personagens/jogador.hpp"
 
 #include <vector>
 #include <list>
@@ -15,7 +16,8 @@ namespace Gerenciadores {
     private:
         static GerenciadorColisoes *instance;
         const int TAM_TELA[2] = {1400, 1000}, gravidade;
-        std::vector<Inimigo *> vetorInimigos;
+        Jogador *jogador;
+        std::vector<Personagem *> vetorInimigos;
         std::list<Obstaculo *> listaObstaculos;
 
         GerenciadorColisoes();
@@ -23,9 +25,12 @@ namespace Gerenciadores {
     public:
         ~GerenciadorColisoes();
         static GerenciadorColisoes *getInstance();
-        GerenciadorColisoes *addInimigo(Inimigo *ptrInimigo);
+        GerenciadorColisoes *addInimigo(Personagem *ptrInimigo);
         GerenciadorColisoes *addObstaculo(Obstaculo *ptrObstaculo);
         void aplicaGravidade(Personagem *personagem);
         void executar();
+        void mostraHitbox(int x, int y, int width, int height);
+        void setJogador(Jogador *ptrJogador);
+        void executaColisoesObstaculos(Personagem *ptrPersonagem);
     };
 }

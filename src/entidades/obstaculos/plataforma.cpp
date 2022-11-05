@@ -23,22 +23,6 @@ entidades::obstaculos::Plataforma::~Plataforma() {
     delete shape;
 }
 
-int entidades::obstaculos::Plataforma::getTamX() {
-    return tamX;
-}
-
-void entidades::obstaculos::Plataforma::setTamX(int novoTamX) {
-    tamX = novoTamX;
-}
-
-int entidades::obstaculos::Plataforma::getTamY() {
-    return tamY;
-}
-
-void entidades::obstaculos::Plataforma::setTamY(int novoTamY) {
-    tamY = novoTamY;
-}
-
 void entidades::obstaculos::Plataforma::desenhar(RenderWindow *window) {
     window->draw(*shape);
 }

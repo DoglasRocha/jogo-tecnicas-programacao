@@ -6,7 +6,8 @@
 
 using namespace sf;
 
-entidades::personagens::Personagem::Personagem() {
+entidades::personagens::Personagem::Personagem() :
+tempoAnimacao(milliseconds(125)) {
     velX = velY = qtdPulos = empuxo = 0;
 }
 
@@ -93,4 +94,17 @@ void entidades::personagens::Personagem::escalarSprite(int fatorX, int fatorY) {
     FloatRect bounds = sprite.getGlobalBounds();
     x = bounds.left;
     y = bounds.top;
+}
+
+void entidades::personagens::Personagem::animar() {
+    if (relogioAnimacao.getElapsedTime() >= tempoAnimacao) {
+        noAtual = noAtual->getNext();
+        sprite.setTexture(*(noAtual->getDado()));
+        relogioAnimacao.restart();
+    }
+}
+
+void entidades::personagens::Personagem::resetAnimacao() {
+    noAtual = listaTexturas.begin();
+    sprite.setTexture(*(noAtual->getDado()));
 }
