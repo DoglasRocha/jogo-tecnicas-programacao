@@ -17,12 +17,16 @@ Jogo::Jogo()
     Plataforma plataforma1(50, 1400, 0, 0);
     Plataforma plataforma2(50, 1400, 1350, 0);
     Plataforma plataforma3(1400, 50, 0, 0);
+    Plataforma plataforma4(300, 20, 750, 750);
+    Plataforma plataforma5(300, 20, 300, 550);
 
     gerenciadorColisoes->addInimigo(&narigudo);
     gerenciadorColisoes->addObstaculo(&plataforma);
     gerenciadorColisoes->addObstaculo(&plataforma1);
     gerenciadorColisoes->addObstaculo(&plataforma2);
     gerenciadorColisoes->addObstaculo(&plataforma3);
+    gerenciadorColisoes->addObstaculo(&plataforma4);
+    gerenciadorColisoes->addObstaculo(&plataforma5);
     
     while (janela->verificaJanelaAberta())
     {
@@ -42,6 +46,8 @@ Jogo::Jogo()
         janela->desenhaElemento(*plataforma1.getShape());
         janela->desenhaElemento(*plataforma2.getShape());
         janela->desenhaElemento(*plataforma3.getShape());
+        janela->desenhaElemento(*plataforma4.getShape());
+        janela->desenhaElemento(*plataforma5.getShape());
         janela->desenhaElemento(*cj.getSprite());
         janela->desenhaElemento(*narigudo.getSprite());
         sleep(milliseconds(20));
@@ -50,4 +56,5 @@ Jogo::Jogo()
 }
 
 Jogo::~Jogo() {
+
 }
