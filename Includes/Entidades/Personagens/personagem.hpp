@@ -36,7 +36,7 @@ namespace entidades::personagens
         void setOriginToCenter();
         void setEmpuxo(int novoEmpuxo);
         void carregarTexturas(std::string endereco, int comeco, int fim);
-        void escalarSprite(int fatorX, int fatorY);
+        void escalarSprite(float fatorX, float fatorY);
         void animar();
         void resetAnimacao();
     };

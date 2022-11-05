@@ -10,7 +10,7 @@ entidades::personagens::Jogador::Jogador() {
     sprite.setTexture(*noAtual->getDado());
     x = 700, y = 500;
     setOriginToCenter();
-    escalarSprite(10, 10);
+    escalarSprite(3.0, 3.0);
 }
 
 entidades::personagens::Jogador::~Jogador() {

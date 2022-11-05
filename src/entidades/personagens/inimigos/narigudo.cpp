@@ -15,6 +15,7 @@ entidades::personagens::Inimigo() {
     sprite.setTexture(*(noAtual->getDado()));
     x = y = 200;
     setOriginToCenter();
+    escalarSprite(.25, .25);
 };
 
 Narigudo::~Narigudo() {

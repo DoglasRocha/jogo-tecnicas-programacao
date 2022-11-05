@@ -89,7 +89,7 @@ void entidades::personagens::Personagem::carregarTexturas(std::string endereco, 
     }
 }
 
-void entidades::personagens::Personagem::escalarSprite(int fatorX, int fatorY) {
+void entidades::personagens::Personagem::escalarSprite(float fatorX, float fatorY) {
     sprite.scale(fatorX, fatorY);
     FloatRect bounds = sprite.getGlobalBounds();
     x = bounds.left;
