@@ -7,13 +7,16 @@ using namespace sf;
 using namespace entidades::obstaculos;
 GerenciadorGrafico *GerenciadorGrafico::instance = nullptr;
 GerenciadorColisoes *GerenciadorColisoes::instance = nullptr;
+GerenciadorEventos *GerenciadorEventos::instance = nullptr;
 
 Jogo::Jogo()
 {
 	janela = GerenciadorGrafico::getGerenciadorGrafico();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
+    gerenciadorEventos = GerenciadorEventos::getInstance();
+    gerenciadorEventos->setGerenciadorGrafico(janela);
     gerenciadorColisoes->setJogador(&cj);
-    Fase1 fase1(gerenciadorColisoes, janela, &cj);
+    Fase1 fase1(gerenciadorColisoes, janela, gerenciadorEventos, &cj);
     
     while (janela->verificaJanelaAberta())
     {

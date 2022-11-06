@@ -9,7 +9,7 @@ file(GLOB ENTIDADES "${PROJECT_SOURCE_DIR}/src/entidades/*.cpp" "./src/entidades
 file(GLOB FASES "./src/fases/*.cpp")
 file(GLOB GERENCIADORES "./src/gerenciadores/*.cpp")
 file(GLOB SOURCES main.cpp ${ENTIDADES} ${FASES} ${GERENCIADORES})
-add_executable(jogo_tecnicas_programacao ${SOURCES} Includes/Entidades/Obstaculos/plataforma.hpp src/entidades/obstaculos/plataforma.cpp src/fases/fase1.cpp Includes/listas/lista_entidades.hpp Includes/listas/lista_texturas.hpp Includes/background_manager.hpp src/background_manager.cpp)
+add_executable(jogo_tecnicas_programacao ${SOURCES} Includes/Entidades/Obstaculos/plataforma.hpp src/entidades/obstaculos/plataforma.cpp src/fases/fase1.cpp Includes/listas/lista_entidades.hpp Includes/listas/lista_texturas.hpp Includes/background_manager.hpp src/background_manager.cpp Includes/Gerenciadores/gerenciador_eventos.hpp src/gerenciadores/gerenciador_eventos.cpp)
 include_directories(${PROJECT_SOURCE_DIR}/SFML/include)
 #
 #set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})

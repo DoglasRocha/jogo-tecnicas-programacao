@@ -4,17 +4,16 @@ using fases::Fase;
 
 Fase::Fase(GerenciadorColisoes *gC,
            GerenciadorGrafico *gG,
+           GerenciadorEventos *gE,
            Jogador *ptrJogador_)
 {
     gerenciadorColisoes = gC;
     gerenciadorGrafico = gG;
+    gerenciadorEventos = gE;
     ptrJogador = ptrJogador_;
 }
 
-Fase::~Fase()
-{
-
-}
+Fase::~Fase() {}
 
 void Fase::gerencia_colisoes()
 {
@@ -35,4 +34,15 @@ void fases::Fase::desenhar(GerenciadorGrafico *gG) {
         node->getDado()->desenhar(gerenciadorGrafico);
     }
     node->getDado()->desenhar(gerenciadorGrafico);
+}
+
+void fases::Fase::processaEventos() {
+    Event evento;
+    while (gerenciadorEventos->getEvento(evento)) {
+
+        if (evento.type == Event::Closed)
+            gerenciadorGrafico->fechaJanela();
+
+        ptrJogador->processarEventos(evento);
+    }
 }

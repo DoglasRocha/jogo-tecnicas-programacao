@@ -2,6 +2,7 @@
 #include "menu.hpp"
 #include "Gerenciadores/gerenciador_colisoes.hpp"
 #include "Gerenciadores/gerenciador_grafico.hpp"
+#include "Gerenciadores/gerenciador_eventos.hpp"
 #include "Entidades/Obstaculos/obstaculoA.hpp"
 #include "Entidades/Obstaculos/obstaculoB.hpp"
 #include "Entidades/Personagens/jogador.hpp"
@@ -17,6 +18,7 @@ class Jogo {
 private:
 	GerenciadorGrafico *janela;
     GerenciadorColisoes *gerenciadorColisoes;
+    GerenciadorEventos *gerenciadorEventos;
     Narigudo narigudo;
     Jogador cj;
 
