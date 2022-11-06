@@ -70,7 +70,7 @@ namespace Listas {
         }
 
         Node *end() {
-            return tail->getNext();
+            return tail;
         }
 
         ListaCircular<T> *append(T *dado_) {
@@ -88,6 +88,10 @@ namespace Listas {
             tail = node;
             length++;
             return this;
+        }
+
+        int getLength() {
+            return length;
         }
     };
 }

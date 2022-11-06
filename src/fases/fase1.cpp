@@ -16,8 +16,8 @@ Fase(gC, gG, ptrJogador) {
             {50, 1400, 0, 0},
             {50, 1400, 1350, 0},
             {1400, 50, 0, 0},
-            {300, 20, 750, 750},
-            {300, 20, 30, 550}
+            {300, 20, 100, 750},
+            {300, 20, 300, 550}
     };
 
     for (int i = 0; i < 6; i++) {
@@ -31,6 +31,8 @@ Fase(gC, gG, ptrJogador) {
         gerenciadorColisoes->addObstaculo(novaPlataforma);
     }
     listaDeEntidades.append(ptrJogador);
+    planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png",
+                                         gerenciadorGrafico);
 }
 
 Fase1::~Fase1() {

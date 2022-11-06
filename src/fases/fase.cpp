@@ -26,11 +26,13 @@ void fases::Fase::executar() {
 }
 
 void fases::Fase::desenhar(GerenciadorGrafico *gG) {
-    gerenciadorGrafico->limpaJanela();
+    planoDeFundo->desenhar(gerenciadorGrafico);
+
     ListaEntidades::Node *node;
     for (node = listaDeEntidades.begin();
          node != listaDeEntidades.end();
          node = node->getNext()) {
         node->getDado()->desenhar(gerenciadorGrafico);
     }
+    node->getDado()->desenhar(gerenciadorGrafico);
 }

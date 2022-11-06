@@ -3,6 +3,7 @@
 #include "../Gerenciadores/gerenciador_colisoes.hpp"
 #include "../Gerenciadores/gerenciador_grafico.hpp"
 #include "../listas/lista_entidades.hpp"
+#include "../background_manager.hpp"
 
 using namespace Gerenciadores;
 using Listas::ListaEntidades;
@@ -16,6 +17,7 @@ namespace fases
         GerenciadorGrafico *gerenciadorGrafico;
         ListaEntidades listaDeEntidades;
         Jogador *ptrJogador;
+        BackgroundManager *planoDeFundo;
 
     public:
         Fase(GerenciadorColisoes *gC=nullptr,

@@ -22,5 +22,6 @@ namespace Gerenciadores
         void desenhaElemento(Drawable &drawable);
         void mostraElementos();
         void fechaJanela();
+        Vector2u getTamanhoJanela();
 	};
 }

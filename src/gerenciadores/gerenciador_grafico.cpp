@@ -46,3 +46,7 @@ void GerenciadorGrafico::mostraElementos() {
 void GerenciadorGrafico::fechaJanela() {
     window->close();
 }
+
+Vector2u Gerenciadores::GerenciadorGrafico::getTamanhoJanela() {
+    return window->getSize();
+}
