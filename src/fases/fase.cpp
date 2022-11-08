@@ -46,3 +46,8 @@ void fases::Fase::processaEventos() {
         ptrJogador->processarEventos(evento);
     }
 }
+
+void Fase::executar() {
+    processaEventos();
+    desenhar(gerenciadorGrafico);
+}
