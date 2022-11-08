@@ -4,14 +4,27 @@ else
 	MOVE=mv
 endif
 
+COMPILE := g++ -I./SFML/include -c
+
 entidades := $(wildcard ./src/entidades/*.cpp) $(wildcard ./src/entidades/obstaculos/*.cpp) $(wildcard ./src/entidades/personagens/*.cpp) $(wildcard ./src/entidades/personagens/inimigos/*.cpp)
 fases := $(wildcard ./src/fases/*.cpp)
 gerenciadores := $(wildcard ./src/gerenciadores/*.cpp)
-sources := main.cpp $(wildcard ./src/*.cpp) $(entidades) $(fases) $(gerenciadores)
+sources := main.cpp $(wildcard ./src/*.cpp)
 outputs := $(wildcard ./obj/*.o)
 
-compile: $(sources)
-	g++ -I./SFML/include -c $(sources)
+cEntidades: $(entidadades)
+	$(COMPILE) $(entidades)
+
+cFases: $(fases)
+	$(COMPILE) $(fases)
+
+cGerenciadores: $(gerenciadores)
+	$(COMPILE) $(gerenciadores)
+
+cSources: $(sources)
+	$(COMPILE) $(sources)
+
+compile: cEntidades cFases cGerenciadores cSources
 	$(MOVE) *.o obj/
 
 link: 
