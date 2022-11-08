@@ -38,8 +38,3 @@ Fase(gC, gG, gE, ptrJogador) {
 Fase1::~Fase1() {
     delete planoDeFundo;
 }
-
-void Fase1::executar() {
-    processaEventos();
-    desenhar(gerenciadorGrafico);
-}

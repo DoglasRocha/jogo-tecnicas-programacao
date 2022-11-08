@@ -6,7 +6,7 @@ outputs := $(wildcard ./obj/*.o)
 
 compile: $(sources)
 	g++ -I./SFML/include -c $(sources)
-	mv *.o obj/
+	move *.o ./obj
 
 link: 
 	g++ $(outputs) -o game -L./SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system

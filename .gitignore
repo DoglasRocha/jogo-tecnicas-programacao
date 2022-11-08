@@ -19,3 +19,4 @@ game.exe
 game
 obj/
 *.o
+*.dll

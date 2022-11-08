@@ -11,5 +11,4 @@ public:
           GerenciadorEventos *gE=nullptr,
           Jogador *ptrJogador=nullptr);
     ~Fase1();
-    void executar();
 };

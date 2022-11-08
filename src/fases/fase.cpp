@@ -20,8 +20,9 @@ void Fase::gerencia_colisoes()
 	gerenciadorColisoes->executar();
 }
 
-void fases::Fase::executar() {
-
+void Fase::executar() {
+    processaEventos();
+    desenhar(gerenciadorGrafico);
 }
 
 void fases::Fase::desenhar(GerenciadorGrafico *gG) {
@@ -45,9 +46,4 @@ void fases::Fase::processaEventos() {
 
         ptrJogador->processarEventos(evento);
     }
-}
-
-void Fase::executar() {
-    processaEventos();
-    desenhar(gerenciadorGrafico);
 }
