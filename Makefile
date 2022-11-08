@@ -1,5 +1,5 @@
 ifeq ($(OS), Windows_NT)
-	MOVE=move
+	MOVE=Move-Item
 else
 	MOVE=mv
 endif
