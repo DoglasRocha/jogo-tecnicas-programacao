@@ -20,13 +20,13 @@ void Menu::desenhar(GerenciadorGrafico *gG)
     planoDeFundo->desenhar(gerenciadorGrafico);
 }
 
-void operator++()
+void Menu::operator++()
 {
     if(cont < 4) cont++;
     else cont = 1;
 }
 
-void operator--()
+void Menu::operator--()
 {
     if (cont > 1) cont--;
     else cont = 4;
@@ -41,9 +41,13 @@ void Menu::processaEventos()
         {
             switch (evento.key.code)
             {
-                case (Keyboard::Up): Menu--;
+                case (Keyboard::Up): 
+                    this->operator--();
+                    break;
 
-                case (Keyboard::Down): Menu++;
+                case (Keyboard::Down): 
+                    this->operator++();
+                    break;
             }
         }
     }

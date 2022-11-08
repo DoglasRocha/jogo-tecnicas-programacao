@@ -4,6 +4,8 @@
 #include "Gerenciadores/gerenciador_eventos.hpp"
 #include "background_manager.hpp"
 
+using namespace Gerenciadores;
+
 class Menu : public Ente
 {
     private:
