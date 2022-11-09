@@ -40,7 +40,6 @@ namespace Gerenciadores
     }
 
     void GerenciadorColisoes::executar() {
-        // colisao com tela
         executaColisoesObstaculos(jogador);
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
             executaColisoesObstaculos(vetorInimigos[i]);
@@ -79,14 +78,16 @@ namespace Gerenciadores
         }
 
         bPersFuturo.left += deltaX;
-        // mostraHitbox(bPersFuturo.left, bPersFuturo.top, bPersFuturo.width, bPersFuturo.height);
-        if (moveX) ptrPersonagem->moverX();
+        //mostraHitbox(bPersFuturo.left, bPersFuturo.top, bPersFuturo.width, bPersFuturo.height);
+        if (moveX) 
+            ptrPersonagem->moverX();
+        else
+            ptrPersonagem->colideX();
         if (moveY)
             ptrPersonagem->moverY(),
             aplicaGravidade(ptrPersonagem);
         else
-            ptrPersonagem->setVelY(0),
-            ptrPersonagem->setQtdPulos(0);
+            ptrPersonagem->colideY();
     }
 
     void GerenciadorColisoes::mostraHitbox(int x, int y, int width, int height) {

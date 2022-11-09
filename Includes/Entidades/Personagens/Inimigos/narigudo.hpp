@@ -16,5 +16,6 @@ namespace entidades::personagens
         ~Narigudo();
         void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
+        void colideX();
     };
 }

@@ -13,3 +13,4 @@ void entidades::personagens::Inimigo2::processarEventos(Event evento) {
 
 }
 
+void entidades::personagens::Inimigo2::colideX() {}
