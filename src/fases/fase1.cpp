@@ -30,7 +30,9 @@ Fase(gC, gG, gE, ptrJogador) {
                 infoPlataformas[i][3]
         );
 
-        Narigudo *novoNarigudo = new Narigudo();
+        Narigudo *novoNarigudo = new Narigudo(
+            infoPlataformas[i][2] + 100,
+            infoPlataformas[i][3] - 200);
         listaDeEntidades.
             append(novaPlataforma)->
             append(novoNarigudo);

@@ -12,6 +12,7 @@ namespace entidades::personagens
 
     public:
         Narigudo();
+        Narigudo(int x, int y);
         ~Narigudo();
         void desenhar(RenderWindow *window);
         void processarEventos(Event evento);

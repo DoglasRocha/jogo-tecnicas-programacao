@@ -18,6 +18,18 @@ entidades::personagens::Inimigo() {
     escalarSprite(.25, .25);
 };
 
+Narigudo::Narigudo(int x, int y) :
+Narigudo::Narigudo() {
+    // sentido = "ESQUERDA";
+
+    // carregarTexturas("Sprites/narigudo/narigudo", 1, 3);
+    // noAtual = listaTexturas.begin();
+    // sprite.setTexture(*(noAtual->getDado()));
+    this->x = x, this->y = y;
+    setOriginToCenter();
+    // escalarSprite(.25, .25);
+};
+
 Narigudo::~Narigudo() {
     ListaCircular<Texture>::Node *tmp;
     for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
