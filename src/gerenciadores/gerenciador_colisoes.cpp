@@ -44,28 +44,8 @@ namespace Gerenciadores
         executaColisoesObstaculos(jogador);
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
             executaColisoesObstaculos(vetorInimigos[i]);
-//            FloatRect boundsPersonagem = vetorInimigos[i]->getSprite()->getGlobalBounds();
-//            int x = vetorInimigos[i]->getX() + vetorInimigos[i]->getVelX(),
-//            y = vetorInimigos[i]->getY() + vetorInimigos[i]->getVelY() + vetorInimigos[i]->getEmpuxo();
-//
-//            // mostraHitbox(x, y, boundsPersonagem.width, boundsPersonagem.height);
-//
-//            if (y >= 0 &&
-//                (y + boundsPersonagem.height) <= TAM_TELA[1])
-//            {
-//                aplicaGravidade(vetorInimigos[i]);
-//                vetorInimigos[i]->moverY();
-//            }
-//            else
-//            {
-//                vetorInimigos[i]->setQtdPulos(0);
-//                vetorInimigos[i]->setVelY(0);
-//            }
-//
-//            if (x >= 0 &&
-//                (x + boundsPersonagem.width) <= TAM_TELA[0])
-//                vetorInimigos[i]->moverX();
         }
+        executaColisoesObstaculos(jogador);
     }
 
     void GerenciadorColisoes::executaColisoesObstaculos(Personagem *ptrPersonagem) {

@@ -12,6 +12,8 @@ gerenciadores := $(wildcard ./src/gerenciadores/*.cpp)
 sources := main.cpp $(wildcard ./src/*.cpp)
 outputs := $(wildcard ./obj/*.o)
 
+game: compile link
+
 cEntidades: $(entidadades)
 	$(COMPILE) $(entidades)
 
@@ -29,8 +31,6 @@ compile: cEntidades cFases cGerenciadores cSources
 
 link: 
 	g++ $(outputs) -o game -L./SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
-
-game: compile link
 
 clean:
 	rm -f game

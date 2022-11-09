@@ -13,13 +13,12 @@ using Gerenciadores::GerenciadorGrafico;
 
 class BackgroundManager : public Ente {
 private:
-    GerenciadorGrafico *gerenGrafico;
     std::string path;
     sf::RectangleShape backgroundImage;
     sf::Texture *textura;
 
 public:
-    BackgroundManager(std::string pathToImage="", GerenciadorGrafico *gG=nullptr);
+    BackgroundManager(std::string pathToImage="");
     ~BackgroundManager();
     void desenhar(GerenciadorGrafico *gG);
 };
