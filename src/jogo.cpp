@@ -17,10 +17,10 @@ Jogo::Jogo()
     gerenciadorEventos->setGerenciadorGrafico(janela);
     gerenciadorColisoes->setJogador(&cj);
     Fase1 fase1(gerenciadorColisoes, janela, gerenciadorEventos, &cj);
+    Menu menu(janela, gerenciadorEventos);
     
     while (janela->verificaJanelaAberta())
     {
-
         janela->limpaJanela();
         fase1.executar();
         fase1.gerencia_colisoes();

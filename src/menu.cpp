@@ -1,10 +1,36 @@
 #include "../Includes/menu.hpp"
+#include <string>
+#include <sstream>
 
 Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
 {
     gerenciadorGrafico = gG;
     gerenciadorEventos = gE;
-    planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png", gerenciadorGrafico);
+    planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png", gerenciadorGrafico);
+
+    for(int i = 1; i < 5; i++)
+    {
+        if(i == 1) 
+        {
+            Plataforma *novoBotao = new Plataforma(350, 150, 525, 250);
+            listaDeBotoes.append(novoBotao);
+        }
+        if(i == 2) 
+        {
+            Plataforma *novoBotao = new Plataforma(350, 150, 525, 425);
+            listaDeBotoes.append(novoBotao);
+        }
+        if(i == 3) 
+        {
+            Plataforma *novoBotao = new Plataforma(350, 150, 525, 600);
+            listaDeBotoes.append(novoBotao);
+        }
+        if(i == 4)
+        {
+            Plataforma *novoBotao = new Plataforma(350, 150, 525, 775);
+            listaDeBotoes.append(novoBotao);
+        }
+    }
 }
         
 Menu::~Menu()
@@ -18,6 +44,14 @@ Menu::~Menu()
 void Menu::desenhar(GerenciadorGrafico *gG)
 {
     planoDeFundo->desenhar(gerenciadorGrafico);
+
+    ListaEntidades::Node *node;
+    for (node = listaDeBotoes.begin();
+         node != listaDeBotoes.end();
+         node = node->getNext()) {
+        node->getDado()->desenhar(gerenciadorGrafico);
+    }
+    node->getDado()->desenhar(gerenciadorGrafico);
 }
 
 void Menu::operator++()
@@ -48,6 +82,12 @@ void Menu::processaEventos()
                 case (Keyboard::Down): 
                     this->operator++();
                     break;
+                
+                case (Keyboard::Enter):
+                    if(cont == 1); // Fase 1
+                    if(cont == 2); // Fase 2
+                    if(cont == 3); // Leaderboard
+                    if(cont == 4) gerenciadorGrafico->fechaJanela();
             }
         }
     }
