@@ -17958,7 +17958,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGEXsfsi1Vx4uk="
 									},
-									"name": "Event &evento"
+									"name": "Event &evento",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
