@@ -15,7 +15,7 @@ namespace Gerenciadores {
     class GerenciadorColisoes {
     private:
         static GerenciadorColisoes *instance;
-        const int TAM_TELA[2] = {1400, 1000}, gravidade;
+        const int gravidade;
         Jogador *jogador;
         std::vector<Personagem *> vetorInimigos;
         std::list<Obstaculo *> listaObstaculos;
