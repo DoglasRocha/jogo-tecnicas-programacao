@@ -115,4 +115,11 @@ Sprite *entidades::personagens::Personagem::getSprite() {
 
 void entidades::personagens::Personagem::desenhar(GerenciadorGrafico *gG) {
     gG->desenhaElemento(sprite);
+    if (velX != 0)
+        animar();
+}
+
+void entidades::personagens::Personagem::colideY() {
+    velY = 0,
+    qtdPulos = 0;
 }

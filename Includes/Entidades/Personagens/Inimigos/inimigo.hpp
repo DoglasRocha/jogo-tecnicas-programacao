@@ -11,5 +11,6 @@ namespace entidades::personagens
         Inimigo();
         virtual ~Inimigo();
         virtual void processarEventos(Event evento) = 0;
+        virtual void colideX() = 0;
 	};
 }

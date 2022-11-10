@@ -41,5 +41,7 @@ namespace entidades::personagens
         void animar();
         void resetAnimacao();
         void desenhar(GerenciadorGrafico *gG);
+        virtual void colideX() = 0;
+        virtual void colideY();
     };
 }

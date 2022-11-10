@@ -6,7 +6,7 @@ Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
 {
     gerenciadorGrafico = gG;
     gerenciadorEventos = gE;
-    planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png", gerenciadorGrafico);
+    planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
     for(int i = 1; i < 5; i++)
     {
@@ -31,6 +31,15 @@ Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
             listaDeBotoes.append(novoBotao);
         }
     }
+
+    // po ambrogi, era so fazer
+
+    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
+    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
+    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
+    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
+    
+    //nem precisava de for
 }
         
 Menu::~Menu()

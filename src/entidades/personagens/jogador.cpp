@@ -36,7 +36,6 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1);
                     sentido = "DIREITA";
                 }
-                animar();
                 velX = 3;
                 break;
 
@@ -45,14 +44,12 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1);
                     sentido = "ESQUERDA";
                 }
-                animar();
                 velX = -3;
                 break;
 
             case (Keyboard::Up):
                 if (qtdPulos < 2)
                     empuxo = -5, qtdPulos++;
-                //animar();
                 break;
         }
     }
@@ -72,4 +69,8 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                 break;
         }
     }
+}
+
+void entidades::personagens::Jogador::colideX() {
+
 }

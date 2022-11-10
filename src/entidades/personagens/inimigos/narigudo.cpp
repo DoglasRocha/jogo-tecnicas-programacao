@@ -18,6 +18,14 @@ entidades::personagens::Inimigo() {
     escalarSprite(.25, .25);
 };
 
+Narigudo::Narigudo(int x, int y) :
+Narigudo::Narigudo() {
+    
+    this->x = x, this->y = y;
+    velX = -1;
+    sprite.setPosition(x, y);
+};
+
 Narigudo::~Narigudo() {
     ListaCircular<Texture>::Node *tmp;
     for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
@@ -28,46 +36,11 @@ Narigudo::~Narigudo() {
 }
 
 void Narigudo::processarEventos(Event evento) {
-    if (evento.type == Event::KeyPressed) {
-        switch (evento.key.code)
-        {
-            case (Keyboard::D):
-                if (sentido != "DIREITA") {
-                    sprite.scale(-1.f, 1.f);
-                    sentido = "DIREITA";
-                }
-                animar();
-                velX = 1;
-                break;
+    
+}
 
-            case (Keyboard::A):
-                if (sentido != "ESQUERDA") {
-                    sprite.scale(-1.f, 1.f);
-                    sentido = "ESQUERDA";
-                }
-                velX = -1;
-                animar();
-                break;
-        }
-    }
-
-    else if (evento.type == Event::KeyReleased) {
-        switch (evento.key.code)
-        {
-            case (Keyboard::D):
-                velX = 0;
-                resetAnimacao();
-                break;
-
-            case (Keyboard::A):
-                velX = 0;
-                resetAnimacao();
-                break;
-
-            case (Keyboard::W):
-                resetAnimacao();
-		        velY = 0;
-                break;
-        }
-    }
+void Narigudo::colideX() {
+    velX = velX == 1 ? -1 : 1;
+    sentido = sentido == "ESQUERDA" ? "DIREITA" : "ESQUERDA";
+    escalarSprite(-1, 1);
 }

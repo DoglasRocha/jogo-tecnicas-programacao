@@ -13,5 +13,6 @@ namespace entidades::personagens {
         ~Jogador();
         void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
+        void colideX();
 	};	
 }

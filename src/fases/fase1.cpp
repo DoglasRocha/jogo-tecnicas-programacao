@@ -4,8 +4,10 @@
 
 #include "../../Includes/Fases/fase1.hpp"
 #include "../../Includes/Entidades/Obstaculos/plataforma.hpp"
+#include "../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
 
 using entidades::obstaculos::Plataforma;
+using entidades::personagens::Narigudo;
 
 Fase1::Fase1(GerenciadorColisoes *gC,
              GerenciadorGrafico *gG,
@@ -27,12 +29,20 @@ Fase(gC, gG, gE, ptrJogador) {
                 infoPlataformas[i][2],
                 infoPlataformas[i][3]
         );
-        listaDeEntidades.append(novaPlataforma);
-        gerenciadorColisoes->addObstaculo(novaPlataforma);
+
+        Narigudo *novoNarigudo = new Narigudo(
+            infoPlataformas[i][2] + 100,
+            infoPlataformas[i][3] - 50);
+        listaDeEntidades.
+            append(novaPlataforma)->
+            append(novoNarigudo);
+
+        gerenciadorColisoes->
+            addObstaculo(novaPlataforma)->
+            addInimigo(novoNarigudo);
     }
     listaDeEntidades.append(ptrJogador);
-    planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png",
-                                         gerenciadorGrafico);
+    planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png");
 }
 
 Fase1::~Fase1() {

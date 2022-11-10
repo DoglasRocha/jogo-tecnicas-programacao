@@ -7,6 +7,7 @@ using namespace sf;
 GerenciadorGrafico::GerenciadorGrafico()
 {
     window = new RenderWindow(VideoMode(1400, 1000), "Jogo");
+    window->setFramerateLimit(40);
 }
 
 GerenciadorGrafico::~GerenciadorGrafico() 

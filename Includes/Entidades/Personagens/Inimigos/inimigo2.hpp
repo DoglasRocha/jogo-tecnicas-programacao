@@ -14,5 +14,6 @@ namespace entidades::personagens {
         ~Inimigo2();
         void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
+        void colideX();
     };
 }
