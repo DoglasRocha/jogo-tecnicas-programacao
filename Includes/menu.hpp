@@ -14,13 +14,10 @@ class Menu : public Ente
 {
     private:
         int cont = 1;
-        GerenciadorGrafico *gerenciadorGrafico;
-        GerenciadorEventos *gerenciadorEventos;
-        BackgroundManager *planoDeFundo;
         ListaEntidades listaDeBotoes;
 
     public:
-        Menu(GerenciadorGrafico *gG=nullptr, GerenciadorEventos *gE=nullptr);
+        Menu() : Ente::Ente(GerenciadorGrafico *gG=nullptr, GerenciadorEventos *gE=nullptr);
         ~Menu();
         void executar();
         void processaEventos();

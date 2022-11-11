@@ -1,15 +1,10 @@
 #include "../../Includes/Fases/fase.hpp"
 
 using fases::Fase;
+using namespace Gerenciadores;
 
-Fase::Fase(GerenciadorColisoes *gC,
-           GerenciadorGrafico *gG,
-           GerenciadorEventos *gE,
-           Jogador *ptrJogador_)
+Fase::Fase(Jogador *ptrJogador_) : Ente::Ente(GerenciadorGrafico *gG,GerenciadorEventos *gE, GerenciadorColisoes *gC)
 {
-    gerenciadorColisoes = gC;
-    gerenciadorGrafico = gG;
-    gerenciadorEventos = gE;
     ptrJogador = ptrJogador_;
 }
 

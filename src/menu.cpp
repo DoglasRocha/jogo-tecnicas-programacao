@@ -2,10 +2,8 @@
 #include <string>
 #include <sstream>
 
-Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
+Menu::Menu() : Ente::Ente(GerenciadorGrafico *gG, GerenciadorEventos *gE)
 {
-    gerenciadorGrafico = gG;
-    gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
     for(int i = 1; i < 5; i++)

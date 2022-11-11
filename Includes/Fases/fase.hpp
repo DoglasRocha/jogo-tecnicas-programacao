@@ -14,18 +14,11 @@ namespace fases
     class Fase : public Ente
     {
     protected:
-        GerenciadorColisoes *gerenciadorColisoes;
-        GerenciadorGrafico *gerenciadorGrafico;
-        GerenciadorEventos *gerenciadorEventos;
         ListaEntidades listaDeEntidades;
         Jogador *ptrJogador;
-        BackgroundManager *planoDeFundo;
 
     public:
-        Fase(GerenciadorColisoes *gC=nullptr,
-             GerenciadorGrafico *gG=nullptr,
-             GerenciadorEventos *gE=nullptr,
-             Jogador *ptrJogador_=nullptr);
+        Fase(Jogador *ptrJogador_=nullptr): Ente::Ente(GerenciadorGrafico *gG=nullptr, GerenciadorEventos *gE=nullptr, GerenciadorColisoes *gC=nullptr);
         ~Fase();
         virtual void executar();
         virtual void processaEventos();
