@@ -9,11 +9,8 @@
 using entidades::obstaculos::Plataforma;
 using entidades::personagens::Narigudo;
 
-Fase1::Fase1(GerenciadorColisoes *gC,
-             GerenciadorGrafico *gG,
-             GerenciadorEventos *gE,
-             Jogador *ptrJogador) :
-Fase(gC, gG, gE, ptrJogador) {
+Fase1::Fase1(Jogador *ptrJogador) :
+Fase(ptrJogador) {
     int infoPlataformas[6][4] = {
             {1400, 50, 0, 950},
             {50, 1400, 0, 0},

@@ -16,13 +16,14 @@ namespace fases
     protected:
         ListaEntidades listaDeEntidades;
         Jogador *ptrJogador;
+        BackgroundManager *planoDeFundo;
 
     public:
         Fase(Jogador *ptrJogador_=nullptr);
         ~Fase();
         virtual void executar();
         virtual void processaEventos();
-        void desenhar(GerenciadorGrafico *gG);
+        void desenhar();
         void gerencia_colisoes();
     };
 }

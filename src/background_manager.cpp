@@ -7,7 +7,6 @@
 #include <SFML/Graphics.hpp>
 
 BackgroundManager::BackgroundManager(std::string pathToImage) {
-    Gerenciadores::GerenciadorGrafico *gG = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 
     std::stringstream buffer;
     buffer << "texturas/" << pathToImage;
@@ -17,7 +16,7 @@ BackgroundManager::BackgroundManager(std::string pathToImage) {
         std::cout << "Não foi possível carregar o plano de fundo" << std::endl;
     }
 
-    Vector2u tamJanela = gG->getTamanhoJanela(),
+    Vector2u tamJanela = gerenciadorGrafico->getTamanhoJanela(),
         tamImagem = textura->getSize();
 
     float escalaX = (float) tamJanela.x / (float) tamImagem.x,
@@ -31,6 +30,6 @@ BackgroundManager::~BackgroundManager() {
     delete textura;
 }
 
-void BackgroundManager::desenhar(GerenciadorGrafico *gG) {
-    gG->desenhaElemento(backgroundImage);
+void BackgroundManager::desenhar() {
+    gerenciadorGrafico->desenhaElemento(backgroundImage);
 }

@@ -48,17 +48,17 @@ Menu::~Menu()
 }
 
 
-void Menu::desenhar(GerenciadorGrafico *gG)
+void Menu::desenhar()
 {
-    planoDeFundo->desenhar(gerenciadorGrafico);
+    planoDeFundo->desenhar();
 
     ListaEntidades::Node *node;
     for (node = listaDeBotoes.begin();
          node != listaDeBotoes.end();
          node = node->getNext()) {
-        node->getDado()->desenhar(gerenciadorGrafico);
+        node->getDado()->desenhar();
     }
-    node->getDado()->desenhar(gerenciadorGrafico);
+    node->getDado()->desenhar();
 }
 
 void Menu::operator++()
@@ -103,6 +103,6 @@ void Menu::processaEventos()
 void Menu::executar()
 {
     processaEventos();
-    desenhar(gerenciadorGrafico);
+    desenhar();
 }
 

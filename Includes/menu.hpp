@@ -15,13 +15,14 @@ class Menu : public Ente
     private:
         int cont = 1;
         ListaEntidades listaDeBotoes;
+        BackgroundManager *planoDeFundo;
 
     public:
         Menu();
         ~Menu();
         void executar();
         void processaEventos();
-        void desenhar(GerenciadorGrafico *gG);
+        void desenhar();
         void operator++();
         void operator--();
 };

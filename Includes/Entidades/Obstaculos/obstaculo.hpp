@@ -19,6 +19,6 @@ namespace entidades::obstaculos
         void setTamY(int novoTamY);
         Drawable *getDraw();
         Shape *getShape();
-        void desenhar(GerenciadorGrafico *gG);
+        void desenhar();
 	};
 }

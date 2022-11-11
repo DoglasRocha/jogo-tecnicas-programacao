@@ -17,19 +17,19 @@ void Fase::gerencia_colisoes()
 
 void Fase::executar() {
     processaEventos();
-    desenhar(gerenciadorGrafico);
+    desenhar();
 }
 
-void fases::Fase::desenhar(GerenciadorGrafico *gG) {
-    planoDeFundo->desenhar(gerenciadorGrafico);
+void fases::Fase::desenhar() {
+    planoDeFundo->desenhar();
 
     ListaEntidades::Node *node;
     for (node = listaDeEntidades.begin();
          node != listaDeEntidades.end();
          node = node->getNext()) {
-        node->getDado()->desenhar(gerenciadorGrafico);
+        node->getDado()->desenhar();
     }
-    node->getDado()->desenhar(gerenciadorGrafico);
+    node->getDado()->desenhar();
 }
 
 void fases::Fase::processaEventos() {

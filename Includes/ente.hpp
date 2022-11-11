@@ -13,11 +13,10 @@ class Ente
         GerenciadorColisoes *gerenciadorColisoes;
         GerenciadorGrafico *gerenciadorGrafico;
         GerenciadorEventos *gerenciadorEventos;
-        BackgroundManager *planoDeFundo;
 
     public:
         Ente();
         virtual ~Ente();
         virtual void executar();
-        virtual void desenhar(GerenciadorGrafico *gG) = 0;
+        virtual void desenhar() = 0;
 };

@@ -2,7 +2,8 @@
 
 using entidades::Entidade;
 
-Entidade::Entidade()
+Entidade::Entidade() :
+Ente()
 {
     empuxo = x = y = 0;
 }

@@ -9,8 +9,6 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
-using Gerenciadores::GerenciadorGrafico;
-
 class BackgroundManager : public Ente {
 private:
     std::string path;
@@ -20,7 +18,7 @@ private:
 public:
     BackgroundManager(std::string pathToImage="");
     ~BackgroundManager();
-    void desenhar(GerenciadorGrafico *gG);
+    void desenhar();
 };
 
 #endif //JOGO_TECNICAS_PROGRAMACAO_BACKGROUND_MANAGER_HPP

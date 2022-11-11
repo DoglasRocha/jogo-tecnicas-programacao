@@ -22,10 +22,6 @@ entidades::personagens::Jogador::~Jogador() {
     delete noAtual->getDado();
 }
 
-void entidades::personagens::Jogador::desenhar(RenderWindow *window) {
-
-}
-
 void entidades::personagens::Jogador::processarEventos(Event evento) {
     if (evento.type == Event::KeyPressed)
     {
