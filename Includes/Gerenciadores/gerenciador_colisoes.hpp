@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Entidades/Personagens/personagem.hpp"
 #include "../Entidades/Personagens/Inimigos/inimigo.hpp"
 #include "../Entidades/Obstaculos/obstaculo.hpp"
 #include "../Entidades/Personagens/jogador.hpp"

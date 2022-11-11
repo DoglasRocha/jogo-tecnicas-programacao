@@ -40,7 +40,7 @@ namespace entidades::personagens
         void escalarSprite(float fatorX, float fatorY);
         void animar();
         void resetAnimacao();
-        void desenhar();
+        void desenhar(GerenciadorGrafico *gG);
         virtual void colideX() = 0;
         virtual void colideY();
     };

@@ -1,10 +1,15 @@
 #include "../../Includes/Fases/fase.hpp"
 
 using fases::Fase;
-using namespace Gerenciadores;
 
-Fase::Fase(Jogador *ptrJogador_) : Ente::Ente(GerenciadorGrafico *gG,GerenciadorEventos *gE, GerenciadorColisoes *gC)
+Fase::Fase(GerenciadorColisoes *gC,
+           GerenciadorGrafico *gG,
+           GerenciadorEventos *gE,
+           Jogador *ptrJogador_)
 {
+    gerenciadorColisoes = gC;
+    gerenciadorGrafico = gG;
+    gerenciadorEventos = gE;
     ptrJogador = ptrJogador_;
 }
 
@@ -17,19 +22,19 @@ void Fase::gerencia_colisoes()
 
 void Fase::executar() {
     processaEventos();
-    desenhar();
+    desenhar(gerenciadorGrafico);
 }
 
-void fases::Fase::desenhar() {
-    planoDeFundo->desenhar();
+void fases::Fase::desenhar(GerenciadorGrafico *gG) {
+    planoDeFundo->desenhar(gerenciadorGrafico);
 
     ListaEntidades::Node *node;
     for (node = listaDeEntidades.begin();
          node != listaDeEntidades.end();
          node = node->getNext()) {
-        node->getDado()->desenhar();
+        node->getDado()->desenhar(gerenciadorGrafico);
     }
-    node->getDado()->desenhar();
+    node->getDado()->desenhar(gerenciadorGrafico);
 }
 
 void fases::Fase::processaEventos() {

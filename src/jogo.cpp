@@ -16,8 +16,8 @@ Jogo::Jogo()
     gerenciadorEventos = GerenciadorEventos::getInstance();
     gerenciadorEventos->setGerenciadorGrafico(janela);
     gerenciadorColisoes->setJogador(&cj);
-    Fase1 fase1(&cj);
-    Menu menu;
+    Fase1 fase1(gerenciadorColisoes, janela, gerenciadorEventos, &cj);
+    Menu menu(janela, gerenciadorEventos);
     
     while (janela->verificaJanelaAberta())
     {

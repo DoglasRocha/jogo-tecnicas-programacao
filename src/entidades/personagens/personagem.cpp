@@ -113,8 +113,8 @@ Sprite *entidades::personagens::Personagem::getSprite() {
     return &sprite;
 }
 
-void entidades::personagens::Personagem::desenhar() {
-    gerenciadorGrafico->desenhaElemento(sprite);
+void entidades::personagens::Personagem::desenhar(GerenciadorGrafico *gG) {
+    gG->desenhaElemento(sprite);
     if (velX != 0)
         animar();
 }
