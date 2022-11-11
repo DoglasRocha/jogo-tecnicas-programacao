@@ -1,10 +1,10 @@
 #include "../Includes/ente.hpp"
 
-Ente::Ente()
+Ente::Ente(GerenciadorGrafico *gG,GerenciadorEventos *gE, GerenciadorColisoes *gC)
 {
-    gerenciadorGrafico = GerenciadorGrafico::getGerenciadorGrafico();
-    gerenciadorEventos = GerenciadorEventos::getInstance();
-    gerenciadorColisoes = GerenciadorColisoes::getInstance();
+    gerenciadorGrafico = gG;
+    gerenciadorEventos = gE;
+    gerenciadorColisoes = gC;
 }
 
 Ente::~Ente()

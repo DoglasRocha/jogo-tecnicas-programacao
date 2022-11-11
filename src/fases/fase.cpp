@@ -3,7 +3,7 @@
 using fases::Fase;
 using namespace Gerenciadores;
 
-Fase::Fase(Jogador *ptrJogador_) : Ente()
+Fase::Fase(Jogador *ptrJogador_) : Ente::Ente(GerenciadorGrafico *gG,GerenciadorEventos *gE, GerenciadorColisoes *gC)
 {
     ptrJogador = ptrJogador_;
 }

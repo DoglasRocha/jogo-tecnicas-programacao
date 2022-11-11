@@ -19,7 +19,7 @@ namespace fases
         BackgroundManager *planoDeFundo;
 
     public:
-        Fase(Jogador *ptrJogador_=nullptr);
+        Fase(Jogador *ptrJogador_=nullptr): Ente::Ente(GerenciadorGrafico *gG=nullptr, GerenciadorEventos *gE=nullptr, GerenciadorColisoes *gC=nullptr);
         ~Fase();
         virtual void executar();
         virtual void processaEventos();

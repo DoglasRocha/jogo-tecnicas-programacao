@@ -15,7 +15,9 @@ class Ente
         GerenciadorEventos *gerenciadorEventos;
 
     public:
-        Ente();
+        Ente(GerenciadorGrafico *gG=nullptr,
+             GerenciadorEventos *gE=nullptr,
+             GerenciadorColisoes *gC=nullptr);
         virtual ~Ente();
         virtual void executar();
         virtual void desenhar() = 0;

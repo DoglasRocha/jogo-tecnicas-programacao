@@ -18,7 +18,7 @@ class Menu : public Ente
         BackgroundManager *planoDeFundo;
 
     public:
-        Menu();
+        Menu() : Ente::Ente(GerenciadorGrafico *gG=nullptr, GerenciadorEventos *gE=nullptr);
         ~Menu();
         void executar();
         void processaEventos();
