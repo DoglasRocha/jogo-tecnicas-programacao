@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-Menu::Menu() : Ente::Ente(GerenciadorGrafico *gG, GerenciadorEventos *gE)
+Menu::Menu() : Ente()
 {
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 

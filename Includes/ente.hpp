@@ -16,9 +16,7 @@ class Ente
         BackgroundManager *planoDeFundo;
 
     public:
-        Ente(GerenciadorGrafico *gG=nullptr,
-             GerenciadorEventos *gE=nullptr,
-             GerenciadorColisoes *gC=nullptr);
+        Ente();
         virtual ~Ente();
         virtual void executar();
         virtual void desenhar(GerenciadorGrafico *gG) = 0;

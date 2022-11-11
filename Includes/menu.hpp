@@ -17,7 +17,7 @@ class Menu : public Ente
         ListaEntidades listaDeBotoes;
 
     public:
-        Menu() : Ente::Ente(GerenciadorGrafico *gG=nullptr, GerenciadorEventos *gE=nullptr);
+        Menu();
         ~Menu();
         void executar();
         void processaEventos();
