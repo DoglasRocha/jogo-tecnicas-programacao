@@ -15,7 +15,6 @@ namespace fases
     {
     protected:
         GerenciadorColisoes *gerenciadorColisoes;
-        GerenciadorGrafico *gerenciadorGrafico;
         GerenciadorEventos *gerenciadorEventos;
         ListaEntidades listaDeEntidades;
         Jogador *ptrJogador;
@@ -29,7 +28,7 @@ namespace fases
         ~Fase();
         virtual void executar();
         virtual void processaEventos();
-        void desenhar(GerenciadorGrafico *gG);
+        void desenhar();
         void gerencia_colisoes();
     };
 }
