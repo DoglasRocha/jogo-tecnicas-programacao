@@ -95,7 +95,7 @@ namespace Gerenciadores
         shape.setPosition(x, y);
         shape.setFillColor(Color::White);
 
-        GerenciadorGrafico::getGerenciadorGrafico()->desenhaElemento(shape);
+        GerenciadorGrafico::getInstance()->desenhaElemento(shape);
     }
 
     void GerenciadorColisoes::setJogador(Jogador *ptrJogador) {

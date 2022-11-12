@@ -13,14 +13,14 @@ GerenciadorGrafico *Ente::ptrGG = nullptr;
 
 Jogo::Jogo()
 {
-	gerenciadorGrafico = GerenciadorGrafico::getGerenciadorGrafico();
+	gerenciadorGrafico = GerenciadorGrafico::getInstance();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
     gerenciadorEventos = GerenciadorEventos::getInstance();
     gerenciadorEventos->setGerenciadorGrafico(gerenciadorGrafico);
     Ente::setGerenciadorGrafico(gerenciadorGrafico);
     gerenciadorColisoes->setJogador(&cj);
-    Fase1 fase1(gerenciadorColisoes, gerenciadorGrafico, gerenciadorEventos, &cj);
-    Menu menu(gerenciadorGrafico, gerenciadorEventos);
+    Fase1 fase1(gerenciadorColisoes, gerenciadorEventos, &cj);
+    Menu menu(gerenciadorEventos);
     
     while (gerenciadorGrafico->verificaJanelaAberta())
     {

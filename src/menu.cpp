@@ -48,7 +48,7 @@ Menu::~Menu()
 }
 
 
-void Menu::desenhar(GerenciadorGrafico *gG)
+void Menu::desenhar()
 {
     planoDeFundo->desenhar();
 
@@ -77,7 +77,7 @@ void Menu::processaEventos()
 {
     Event evento;
     while (gerenciadorEventos->getEvento(evento)) {
-        if (evento.type == Event::Closed) gerenciadorGrafico->fechaJanela();
+        if (evento.type == Event::Closed) ptrGG->fechaJanela();
         if (evento.type == Event::KeyPressed)
         {
             switch (evento.key.code)
@@ -94,7 +94,7 @@ void Menu::processaEventos()
                     if(cont == 1); // Fase 1
                     if(cont == 2); // Fase 2
                     if(cont == 3); // Leaderboard
-                    if(cont == 4) gerenciadorGrafico->fechaJanela();
+                    if(cont == 4) ptrGG->fechaJanela();
             }
         }
     }
@@ -103,6 +103,6 @@ void Menu::processaEventos()
 void Menu::executar()
 {
     processaEventos();
-    desenhar(gerenciadorGrafico);
+    desenhar();
 }
 

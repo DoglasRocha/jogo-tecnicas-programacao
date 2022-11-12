@@ -22,7 +22,6 @@ namespace fases
 
     public:
         Fase(GerenciadorColisoes *gC=nullptr,
-             GerenciadorGrafico *gG=nullptr,
              GerenciadorEventos *gE=nullptr,
              Jogador *ptrJogador_=nullptr);
         ~Fase();
