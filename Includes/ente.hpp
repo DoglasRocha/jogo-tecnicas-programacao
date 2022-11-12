@@ -7,10 +7,12 @@ class Ente
 {
     protected:
         int id;
+        static GerenciadorGrafico *ptrGG;
 
     public:
         Ente();
         virtual ~Ente();
-        virtual void executar();
-        virtual void desenhar(GerenciadorGrafico *gG) = 0;
+        virtual void executar() = 0;
+        virtual void desenhar() = 0;
+        static void setGerenciadorGrafico(GerenciadorGrafico *ptrGG);
 };

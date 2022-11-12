@@ -2,9 +2,8 @@
 #include <string>
 #include <sstream>
 
-Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
+Menu::Menu(GerenciadorEventos *gE)
 {
-    gerenciadorGrafico = gG;
     gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
@@ -44,7 +43,6 @@ Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
         
 Menu::~Menu()
 {
-    gerenciadorGrafico = nullptr;
     gerenciadorEventos = nullptr;
     planoDeFundo = nullptr;
 }
@@ -52,15 +50,15 @@ Menu::~Menu()
 
 void Menu::desenhar(GerenciadorGrafico *gG)
 {
-    planoDeFundo->desenhar(gerenciadorGrafico);
+    planoDeFundo->desenhar();
 
     ListaEntidades::Node *node;
     for (node = listaDeBotoes.begin();
          node != listaDeBotoes.end();
          node = node->getNext()) {
-        node->getDado()->desenhar(gerenciadorGrafico);
+        node->getDado()->desenhar();
     }
-    node->getDado()->desenhar(gerenciadorGrafico);
+    node->getDado()->desenhar();
 }
 
 void Menu::operator++()

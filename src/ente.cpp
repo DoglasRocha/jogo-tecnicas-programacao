@@ -10,7 +10,6 @@ Ente::~Ente()
 
 }
 
-void Ente::executar()
-{
-
+void setGerenciadorGrafico(GerenciadorGrafico *ptrGG) {
+    this->ptrGG = ptrGG;
 }
