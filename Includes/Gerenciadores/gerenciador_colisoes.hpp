@@ -17,20 +17,23 @@ namespace Gerenciadores {
         static GerenciadorColisoes *instance;
         const int gravidade;
         Jogador *jogador;
-        std::vector<Personagem *> vetorInimigos;
+        std::vector<Inimigo *> vetorInimigos;
         std::list<Obstaculo *> listaObstaculos;
 
         GerenciadorColisoes();
+        bool moveX, moveY;
 
     public:
         ~GerenciadorColisoes();
         static GerenciadorColisoes *getInstance();
-        GerenciadorColisoes *addInimigo(Personagem *ptrInimigo);
+        GerenciadorColisoes *addInimigo(Inimigo *ptrInimigo);
         GerenciadorColisoes *addObstaculo(Obstaculo *ptrObstaculo);
         void aplicaGravidade(Personagem *personagem);
         void executar();
+        void executarColisoesJogador();
         void mostraHitbox(int x, int y, int width, int height);
         void setJogador(Jogador *ptrJogador);
         void executaColisoesObstaculos(Personagem *ptrPersonagem);
+        void executaColisaoJogadorComInimigo();
     };
 }

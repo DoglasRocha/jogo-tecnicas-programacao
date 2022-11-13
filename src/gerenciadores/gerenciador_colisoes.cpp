@@ -19,7 +19,7 @@ namespace Gerenciadores
         return instance;
     }
 
-    GerenciadorColisoes *GerenciadorColisoes::addInimigo(Personagem *ptrInimigo) {
+    GerenciadorColisoes *GerenciadorColisoes::addInimigo(Inimigo *ptrInimigo) {
         vetorInimigos.push_back(ptrInimigo);
         return instance;
     }
@@ -40,16 +40,39 @@ namespace Gerenciadores
     }
 
     void GerenciadorColisoes::executar() {
-        executaColisoesObstaculos(jogador);
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
+            moveX = moveY = true;
             executaColisoesObstaculos(vetorInimigos[i]);
+
+            if (moveX) 
+                vetorInimigos[i]->moverX();
+            else
+                vetorInimigos[i]->colideX();
+            if (moveY)
+                vetorInimigos[i]->moverY(),
+                aplicaGravidade(vetorInimigos[i]);
+            else
+                vetorInimigos[i]->colideY();
         }
+        executarColisoesJogador();
+    }
+
+    void GerenciadorColisoes::executarColisoesJogador() {
+        moveX = moveY = true;
         executaColisoesObstaculos(jogador);
+        executaColisaoJogadorComInimigo();
+        if (moveX) 
+            jogador->moverX();
+        else
+            jogador->colideX();
+        if (moveY)
+            jogador->moverY(),
+            aplicaGravidade(jogador);
+        else
+            jogador->colideY();
     }
 
     void GerenciadorColisoes::executaColisoesObstaculos(Personagem *ptrPersonagem) {
-        bool moveX, moveY;
-        moveX = moveY = true;
 
         FloatRect bPersAtual = ptrPersonagem->getSprite()->getGlobalBounds(),
             bPersFuturo = bPersAtual;
@@ -79,15 +102,6 @@ namespace Gerenciadores
 
         bPersFuturo.left += deltaX;
         //mostraHitbox(bPersFuturo.left, bPersFuturo.top, bPersFuturo.width, bPersFuturo.height);
-        if (moveX) 
-            ptrPersonagem->moverX();
-        else
-            ptrPersonagem->colideX();
-        if (moveY)
-            ptrPersonagem->moverY(),
-            aplicaGravidade(ptrPersonagem);
-        else
-            ptrPersonagem->colideY();
     }
 
     void GerenciadorColisoes::mostraHitbox(int x, int y, int width, int height) {
@@ -100,5 +114,35 @@ namespace Gerenciadores
 
     void GerenciadorColisoes::setJogador(Jogador *ptrJogador) {
         jogador = ptrJogador;
+    }
+
+    void GerenciadorColisoes::executaColisaoJogadorComInimigo() {
+
+        FloatRect bJogador = jogador->getSprite()->getGlobalBounds(),
+            bJogadorFuturo = bJogador;
+        int deltaX = jogador->getVelX(),
+            deltaY = jogador->getVelY() + jogador->getEmpuxo();
+
+        bJogadorFuturo.top += deltaY, bJogadorFuturo.left += deltaX;
+
+        for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
+            FloatRect boundsInimigo = vetorInimigos[i]->getSprite()->getGlobalBounds();
+
+            if (boundsInimigo.intersects(bJogadorFuturo)) {
+                bJogadorFuturo = bJogador;
+                bJogadorFuturo.left += deltaX;
+                if (boundsInimigo.intersects(bJogadorFuturo))
+                    moveX = false;
+                
+                bJogadorFuturo = bJogador;
+                bJogadorFuturo.top += deltaY;
+                if (boundsInimigo.intersects(bJogadorFuturo))
+                    moveY = false;
+
+            }
+        }
+
+        bJogadorFuturo.left += deltaX;
+        //mostraHitbox(bJogadorFuturo.left, bJogadorFuturo.top, bJogadorFuturo.width, bJogadorFuturo.height);
     }
 }
