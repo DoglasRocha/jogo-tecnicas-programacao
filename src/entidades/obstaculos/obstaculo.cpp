@@ -11,6 +11,8 @@ Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) {
     this->y = y;
 }
 
+Obstaculo::~Obstaculo() {}
+
 int Obstaculo::getTamX() {
     return tamX;
 }

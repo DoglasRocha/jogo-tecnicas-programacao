@@ -17,3 +17,15 @@ Obstaculo(tamX, tamY, posX, posY) {
     shape->setTextureRect({0, 0, 32, tamY});
     shape->setPosition(x, y);
 }
+
+Parede::~Parede() {
+    delete shape;
+}
+
+void Parede::processarEventos(sf::Event evento) {
+
+}
+
+void Parede::setEmpuxo(int novoEmpuxo) {
+
+}
