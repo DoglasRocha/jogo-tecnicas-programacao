@@ -22,6 +22,7 @@ namespace Gerenciadores {
 
         GerenciadorColisoes();
         bool moveX, moveY;
+        int sentido;
 
     public:
         ~GerenciadorColisoes();
