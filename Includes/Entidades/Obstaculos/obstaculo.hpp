@@ -13,6 +13,9 @@ namespace entidades::obstaculos
         Shape *shape;
 
     public:
+        Obstaculo();
+        Obstaculo(int tamX, int tamY, int x, int y);
+        virtual ~Obstaculo();
         int getTamX();
         void setTamX(int novoTamX);
         int getTamY();

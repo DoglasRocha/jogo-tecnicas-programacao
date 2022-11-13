@@ -6,10 +6,10 @@ using entidades::obstaculos::Obstaculo;
 class Arbusto : public Obstaculo
 {
     private:
-    float altura;
+        float altura;
 
     public:
-    Arbusto();
-    ~Arbusto();
-    float getAltura() const;    
+        Arbusto();
+        ~Arbusto();
+        float getAltura() const;    
 };

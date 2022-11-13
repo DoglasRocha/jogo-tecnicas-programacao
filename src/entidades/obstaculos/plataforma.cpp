@@ -7,11 +7,9 @@
 
 using namespace sf;
 
-entidades::obstaculos::Plataforma::Plataforma(int tamX_, int tamY_, int posX, int posY) {
-    tamX = tamX_;
-    tamY = tamY_;
-    x = posX;
-    y = posY;
+entidades::obstaculos::Plataforma::Plataforma(int tamX, int tamY, int posX, int posY) :
+Obstaculo(tamX, tamY, posX, posY) 
+{
     empuxo = -1;
 
     Texture *textura = new Texture();

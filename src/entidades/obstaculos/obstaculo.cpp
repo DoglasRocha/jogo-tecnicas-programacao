@@ -2,6 +2,15 @@
 
 using entidades::obstaculos::Obstaculo;
 
+Obstaculo::Obstaculo() {}
+
+Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) {
+    this->tamX = tamX;
+    this->tamY = tamY;
+    this->x = x;
+    this->y = y;
+}
+
 int Obstaculo::getTamX() {
     return tamX;
 }

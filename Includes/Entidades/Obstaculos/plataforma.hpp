@@ -13,7 +13,7 @@ namespace entidades::obstaculos {
     class Plataforma : public Obstaculo {
 
         public:
-            Plataforma(int tamX_, int tamY_, int posX, int posY);
+            Plataforma(int tamX, int tamY, int posX, int posY);
             ~Plataforma();
             void processarEventos(Event evento);
             void setEmpuxo(int novoEmpuxo);
