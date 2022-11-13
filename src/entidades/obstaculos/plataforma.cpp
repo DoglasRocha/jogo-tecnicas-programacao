@@ -14,8 +14,13 @@ entidades::obstaculos::Plataforma::Plataforma(int tamX_, int tamY_, int posX, in
     y = posY;
     empuxo = -1;
 
+    Texture *textura = new Texture();
+    textura->loadFromFile("texturas/cenario/plataforma.png");
+    textura->setRepeated(true);
+
     shape = new RectangleShape(Vector2f(tamX, tamY));
-    shape->setFillColor(Color::Red);
+    shape->setTexture(textura);
+    shape->setTextureRect({0, 0, tamX, 24});
     shape->setPosition(x, y);
 }
 
