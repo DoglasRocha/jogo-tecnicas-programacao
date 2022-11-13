@@ -25,6 +25,7 @@ Jogo::Jogo()
     while (gerenciadorGrafico->verificaJanelaAberta())
     {
         gerenciadorGrafico->limpaJanela();
+        //menu.executar();
         fase1.executar();
         fase1.gerencia_colisoes();
         sleep(milliseconds(20));

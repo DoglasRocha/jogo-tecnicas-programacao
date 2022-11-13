@@ -6,10 +6,10 @@ using entidades::obstaculos::Obstaculo;
 class Fogo : public Obstaculo
 {
     private:
-    static int intensidade;
+    int intensidade;
 
     public:
     Fogo();
     ~Fogo();
-    static int getIntensidade();
+    int getIntensidade();
 };
