@@ -8,38 +8,17 @@ Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
     gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
-    for(int i = 1; i < 5; i++)
-    {
-        if(i == 1) 
-        {
-            Plataforma *novoBotao = new Plataforma(350, 150, 525, 250);
-            listaDeBotoes.append(novoBotao);
-        }
-        if(i == 2) 
-        {
-            Plataforma *novoBotao = new Plataforma(350, 150, 525, 425);
-            listaDeBotoes.append(novoBotao);
-        }
-        if(i == 3) 
-        {
-            Plataforma *novoBotao = new Plataforma(350, 150, 525, 600);
-            listaDeBotoes.append(novoBotao);
-        }
-        if(i == 4)
-        {
-            Plataforma *novoBotao = new Plataforma(350, 150, 525, 775);
-            listaDeBotoes.append(novoBotao);
-        }
-    }
+    Plataforma *novoBotao = new Plataforma(350, 150, 525, 250);
+    listaDeBotoes.append(novoBotao);
 
-    // po ambrogi, era so fazer
+    novoBotao = new Plataforma(350, 150, 525, 425);
+    listaDeBotoes.append(novoBotao);
+  
+    novoBotao = new Plataforma(350, 150, 525, 600);
+    listaDeBotoes.append(novoBotao);
 
-    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
-    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
-    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
-    //listaDeBotoes.append(new Plataforma(..., ..., ..., .,,,))
-    
-    //nem precisava de for
+    novoBotao = new Plataforma(350, 150, 525, 775);
+    listaDeBotoes.append(novoBotao);
 }
         
 Menu::~Menu()
