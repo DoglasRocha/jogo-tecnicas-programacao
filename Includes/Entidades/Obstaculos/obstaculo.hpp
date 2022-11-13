@@ -11,6 +11,7 @@ namespace entidades::obstaculos
     protected:
         int tamX, tamY;
         Shape *shape;
+        Texture *textura;
 
     public:
         Obstaculo();

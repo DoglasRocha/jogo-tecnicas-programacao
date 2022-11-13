@@ -9,9 +9,17 @@ Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) {
     this->tamY = tamY;
     this->x = x;
     this->y = y;
+
+    shape = new RectangleShape(Vector2f(tamX, tamY));
+    shape->setPosition(x, y);
+
+    textura = new Texture();
 }
 
-Obstaculo::~Obstaculo() {}
+Obstaculo::~Obstaculo() {
+    //delete shape;
+    //delete textura;
+}
 
 int Obstaculo::getTamX() {
     return tamX;
