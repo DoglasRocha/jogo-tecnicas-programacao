@@ -13,7 +13,7 @@ namespace entidades
         int empuxo, x, y;
     public:
         Entidade();
-        ~Entidade();
+        virtual ~Entidade();
         virtual void executar();
         virtual void processarEventos(sf::Event evento) = 0;
         virtual void desenhar() = 0;
