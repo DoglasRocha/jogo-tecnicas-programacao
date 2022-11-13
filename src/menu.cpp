@@ -7,16 +7,16 @@ Menu::Menu(GerenciadorEventos *gE)
     gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
-    Plataforma *novoBotao = new Plataforma(350, 150, 525, 250);
+    Botao *novoBotao = new Botao(250);
     listaDeBotoes.append(novoBotao);
 
-    novoBotao = new Plataforma(350, 150, 525, 425);
+    novoBotao = new Botao(425);
     listaDeBotoes.append(novoBotao);
   
-    novoBotao = new Plataforma(350, 150, 525, 600);
+    novoBotao = new Botao(600);
     listaDeBotoes.append(novoBotao);
 
-    novoBotao = new Plataforma(350, 150, 525, 775);
+    novoBotao = new Botao(775);
     listaDeBotoes.append(novoBotao);
 }
         
