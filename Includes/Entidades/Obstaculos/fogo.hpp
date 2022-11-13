@@ -12,5 +12,4 @@ class Fogo : public Obstaculo
     Fogo();
     ~Fogo();
     /*static*/ int getIntensidade();
-    int getIntensidade();
 };
