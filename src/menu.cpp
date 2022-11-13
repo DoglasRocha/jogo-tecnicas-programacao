@@ -30,14 +30,7 @@ Menu::~Menu()
 void Menu::desenhar()
 {
     planoDeFundo->desenhar();
-
-    ListaEntidades::Node *node;
-    for (node = listaDeBotoes.begin();
-         node != listaDeBotoes.end();
-         node = node->getNext()) {
-        node->getDado()->desenhar();
-    }
-    node->getDado()->desenhar();
+    listaDeBotoes.desenhaEntidades();
 }
 
 void Menu::operator++()
