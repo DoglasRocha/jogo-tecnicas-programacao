@@ -15,7 +15,7 @@ namespace Gerenciadores
 
 	public:
 		~GerenciadorGrafico();
-		static GerenciadorGrafico *getGerenciadorGrafico();
+		static GerenciadorGrafico *getInstance();
 		RenderWindow *getWindow();
         const bool verificaJanelaAberta();
         void limpaJanela();

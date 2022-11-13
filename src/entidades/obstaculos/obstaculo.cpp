@@ -26,6 +26,6 @@ Shape *entidades::obstaculos::Obstaculo::getShape() {
     return shape;
 }
 
-void entidades::obstaculos::Obstaculo::desenhar(GerenciadorGrafico *gG) {
-    gG->desenhaElemento(*shape);
+void entidades::obstaculos::Obstaculo::desenhar() {
+    ptrGG->desenhaElemento(*shape);
 }

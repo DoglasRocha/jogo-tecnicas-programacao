@@ -2,9 +2,8 @@
 #include <string>
 #include <sstream>
 
-Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
+Menu::Menu(GerenciadorEventos *gE)
 {
-    gerenciadorGrafico = gG;
     gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
@@ -23,23 +22,22 @@ Menu::Menu(GerenciadorGrafico *gG, GerenciadorEventos *gE)
         
 Menu::~Menu()
 {
-    gerenciadorGrafico = nullptr;
     gerenciadorEventos = nullptr;
     planoDeFundo = nullptr;
 }
 
 
-void Menu::desenhar(GerenciadorGrafico *gG)
+void Menu::desenhar()
 {
-    planoDeFundo->desenhar(gerenciadorGrafico);
+    planoDeFundo->desenhar();
 
     ListaEntidades::Node *node;
     for (node = listaDeBotoes.begin();
          node != listaDeBotoes.end();
          node = node->getNext()) {
-        node->getDado()->desenhar(gerenciadorGrafico);
+        node->getDado()->desenhar();
     }
-    node->getDado()->desenhar(gerenciadorGrafico);
+    node->getDado()->desenhar();
 }
 
 void Menu::operator++()
@@ -58,7 +56,7 @@ void Menu::processaEventos()
 {
     Event evento;
     while (gerenciadorEventos->getEvento(evento)) {
-        if (evento.type == Event::Closed) gerenciadorGrafico->fechaJanela();
+        if (evento.type == Event::Closed) ptrGG->fechaJanela();
         if (evento.type == Event::KeyPressed)
         {
             switch (evento.key.code)
@@ -75,7 +73,7 @@ void Menu::processaEventos()
                     if(cont == 1); // Fase 1
                     if(cont == 2); // Fase 2
                     if(cont == 3); // Leaderboard
-                    if(cont == 4) gerenciadorGrafico->fechaJanela();
+                    if(cont == 4) ptrGG->fechaJanela();
             }
         }
     }
@@ -84,6 +82,6 @@ void Menu::processaEventos()
 void Menu::executar()
 {
     processaEventos();
-    desenhar(gerenciadorGrafico);
+    desenhar();
 }
 

@@ -20,7 +20,7 @@ private:
 public:
     BackgroundManager(std::string pathToImage="");
     ~BackgroundManager();
-    void desenhar(GerenciadorGrafico *gG);
+    void desenhar();
 };
 
 #endif //JOGO_TECNICAS_PROGRAMACAO_BACKGROUND_MANAGER_HPP

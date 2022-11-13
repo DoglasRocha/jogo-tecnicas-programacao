@@ -16,7 +16,7 @@ GerenciadorGrafico::~GerenciadorGrafico()
     delete window;
 }
 
-GerenciadorGrafico *GerenciadorGrafico::getGerenciadorGrafico() {
+GerenciadorGrafico *GerenciadorGrafico::getInstance() {
     if (instance == nullptr)
 		instance = new GerenciadorGrafico();
 

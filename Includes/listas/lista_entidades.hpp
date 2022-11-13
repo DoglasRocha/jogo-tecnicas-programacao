@@ -16,7 +16,15 @@ namespace Listas {
         }
 
         ~ListaEntidades() {}
-    };
+
+        void desenhaEntidades() {
+            Node *node;
+            for (node = head; node != tail; node = node->getNext()) {
+                node->getDado()->desenhar();
+            }
+            node->getDado()->desenhar();
+        }
+    };  
 }
 
 #endif //JOGO_TECNICAS_PROGRAMACAO_LISTA_ENTIDADES_HPP

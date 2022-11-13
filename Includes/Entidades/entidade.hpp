@@ -16,7 +16,7 @@ namespace entidades
         ~Entidade();
         virtual void executar();
         virtual void processarEventos(sf::Event evento) = 0;
-        virtual void desenhar(GerenciadorGrafico *gG) = 0;
+        virtual void desenhar() = 0;
         int getEmpuxo() const;
         virtual void setEmpuxo(int novoEmpuxo) = 0;
         virtual sf::Drawable *getDraw() = 0;

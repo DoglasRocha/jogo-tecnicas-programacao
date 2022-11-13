@@ -16,7 +16,7 @@ using namespace entidades::personagens;
 
 class Jogo {
 private:
-	GerenciadorGrafico *janela;
+	GerenciadorGrafico *gerenciadorGrafico;
     GerenciadorColisoes *gerenciadorColisoes;
     GerenciadorEventos *gerenciadorEventos;
     Narigudo narigudo;

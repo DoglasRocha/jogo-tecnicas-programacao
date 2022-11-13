@@ -9,12 +9,13 @@ namespace entidades::personagens
 {
     class Narigudo : public Inimigo
     {
+    private:
+        int forcaEspirro;
 
     public:
         Narigudo();
         Narigudo(int x, int y);
         ~Narigudo();
-        void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
         void colideX();
     };
