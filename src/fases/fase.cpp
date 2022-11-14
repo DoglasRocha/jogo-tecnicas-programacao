@@ -1,10 +1,13 @@
 #include "../../Includes/Fases/fase.hpp"
+#include "../../Includes/jogo.hpp"
 
 using fases::Fase;
 
 Fase::Fase(GerenciadorColisoes *gC,
            GerenciadorEventos *gE,
-           Jogador *ptrJogador_)
+           Jogador *ptrJogador_,
+           Jogo *ptrJogo) :
+           Estado(ptrJogo)
 {
     gerenciadorColisoes = gC;
     gerenciadorEventos = gE;

@@ -14,8 +14,9 @@ using entidades::personagens::Narigudo;
 
 Fase1::Fase1(GerenciadorColisoes *gC,
              GerenciadorEventos *gE,
-             Jogador *ptrJogador) :
-Fase(gC, gE, ptrJogador) {
+             Jogador *ptrJogador,
+             Jogo *ptrJogo) :
+Fase(gC, gE, ptrJogador, ptrJogo) {
 
     Plataforma *novaPlataforma;
     Narigudo *novoNarigudo;

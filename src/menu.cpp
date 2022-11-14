@@ -1,10 +1,13 @@
 #include "../Includes/menu.hpp"
+#include "../Includes/jogo.hpp"
 #include <string>
 #include <sstream>
+#include <iostream>
 using namespace std;
 
-Menu::Menu(GerenciadorEventos *gE)
+Menu::Menu(GerenciadorEventos *gE, Jogo *ptrJogo)
 {
+    this->ptrJogo = ptrJogo;
     gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
@@ -23,8 +26,7 @@ Menu::Menu(GerenciadorEventos *gE)
         
 Menu::~Menu()
 {
-    gerenciadorEventos = nullptr;
-    planoDeFundo = nullptr;
+    std::cout << "chama" << std::endl;
 }
 
 void Menu::desenhar()
@@ -100,10 +102,12 @@ void Menu::processaEventos()
                     break;
                 
                 case (Keyboard::Enter):
-                    if(cont == 1); // Fase 1
-                    if(cont == 2);// (*acao2)(); // Fase 2
-                    if(cont == 3);// (*acao3)(); // Leaderboard
-                    if(cont == 4) ptrGG->fechaJanela();
+                    // if(cont == 1); // Fase 1
+                    // if(cont == 2);// (*acao2)(); // Fase 2
+                    // if(cont == 3);// (*acao3)(); // Leaderboard
+                    // if(cont == 4) ptrGG->fechaJanela();
+                    trocaEstado(cont);
+                    break;
             }
         }
     }
@@ -115,3 +119,21 @@ void Menu::executar()
     desenhar();
 }
 
+void Menu::trocaEstado(int opcao) {
+    switch (opcao) {
+        case (1):
+            ptrJogo->irParaFase1();
+            break;
+
+        case (2):
+            //ptrJogo->irParaFase2();
+            break;
+
+        case (3):
+            //ptrJogo->irParaRanking();
+            break;
+
+        case (4):
+            ptrGG->fechaJanela();
+    }
+}
