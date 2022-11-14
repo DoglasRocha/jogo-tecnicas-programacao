@@ -59,8 +59,8 @@ namespace Gerenciadores
 
     void GerenciadorColisoes::executarColisoesJogador() {
         moveX = moveY = true;
-        executaColisoesObstaculos(jogador);
         executaColisaoJogadorComInimigo();
+        executaColisoesObstaculos(jogador);
         if (moveX) 
             jogador->moverX();
         else
