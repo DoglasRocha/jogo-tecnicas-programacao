@@ -19,8 +19,8 @@ private:
 	GerenciadorGrafico *gerenciadorGrafico;
     GerenciadorColisoes *gerenciadorColisoes;
     GerenciadorEventos *gerenciadorEventos;
-    Narigudo narigudo;
     Jogador cj;
+    Ente *estadoAtual;
 
 public:
 	Jogo();

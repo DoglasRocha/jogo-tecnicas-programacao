@@ -24,13 +24,12 @@ Jogo::Jogo()
     gerenciadorEventos->setGerenciadorGrafico(gerenciadorGrafico);
     Ente::setGerenciadorGrafico(gerenciadorGrafico);
     gerenciadorColisoes->setJogador(&cj);
-    Fase1 fase1(gerenciadorColisoes, gerenciadorEventos, &cj);
-    Menu menu(gerenciadorEventos);
+    estadoAtual = new Fase1(gerenciadorColisoes, gerenciadorEventos, &cj);
     
     while (gerenciadorGrafico->verificaJanelaAberta())
     {
         gerenciadorGrafico->limpaJanela();
-        menu.executar();
+        estadoAtual->executar();
         //fase1.executar();
         sleep(milliseconds(20));
         gerenciadorGrafico->mostraElementos();
@@ -40,3 +39,4 @@ Jogo::Jogo()
 Jogo::~Jogo() {
 
 }
+
