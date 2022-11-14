@@ -1,3 +1,4 @@
+#pragma once
 class Jogo;
 
 class Estado {
@@ -5,7 +6,8 @@ class Estado {
         Jogo *ptrJogo;
 
     public:
-        Estado();
+        Estado(Jogo *ptrJogo=nullptr);
         ~Estado();
-        
-}
+        virtual void trocaEstado(int opcao=0) = 0;
+        virtual void executar() = 0;
+};
