@@ -5,6 +5,7 @@
 #include "../../Includes/Fases/fase1.hpp"
 #include "../../Includes/Entidades/Obstaculos/plataforma.hpp"
 #include "../../Includes/Entidades/Obstaculos/parede.hpp"
+#include "../../Includes/Entidades/Obstaculos/arbusto.hpp"
 #include "../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
 
 using entidades::obstaculos::Plataforma;
@@ -19,15 +20,21 @@ Fase(gC, gE, ptrJogador) {
     Plataforma *novaPlataforma;
     Narigudo *novoNarigudo;
     Parede *novaParede;
+    Arbusto *novoArbusto;
 
-    int infoPlataformas[3][4] = {
-            {1336, 50, 32, 950},
+    int infoPlataformas[8][4] = {
+            {2400, 50, 32, 950},
             {300, 20, 100, 750},
-            {300, 20, 300, 550}
+            {300, 20, 300, 550},
+            {450, 20, 1200, 750},
+            {150, 20, 975, 450},
+            {300, 20, 1750, 800},
+            {450, 20, 1900, 575},
+            {150, 20, 2250, 400}
     };
 
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 8; i++) {
         novaPlataforma = new Plataforma(
                 infoPlataformas[i][0],
                 infoPlataformas[i][1],
@@ -36,23 +43,29 @@ Fase(gC, gE, ptrJogador) {
         );
 
         novoNarigudo = new Narigudo(
-            infoPlataformas[i][2] + 100,
+            infoPlataformas[i][2] + 160,
             infoPlataformas[i][3] - 50);
+        
+        novoArbusto = new Arbusto(
+            infoPlataformas[i][2] + 20,
+            infoPlataformas[i][3]);
 
         listaDeEntidades.
             append(novaPlataforma)->
-            append(novoNarigudo);
+            append(novoNarigudo)->
+            append(novoArbusto);
 
         gerenciadorColisoes->
             addObstaculo(novaPlataforma)->
-            addInimigo(novoNarigudo);
+            addInimigo(novoNarigudo)->
+            addObstaculo(novoArbusto);
     }
 
     novaParede = new Parede(32, 1400, 0, 0);
     listaDeEntidades.append(novaParede);
     gerenciadorColisoes->addObstaculo(novaParede);
 
-    novaParede = new Parede(32, 1400, 1368, 0);
+    novaParede = new Parede(32, 1400, 2400, 0);
     listaDeEntidades.append(novaParede);
     gerenciadorColisoes->addObstaculo(novaParede);
 

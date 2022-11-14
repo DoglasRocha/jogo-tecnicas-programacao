@@ -1,13 +1,27 @@
 #include "../../../Includes/Entidades/Obstaculos/arbusto.hpp"
 
-Arbusto::Arbusto()
+Arbusto::Arbusto(int posX, int posY)
 {
     altura = (float(rand())/RAND_MAX) + 1;
+    tamX = 100;
+    tamY = 50 * altura;
+    shape = new RectangleShape(Vector2f(tamX,tamY));
+    textura = new Texture;
+    textura->loadFromFile("texturas/pixel_art_forest/PNG/Background layers/arbusto.png");
+    shape->setTexture(textura);
+    shape->setPosition(posX,posY - tamY);
 }
 
-Arbusto::~Arbusto(){}
+Arbusto::~Arbusto(){
+    textura = nullptr;
+    shape = nullptr;
+}
 
-float Arbusto::getAltura() const
+float Arbusto::getAltura()
 {
     return altura;
 }
+
+void Arbusto::processarEventos(sf::Event evento){}
+
+void Arbusto::setEmpuxo(int novoEmpuxo){}
