@@ -23,6 +23,7 @@ class Menu : public Ente
         void executar();
         void processaEventos();
         void desenhar();
+        void resetaBotoes();
         void operator++();
         void operator--();
 };

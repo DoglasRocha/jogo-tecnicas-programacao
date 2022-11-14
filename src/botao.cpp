@@ -1,4 +1,5 @@
 #include "../Includes/botao.hpp"
+using namespace std;
 
 Botao::Botao() : 
     tamX(350),
@@ -7,19 +8,32 @@ Botao::Botao() :
 
 }
 
-Botao::Botao(int posY) : Botao()
+Botao::Botao(int posY, string stringTextura) : Botao()
 {
     x = 550;
     y = posY;
+    shape = new RectangleShape(Vector2f(tamX,tamY));
+    textura = new Texture();
+    textura->loadFromFile(stringTextura);
+    shape->setTexture(textura);
+    shape->setOutlineColor(Color::White);
+    shape->setPosition(x,y);
 }
 
-Botao::~Botao() {
-    
+Botao::~Botao() 
+{
+    textura = nullptr;
+    shape = nullptr;
 }
 
 void Botao::desenhar() 
 {
     ptrGG->desenhaElemento(*shape);
+}
+
+Shape* Botao::getShape()
+{
+    return shape;
 }
 
 Drawable* Botao::getDraw() 
