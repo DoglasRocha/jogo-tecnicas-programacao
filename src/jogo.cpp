@@ -1,5 +1,4 @@
 #include "../Includes/jogo.hpp"
-#include "../Includes/Entidades/Obstaculos/plataforma.hpp"
 #include "../Includes/ente.hpp"
 #include <cstdlib>
 #include <ctime>
