@@ -32,7 +32,6 @@ Jogo::Jogo()
         gerenciadorGrafico->limpaJanela();
         menu.executar();
         //fase1.executar();
-        //fase1.gerencia_colisoes();
         sleep(milliseconds(20));
         gerenciadorGrafico->mostraElementos();
     }

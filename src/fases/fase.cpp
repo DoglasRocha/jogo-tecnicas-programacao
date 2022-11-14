@@ -19,6 +19,7 @@ void Fase::gerencia_colisoes()
 }
 
 void Fase::executar() {
+    gerencia_colisoes();
     processaEventos();
     desenhar();
 }
