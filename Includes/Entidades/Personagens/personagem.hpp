@@ -10,7 +10,7 @@ namespace entidades::personagens
 {
     class Personagem : public Entidade {
     protected:
-        int num_vidas, velX, velY, qtdPulos;
+        int num_vidas, velX, velY, qtdPulos, ataque;
         Sprite sprite;
         ListaTexturas listaTexturas;
         ListaTexturas::Node *noAtual;
@@ -43,5 +43,6 @@ namespace entidades::personagens
         void desenhar();
         virtual void colideX() = 0;
         virtual void colideY();
+        virtual int getAtaque();
     };
 }

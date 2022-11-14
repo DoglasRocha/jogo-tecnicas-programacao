@@ -18,5 +18,6 @@ namespace entidades::personagens
         ~Narigudo();
         void processarEventos(Event evento);
         void colideX();
+        int getAtaque();
     };
 }

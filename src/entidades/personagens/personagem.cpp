@@ -123,3 +123,7 @@ void entidades::personagens::Personagem::colideY() {
     velY = 0,
     qtdPulos = 0;
 }
+
+int entidades::personagens::Personagem::getAtaque() {
+    return ataque;
+}

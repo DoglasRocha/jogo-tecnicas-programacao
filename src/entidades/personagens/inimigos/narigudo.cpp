@@ -3,12 +3,16 @@
 #include "../../../../Includes/listas/lista_circular.hpp"
 #include <iostream>
 #include <sstream>
+#include <cstdlib>
 
 using entidades::personagens::Narigudo;
 
 Narigudo::Narigudo() :
 entidades::personagens::Inimigo() {
     sentido = "ESQUERDA";
+    num_vidas = 20;
+    ataque = 5;
+    forcaEspirro = rand() % 5;
 
     carregarTexturas("Sprites/narigudo/narigudo", 1, 3);
     noAtual = listaTexturas.begin();
@@ -43,4 +47,8 @@ void Narigudo::colideX() {
     velX = velX == 1 ? -1 : 1;
     sentido = sentido == "ESQUERDA" ? "DIREITA" : "ESQUERDA";
     escalarSprite(-1, 1);
+}
+
+int Narigudo::getAtaque() {
+    return ataque + forcaEspirro;
 }

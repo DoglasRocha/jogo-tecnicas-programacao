@@ -4,6 +4,8 @@ using entidades::personagens::Jogador;
 
 entidades::personagens::Jogador::Jogador() {
     sentido = "DIREITA";
+    num_vidas = 100;
+    ataque = 20;
 
     carregarTexturas("Sprites/cj/cjandar", 0, 6);
     noAtual = listaTexturas.begin();

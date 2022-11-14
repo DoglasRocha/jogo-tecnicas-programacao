@@ -1,11 +1,14 @@
 #include "../Includes/jogo.hpp"
 #include "../Includes/Entidades/Obstaculos/plataforma.hpp"
 #include "../Includes/ente.hpp"
+#include <cstdlib>
+#include <ctime>
 
 using namespace Gerenciadores;
 using namespace entidades::personagens;
 using namespace sf;
 using namespace entidades::obstaculos;
+using namespace std;
 GerenciadorGrafico *GerenciadorGrafico::instance = nullptr;
 GerenciadorColisoes *GerenciadorColisoes::instance = nullptr;
 GerenciadorEventos *GerenciadorEventos::instance = nullptr;
@@ -13,6 +16,8 @@ GerenciadorGrafico *Ente::ptrGG = nullptr;
 
 Jogo::Jogo()
 {
+    srand(time(NULL));
+
 	gerenciadorGrafico = GerenciadorGrafico::getInstance();
     gerenciadorColisoes = GerenciadorColisoes::getInstance();
     gerenciadorEventos = GerenciadorEventos::getInstance();
