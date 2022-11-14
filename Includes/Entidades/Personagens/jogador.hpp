@@ -11,9 +11,10 @@ namespace entidades::personagens {
     public:
         Jogador();
         ~Jogador();
-        void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
         void colideX();
         void moverX();
+        void repelirX(int direcao);
+        void repelirY();
 	};	
 }

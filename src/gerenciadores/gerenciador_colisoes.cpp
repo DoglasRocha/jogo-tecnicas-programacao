@@ -131,13 +131,19 @@ namespace Gerenciadores
             if (boundsInimigo.intersects(bJogadorFuturo)) {
                 bJogadorFuturo = bJogador;
                 bJogadorFuturo.left += deltaX;
-                if (boundsInimigo.intersects(bJogadorFuturo))
+                if (boundsInimigo.intersects(bJogadorFuturo)) {
+                    if (bJogadorFuturo.left < boundsInimigo.left)
+                        jogador->repelirX(-1);
+                    else
+                        jogador->repelirX(1);
+
                     moveX = false;
+                }
                 
                 bJogadorFuturo = bJogador;
                 bJogadorFuturo.top += deltaY;
                 if (boundsInimigo.intersects(bJogadorFuturo))
-                    moveY = false;
+                    jogador->repelirY(), moveY = false;
 
             }
         }

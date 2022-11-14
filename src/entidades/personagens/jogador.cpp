@@ -24,10 +24,6 @@ entidades::personagens::Jogador::~Jogador() {
     delete noAtual->getDado();
 }
 
-void entidades::personagens::Jogador::desenhar(RenderWindow *window) {
-
-}
-
 void entidades::personagens::Jogador::processarEventos(Event evento) {
     if (evento.type == Event::KeyPressed)
     {
@@ -81,4 +77,18 @@ void entidades::personagens::Jogador::moverX() {
     sprite.move((float)velX, 0.f);
     x += velX;
     ptrGG->centralizarJanela(x);
+
+    if (velX == 50 || velX == -50)
+        velX = 0;
+}
+
+void Jogador::repelirX(int direcao) {
+    if (direcao < 0)
+        velX = -50;
+    else
+        velX = 50;
+}
+
+void Jogador::repelirY() {
+    empuxo = -6;
 }
