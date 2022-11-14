@@ -70,7 +70,7 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
 }
 
 void entidades::personagens::Jogador::colideX() {
-
+    velX = 0;
 }
 
 void entidades::personagens::Jogador::moverX() {

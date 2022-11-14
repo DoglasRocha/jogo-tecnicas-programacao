@@ -9,6 +9,7 @@ using namespace sf;
 entidades::personagens::Personagem::Personagem() :
 tempoAnimacao(milliseconds(125)) {
     velX = velY = qtdPulos = empuxo = 0;
+    vivo = true;
 }
 
 entidades::personagens::Personagem::~Personagem() {
@@ -114,6 +115,8 @@ Sprite *entidades::personagens::Personagem::getSprite() {
 }
 
 void entidades::personagens::Personagem::desenhar() {
+    if (!vivo) return;
+    
     ptrGG->desenhaElemento(sprite);
     if (velX != 0)
         animar();
@@ -126,4 +129,15 @@ void entidades::personagens::Personagem::colideY() {
 
 int entidades::personagens::Personagem::getAtaque() {
     return ataque;
+}
+
+void entidades::personagens::Personagem::recebeAtaque(Personagem *personagem) {
+    num_vidas -= personagem->getAtaque();
+
+    if (num_vidas <= 0) 
+        vivo = false; 
+}
+
+bool entidades::personagens::Personagem::getVivo() {
+    return vivo;
 }

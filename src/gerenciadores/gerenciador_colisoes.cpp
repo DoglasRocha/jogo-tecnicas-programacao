@@ -42,6 +42,9 @@ namespace Gerenciadores
     void GerenciadorColisoes::executar() {
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
             moveX = moveY = true;
+
+            if (!vetorInimigos[i]->getVivo()) continue;
+
             executaColisoesObstaculos(vetorInimigos[i]);
 
             if (moveX) 
@@ -126,6 +129,8 @@ namespace Gerenciadores
         bJogadorFuturo.top += deltaY, bJogadorFuturo.left += deltaX;
 
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
+            if (!vetorInimigos[i]->getVivo()) continue;
+
             FloatRect boundsInimigo = vetorInimigos[i]->getSprite()->getGlobalBounds();
 
             if (boundsInimigo.intersects(bJogadorFuturo)) {
@@ -136,14 +141,17 @@ namespace Gerenciadores
                         jogador->repelirX(-1);
                     else
                         jogador->repelirX(1);
-
-                    moveX = false;
+                    //jogador->recebeAtaque(vetorInimigos[i]);
+                    //moveX = false;
                 }
                 
                 bJogadorFuturo = bJogador;
                 bJogadorFuturo.top += deltaY;
-                if (boundsInimigo.intersects(bJogadorFuturo))
-                    jogador->repelirY(), moveY = false;
+                if (boundsInimigo.intersects(bJogadorFuturo) &&
+                    bJogador.top + bJogador.height < boundsInimigo.top)
+                    jogador->repelirY(), 
+                    moveY = false,
+                    vetorInimigos[i]->recebeAtaque(jogador);
 
             }
         }
