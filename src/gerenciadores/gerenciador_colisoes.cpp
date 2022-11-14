@@ -141,8 +141,8 @@ namespace Gerenciadores
                         jogador->repelirX(-1);
                     else
                         jogador->repelirX(1);
-                    //jogador->recebeAtaque(vetorInimigos[i]);
-                    //moveX = false;
+                    
+                    jogador->recebeAtaque(vetorInimigos[i]);
                 }
                 
                 bJogadorFuturo = bJogador;

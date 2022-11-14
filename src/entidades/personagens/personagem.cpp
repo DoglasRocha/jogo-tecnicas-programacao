@@ -133,7 +133,7 @@ int entidades::personagens::Personagem::getAtaque() {
 
 void entidades::personagens::Personagem::recebeAtaque(Personagem *personagem) {
     num_vidas -= personagem->getAtaque();
-
+    
     if (num_vidas <= 0) 
         vivo = false; 
 }
