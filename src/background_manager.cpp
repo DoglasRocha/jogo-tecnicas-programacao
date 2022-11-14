@@ -31,5 +31,7 @@ BackgroundManager::~BackgroundManager() {
 }
 
 void BackgroundManager::desenhar() {
+    Vector2f posicaoView = ptrGG->getCentroView();
+    backgroundImage.setPosition(posicaoView.x - 700, posicaoView.y - 500);
     ptrGG->desenhaElemento(backgroundImage);
 }

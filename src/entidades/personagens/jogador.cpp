@@ -74,3 +74,9 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
 void entidades::personagens::Jogador::colideX() {
 
 }
+
+void entidades::personagens::Jogador::moverX() {
+    sprite.move((float)velX, 0.f);
+    x += velX;
+    ptrGG->centralizarJanela(x);
+}

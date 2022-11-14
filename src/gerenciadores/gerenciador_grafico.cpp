@@ -8,6 +8,8 @@ GerenciadorGrafico::GerenciadorGrafico()
 {
     window = new RenderWindow(VideoMode(1400, 1000), "Jogo");
     window->setFramerateLimit(40);
+    view = new View({700, 500}, {1400, 1000});
+    window->setView(*view);
 }
 
 GerenciadorGrafico::~GerenciadorGrafico() 
@@ -48,6 +50,15 @@ void GerenciadorGrafico::fechaJanela() {
     window->close();
 }
 
-Vector2u Gerenciadores::GerenciadorGrafico::getTamanhoJanela() {
+Vector2u GerenciadorGrafico::getTamanhoJanela() {
     return window->getSize();
+}
+
+void GerenciadorGrafico::centralizarJanela(int x) {
+    view->setCenter(x, 500);   
+    window->setView(*view); 
+}
+
+Vector2f GerenciadorGrafico::getCentroView() {
+    return view->getCenter();
 }

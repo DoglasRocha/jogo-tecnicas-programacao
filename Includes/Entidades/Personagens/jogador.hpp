@@ -14,5 +14,6 @@ namespace entidades::personagens {
         void desenhar(RenderWindow *window);
         void processarEventos(Event evento);
         void colideX();
+        void moverX();
 	};	
 }

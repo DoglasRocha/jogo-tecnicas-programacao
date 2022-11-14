@@ -8,6 +8,7 @@ namespace Gerenciadores
 	{
 	private:
 		RenderWindow *window;
+		View *view;
 		static GerenciadorGrafico *instance;
 
 	protected:
@@ -16,6 +17,7 @@ namespace Gerenciadores
 	public:
 		~GerenciadorGrafico();
 		static GerenciadorGrafico *getInstance();
+		static void deletaGerenciadorGrafico();
 		RenderWindow *getWindow();
         const bool verificaJanelaAberta();
         void limpaJanela();
@@ -23,5 +25,7 @@ namespace Gerenciadores
         void mostraElementos();
         void fechaJanela();
         Vector2u getTamanhoJanela();
+		void centralizarJanela(int x);
+		Vector2f getCentroView();
 	};
 }
