@@ -21,7 +21,9 @@ Fase::Fase(GerenciadorColisoes *gC,
     ptrJogador = ptrJogador_;
 }
 
-Fase::~Fase() {}
+Fase::~Fase() {
+    delete planoDeFundo;
+}
 
 void Fase::gerencia_colisoes()
 {
@@ -80,18 +82,20 @@ void Fase::criaFogo(int posX, int posY) {
     gerenciadorColisoes->addObstaculo(novoFogo);
 }
 
-void Fase::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY) {
+void Fase::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY,
+    bool geraNarigudo, bool geraArbusto, bool geraFogo) 
+{
     criaPlataforma(tamX, tamY, posX, posY);
-    if (rand() % 2) {
-        criaNarigudo(posX + (rand() % tamX) - 50, posY);
+    if (geraNarigudo && rand() % 2) {
+        criaNarigudo(posX + (rand() % tamX), posY);
     }
 
-    if (rand() % 5) {
-        criaArbusto(posX + (rand() % tamX) - 50, posY);
+    if (geraArbusto && rand() % 5) {
+        criaArbusto(posX + (rand() % tamX), posY);
     }
 
-    if (rand() % 2) {
-        criaFogo(posX + (rand() % tamX) - 50, posY);
+    if (geraFogo && rand() % 2) {
+        criaFogo(posX + (rand() % tamX), posY);
     }
 
 }

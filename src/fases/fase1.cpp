@@ -10,40 +10,55 @@ Fase1::Fase1(GerenciadorColisoes *gC,
              Jogo *ptrJogo) :
 Fase(gC, gE, ptrJogador, ptrJogo) {
 
-    int infoPlataformas[8][4] = {
-            {2400, 50, 32, 950},
-            {300, 20, 100, 750},
-            {300, 20, 300, 550},
-            {450, 20, 1200, 750},
-            {150, 20, 975, 450},
-            {300, 20, 1750, 800},
-            {450, 20, 1900, 575},
-            {150, 20, 2250, 400}
+    int infoPlataformas[11][4] = {
+        {1000, 50, 32, 950},
+        {1500, 50, 1000, 800},
+        {1000, 50, 2500, 950},
+        {300, 20, 200, 800},
+        {400, 20, 900, 450},
+        {500, 20, 1500, 600},
+        {500, 20, 1500, 250},
+        {400, 20, 2100, 300},
+        {600, 20, 2200, 550},
+        {450, 20, 2800, 750},
+        {350, 20, 2800, 450}
+    };
+
+    int infoParedes[4][3] = {
+        {500, 0, 500}, 
+        {200, 1000, 800},
+        {200, 2500, 800},
+        {500, 3500, 500}
     };
 
     listaDeEntidades.append(ptrJogador);
 
-    criaPlataforma(
-        infoPlataformas[0][0],
-        infoPlataformas[0][1],
-        infoPlataformas[0][2],
-        infoPlataformas[0][3]
-    );
-    for (int i = 1; i < 8; i++) {
-        criaPlataformaComAgregadosAleatorios(
+    for (int i = 0; i < 3; i++)
+        criaPlataforma(
             infoPlataformas[i][0],
             infoPlataformas[i][1],
             infoPlataformas[i][2],
             infoPlataformas[i][3]
         );
-    }
 
-    criaParede(500, 0, 0);
-    criaParede(500, 2400, 0);
+    for (int i = 3; i < 11; i++) 
+        criaPlataformaComAgregadosAleatorios(
+            infoPlataformas[i][0],
+            infoPlataformas[i][1],
+            infoPlataformas[i][2],
+            infoPlataformas[i][3],
+            true, true, false
+        );
+
+    for (int i = 0; i < 4; i++)
+        criaParede(
+            infoParedes[i][0],
+            infoParedes[i][1],
+            infoParedes[i][2]
+        );
 
     planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png");
 }
 
 Fase1::~Fase1() {
-    delete planoDeFundo;
 }

@@ -4,8 +4,8 @@ Fogo::Fogo(int posX, int posY)
 {
     atravessavel = 1;
     intensidade++;
-    tamX = 30;
-    tamY = 46;
+    tamX = 60;
+    tamY = 1000;
     shape = new RectangleShape(Vector2f(tamX,tamY));
     textura = new Texture;
     textura->loadFromFile("texturas/fogo/fogo1.png");
