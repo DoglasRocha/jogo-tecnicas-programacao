@@ -32,5 +32,11 @@ namespace fases
         void desenhar();
         void gerencia_colisoes();
         virtual void trocaEstado(int opcao=0) = 0;
+        void criaPlataforma(int tamX, int tamY, int posX, int posY);
+        void criaParede(int tamY, int posX, int posY);
+        void criaNarigudo(int posX, int posY);
+        void criaArbusto(int posX, int posY);
+        void criaFogo(int posX, int posY);
+        void criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY);
     };
 }
