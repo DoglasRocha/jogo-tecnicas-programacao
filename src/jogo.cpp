@@ -46,3 +46,9 @@ void Jogo::irParaFase1() {
 
     estadoAtual = new Fase1(gerenciadorColisoes, gerenciadorEventos, &cj, this);
 }
+
+void Jogo::irParaMenu() {
+    delete dynamic_cast<Fase *>(estadoAtual);
+
+    estadoAtual = new Menu(gerenciadorEventos, this);
+}

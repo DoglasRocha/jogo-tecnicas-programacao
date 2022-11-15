@@ -31,6 +31,7 @@ namespace Gerenciadores {
         GerenciadorColisoes *addObstaculo(Obstaculo *ptrObstaculo);
         void aplicaGravidade(Personagem *personagem);
         void executar();
+        std::vector<Inimigo*> getVetorInimigos();
         void executarColisoesJogador();
         void mostraHitbox(int x, int y, int width, int height);
         void setJogador(Jogador *ptrJogador);

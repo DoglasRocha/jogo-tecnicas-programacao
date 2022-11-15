@@ -31,7 +31,7 @@ namespace fases
         virtual void processaEventos();
         void desenhar();
         void gerencia_colisoes();
-        virtual void trocaEstado(int opcao=0) = 0;
+        void trocaEstado(int opcao=0);
         void criaPlataforma(int tamX, int tamY, int posX, int posY);
         void criaParede(int tamY, int posX, int posY);
         void criaNarigudo(int posX, int posY);

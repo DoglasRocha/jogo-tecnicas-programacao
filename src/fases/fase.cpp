@@ -5,10 +5,12 @@
 #include "../../Includes/Entidades/Obstaculos/arbusto.hpp"
 #include "../../Includes/Entidades/Obstaculos/fogo.hpp"
 #include "../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
+#include <iostream>
 
 using namespace entidades::obstaculos;
 using namespace entidades::personagens;
 using fases::Fase;
+using namespace std;
 
 Fase::Fase(GerenciadorColisoes *gC,
            GerenciadorEventos *gE,
@@ -33,6 +35,7 @@ void Fase::gerencia_colisoes()
 void Fase::executar() {
     gerencia_colisoes();
     processaEventos();
+    trocaEstado();
     desenhar();
 }
 
@@ -98,4 +101,11 @@ void Fase::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, in
         criaFogo(posX + (rand() % tamX), posY);
     }
 
+}
+
+void Fase::trocaEstado(int opcao)
+{
+    cout << "Teste" << endl;
+    if(!(ptrJogador->getVivo())) ptrJogo->irParaMenu();
+    else if (gerenciadorColisoes->getVetorInimigos().empty()) ptrJogo->irParaMenu();
 }

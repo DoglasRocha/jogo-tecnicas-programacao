@@ -4,6 +4,7 @@
 #include <list>
 
 using namespace sf;
+using namespace std;
 
 namespace Gerenciadores
 {
@@ -124,17 +125,26 @@ namespace Gerenciadores
         jogador = ptrJogador;
     }
 
+    vector<Inimigo*> GerenciadorColisoes::getVetorInimigos(){
+        return vetorInimigos;
+    }
+
     void GerenciadorColisoes::executaColisaoJogadorComInimigo() {
 
         FloatRect bJogador = jogador->getSprite()->getGlobalBounds(),
             bJogadorFuturo = bJogador;
         int deltaX = jogador->getVelX(),
             deltaY = jogador->getVelY() + jogador->getEmpuxo();
+        vector<Inimigo*>::iterator it;
 
         bJogadorFuturo.top += deltaY, bJogadorFuturo.left += deltaX;
 
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
-            if (!vetorInimigos[i]->getVivo()) continue;
+            if (!vetorInimigos[i]->getVivo()) 
+            {
+                it = vetorInimigos.begin() + i;
+                vetorInimigos.erase(it);
+            }
 
             FloatRect boundsInimigo = vetorInimigos[i]->getSprite()->getGlobalBounds();
 

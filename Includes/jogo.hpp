@@ -23,4 +23,5 @@ public:
     void irParaFase1();
     void irParaFase2();
     void irParaRanking();
+    void irParaMenu();
 };
