@@ -12,5 +12,7 @@ namespace entidades::personagens
         virtual ~Inimigo();
         virtual void processarEventos(Event evento) = 0;
         virtual void colideX() = 0;
+        void lentidao();
+        void queimar();
 	};
 }

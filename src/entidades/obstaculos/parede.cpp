@@ -25,3 +25,7 @@ void Parede::processarEventos(sf::Event evento) {
 void Parede::setEmpuxo(int novoEmpuxo) {
 
 }
+
+void Parede::interage(Personagem *ptrJogador){
+    
+}

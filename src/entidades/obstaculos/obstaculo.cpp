@@ -48,3 +48,7 @@ Shape *entidades::obstaculos::Obstaculo::getShape() {
 void entidades::obstaculos::Obstaculo::desenhar() {
     ptrGG->desenhaElemento(*shape);
 }
+
+bool entidades::obstaculos::Obstaculo::getAtravessar(){
+    return atravessavel;
+}

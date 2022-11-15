@@ -10,5 +10,6 @@ namespace entidades::obstaculos {
             ~Parede();
             void processarEventos(sf::Event evento);
             void setEmpuxo(int novoEmpuxo);
+            void interage(Personagem *ptrJogador);
 };
 }

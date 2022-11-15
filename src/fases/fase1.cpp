@@ -6,6 +6,7 @@
 #include "../../Includes/Entidades/Obstaculos/plataforma.hpp"
 #include "../../Includes/Entidades/Obstaculos/parede.hpp"
 #include "../../Includes/Entidades/Obstaculos/arbusto.hpp"
+#include "../../Includes/Entidades/Obstaculos/fogo.hpp"
 #include "../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
 
 using entidades::obstaculos::Plataforma;
@@ -22,6 +23,7 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
     Narigudo *novoNarigudo;
     Parede *novaParede;
     Arbusto *novoArbusto;
+    Fogo *novoFogo;
 
     int infoPlataformas[8][4] = {
             {2400, 50, 32, 950},
@@ -34,6 +36,7 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
             {150, 20, 2250, 400}
     };
 
+    listaDeEntidades.append(ptrJogador);
 
     for (int i = 0; i < 8; i++) {
         novaPlataforma = new Plataforma(
@@ -51,15 +54,21 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
             infoPlataformas[i][2] + 20,
             infoPlataformas[i][3]);
 
+        novoFogo = new Fogo(
+            infoPlataformas[i][2] + 150,
+            infoPlataformas[i][3]);
+
         listaDeEntidades.
             append(novaPlataforma)->
             append(novoNarigudo)->
-            append(novoArbusto);
+            append(novoArbusto)->
+            append(novoFogo);
 
         gerenciadorColisoes->
             addObstaculo(novaPlataforma)->
             addInimigo(novoNarigudo)->
-            addObstaculo(novoArbusto);
+            addObstaculo(novoArbusto)->
+            addObstaculo(novoFogo);
     }
 
     novaParede = new Parede(32, 1400, 0, 0);
@@ -70,7 +79,6 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
     listaDeEntidades.append(novaParede);
     gerenciadorColisoes->addObstaculo(novaParede);
 
-    listaDeEntidades.append(ptrJogador);
     planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png");
 }
 

@@ -14,4 +14,5 @@ class Arbusto : public Obstaculo
         float getAltura();
         void processarEventos(sf::Event evento);
         void setEmpuxo(int novoEmpuxo);  
+        void interage(Personagem *ptrJogador);
 };

@@ -19,5 +19,7 @@ namespace entidades::personagens
         void processarEventos(Event evento);
         void colideX();
         int getAtaque();
+        void lentidao();
+        void queimar();
     };
 }

@@ -16,5 +16,7 @@ namespace entidades::personagens {
         void moverX();
         void repelirX(int direcao);
         void repelirY();
+        void lentidao();
+        void queimar();
 	};	
 }

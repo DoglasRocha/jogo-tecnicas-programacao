@@ -11,3 +11,11 @@ entidades::personagens::Personagem() {
 entidades::personagens::Inimigo::~Inimigo() {
 
 }
+
+void entidades::personagens::Inimigo::lentidao(){
+
+}
+
+void entidades::personagens::Inimigo::queimar(){
+
+}

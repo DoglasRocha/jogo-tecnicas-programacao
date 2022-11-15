@@ -87,19 +87,24 @@ namespace Gerenciadores
         std::list<Obstaculo *>::iterator it;
         for (it = listaObstaculos.begin(); it != listaObstaculos.end(); it++) {
             FloatRect boundsObstaculo = (*it)->getShape()->getGlobalBounds();
-
             if (boundsObstaculo.intersects(bPersFuturo)) {
                 bPersFuturo = bPersAtual;
                 bPersFuturo.left += deltaX;
                 if (boundsObstaculo.intersects(bPersFuturo)) {
-                    moveX = false;
+                    if(!(*it)->getAtravessar()) moveX = false;
+                    else 
+                    {
+                        (*it)->interage(ptrPersonagem);
+                        ptrPersonagem->checaVivo();
+                    }
+                    
                 }
 
                 bPersFuturo = bPersAtual;
                 bPersFuturo.top += deltaY;
-                if (boundsObstaculo.intersects(bPersFuturo))
-                    moveY = false;
-
+                if (boundsObstaculo.intersects(bPersFuturo)){
+                    if(!(*it)->getAtravessar()) moveY = false;
+                }
             }
         }
 
@@ -152,7 +157,6 @@ namespace Gerenciadores
                     jogador->repelirY(), 
                     moveY = false,
                     vetorInimigos[i]->recebeAtaque(jogador);
-
             }
         }
 

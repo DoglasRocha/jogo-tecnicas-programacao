@@ -1,13 +1,16 @@
 #include "../../../Includes/Entidades/Obstaculos/fogo.hpp"
 
-Fogo::Fogo()
+Fogo::Fogo(int posX, int posY)
 {
+    atravessavel = 1;
     intensidade++;
-    tamX = 50;
-    tamY = 50;
+    tamX = 30;
+    tamY = 46;
     shape = new RectangleShape(Vector2f(tamX,tamY));
     textura = new Texture;
-    textura->loadFromFile("texturas"); 
+    textura->loadFromFile("texturas/fogo/fogo1.png");
+    shape->setTexture(textura);
+    shape->setPosition(posX,posY - tamY); 
 }
 
 Fogo::~Fogo()
@@ -18,4 +21,16 @@ Fogo::~Fogo()
 int Fogo::getIntensidade()
 {
     return intensidade;
+}
+
+void Fogo::processarEventos(sf::Event evento){
+
+}
+
+void Fogo::setEmpuxo(int novoEmpuxo){
+
+}
+
+void Fogo::interage(Personagem *ptrJogador){
+    ptrJogador->queimar();
 }

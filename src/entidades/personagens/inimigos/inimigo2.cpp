@@ -14,3 +14,11 @@ void entidades::personagens::Inimigo2::processarEventos(Event evento) {
 }
 
 void entidades::personagens::Inimigo2::colideX() {}
+
+void entidades::personagens::Inimigo2::lentidao(){
+
+}
+
+void entidades::personagens::Inimigo2::queimar(){
+
+}

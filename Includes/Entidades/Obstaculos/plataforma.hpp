@@ -17,6 +17,7 @@ namespace entidades::obstaculos {
             ~Plataforma();
             void processarEventos(Event evento);
             void setEmpuxo(int novoEmpuxo);
+            void interage(Personagem *ptrJogador);
         };
 }
 

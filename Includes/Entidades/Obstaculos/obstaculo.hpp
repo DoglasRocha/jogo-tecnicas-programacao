@@ -1,7 +1,9 @@
 #pragma once
 #include "../entidade.hpp"
+#include "../Personagens/jogador.hpp"
 
 using entidades::Entidade;
+using entidades::personagens::Personagem;
 using namespace sf;
 
 namespace entidades::obstaculos
@@ -12,6 +14,7 @@ namespace entidades::obstaculos
         int tamX, tamY;
         Shape *shape;
         Texture *textura;
+        bool atravessavel = 0;
 
     public:
         Obstaculo();
@@ -24,5 +27,7 @@ namespace entidades::obstaculos
         Drawable *getDraw();
         Shape *getShape();
         void desenhar();
+        bool getAtravessar();
+        virtual void interage(Personagem *ptrJogador) = 0;
 	};
 }

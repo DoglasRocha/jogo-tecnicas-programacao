@@ -29,3 +29,7 @@ void entidades::obstaculos::Plataforma::processarEventos(Event evento) {
 void entidades::obstaculos::Plataforma::setEmpuxo(int novoEmpuxo) {
 
 }
+
+void entidades::obstaculos::Plataforma::interage(Personagem *ptrJogador){
+
+}

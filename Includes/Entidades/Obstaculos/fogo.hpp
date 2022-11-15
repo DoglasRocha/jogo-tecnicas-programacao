@@ -9,7 +9,10 @@ class Fogo : public Obstaculo
     /*static*/ int intensidade;
 
     public:
-    Fogo();
-    ~Fogo();
-    /*static*/ int getIntensidade();
+        Fogo(int posX, int posY);
+        ~Fogo();
+        /*static*/ int getIntensidade();
+        void processarEventos(sf::Event evento);
+        void setEmpuxo(int novoEmpuxo);
+        void interage(Personagem *ptrJogador);
 };

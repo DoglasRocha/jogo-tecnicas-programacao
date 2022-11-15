@@ -2,6 +2,7 @@
 
 Arbusto::Arbusto(int posX, int posY)
 {
+    atravessavel = 1;
     altura = (float(rand())/RAND_MAX) + 1;
     tamX = 100;
     tamY = 50 * altura;
@@ -22,6 +23,14 @@ float Arbusto::getAltura()
     return altura;
 }
 
-void Arbusto::processarEventos(sf::Event evento){}
+void Arbusto::processarEventos(sf::Event evento){
 
-void Arbusto::setEmpuxo(int novoEmpuxo){}
+}
+
+void Arbusto::setEmpuxo(int novoEmpuxo){
+
+}
+
+void Arbusto::interage(Personagem *ptrJogador){
+    ptrJogador->lentidao();
+}

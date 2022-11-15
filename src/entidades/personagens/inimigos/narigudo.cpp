@@ -52,3 +52,11 @@ void Narigudo::colideX() {
 int Narigudo::getAtaque() {
     return ataque + forcaEspirro;
 }
+
+void Narigudo::lentidao(){
+
+}
+
+void Narigudo::queimar(){
+
+}

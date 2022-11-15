@@ -34,7 +34,7 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1);
                     sentido = "DIREITA";
                 }
-                velX = 3;
+                velX = 4;
                 break;
 
             case (Keyboard::Left):
@@ -42,7 +42,7 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1);
                     sentido = "ESQUERDA";
                 }
-                velX = -3;
+                velX = -4;
                 break;
 
             case (Keyboard::Up):
@@ -91,4 +91,15 @@ void Jogador::repelirX(int direcao) {
 
 void Jogador::repelirY() {
     empuxo = -6;
+}
+
+void Jogador::lentidao()
+{
+    velX *= 0.75;
+}
+
+void Jogador::queimar()
+{
+    num_vidas--;
+    velX *= 1.4;
 }
