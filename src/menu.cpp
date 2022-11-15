@@ -26,7 +26,7 @@ Menu::Menu(GerenciadorEventos *gE, Jogo *ptrJogo)
         
 Menu::~Menu()
 {
-    std::cout << "chama" << std::endl;
+    
 }
 
 void Menu::desenhar()
