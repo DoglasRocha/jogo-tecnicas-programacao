@@ -18,8 +18,11 @@ namespace entidades::personagens {
         void processarEventos(Event evento);
         void colideX();
         void colideY();
+        void moverY();
         void lentidao();
         void queimar();
         int getAtaque();
+        void setEmpuxo(int novoEmpuxo);
+        void setVelY(int novaVel);
     };
 }

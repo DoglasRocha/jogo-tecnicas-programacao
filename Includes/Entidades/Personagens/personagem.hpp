@@ -24,8 +24,8 @@ namespace entidades::personagens
         virtual ~Personagem();
         virtual void moverX();
         virtual void moverY();
-        void setVelX(int novaVel);
-        void setVelY(int novaVel);
+        /*virtual*/ void setVelX(int novaVel);
+        /*virtual*/ void setVelY(int novaVel);
         int getVelX();
         int getVelY();
         void setQtdPulos(int pulos);

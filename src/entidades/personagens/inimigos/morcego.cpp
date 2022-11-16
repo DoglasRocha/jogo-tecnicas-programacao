@@ -42,7 +42,7 @@ void entidades::personagens::Morcego::colideX() {
 }
 
 void  entidades::personagens::Morcego::colideY() {
-    velY = -velY;
+    velY = -1;
 }
 
 int  entidades::personagens::Morcego::getAtaque() {
@@ -55,4 +55,21 @@ void entidades::personagens::Morcego::lentidao(){
 
 void entidades::personagens::Morcego::queimar(){
 
+}
+
+void entidades::personagens::Morcego::moverY() {
+    if (y < 100)
+        velY = -velY;
+    
+    animar();
+    sprite.move(0.f, (float)velY);
+    y += velY;
+}
+
+void entidades::personagens::Morcego::setEmpuxo(int novoEmpuxo) {
+    
+}
+
+void entidades::personagens::Morcego::setVelY(int novaVel) {
+    
 }

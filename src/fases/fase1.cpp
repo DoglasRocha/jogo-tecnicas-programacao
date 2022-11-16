@@ -58,7 +58,7 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
             infoParedes[i][2]
         );
 
-    criaMorcego(1700, 300);
+    criaMorcego(100, 300);
     criaMorcego(2300, 400);
     criaMorcego(2900, 600);
 
