@@ -6,16 +6,20 @@ using namespace sf;
 using Listas::ListaCircular;
 
 namespace entidades::personagens {
-    class Inimigo2 : public Inimigo
+    class Morcego : public Inimigo
     {
+    private:
+        int forcaAsas;
 
     public:
-        Inimigo2();
-        ~Inimigo2();
-        void desenhar(RenderWindow *window);
+        Morcego();
+        Morcego(int x, int y);
+        ~Morcego();
         void processarEventos(Event evento);
         void colideX();
+        void colideY();
         void lentidao();
         void queimar();
+        int getAtaque();
     };
 }

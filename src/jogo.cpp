@@ -42,7 +42,6 @@ Jogo::~Jogo() {
 }
 
 void Jogo::irParaFase1() {
-    cj.reset();
     if (estadoAntigo)
         delete estadoAntigo;
     estadoAntigo = estadoAtual;
@@ -50,7 +49,6 @@ void Jogo::irParaFase1() {
 }
 
 void Jogo::irParaMenu() {
-    cj.reset();
     if (estadoAntigo)
         delete estadoAntigo;
     estadoAntigo = estadoAtual;

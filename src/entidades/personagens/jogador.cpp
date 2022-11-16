@@ -108,6 +108,7 @@ void Jogador::reset() {
     num_vidas = 100;
     x = 700;
     y = 500;
+    vivo = true;
     sprite.setPosition(x, y);
     ptrGG->centralizarJanela(x);
 }

@@ -58,6 +58,10 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
             infoParedes[i][2]
         );
 
+    criaMorcego(1700, 300);
+    criaMorcego(2300, 400);
+    criaMorcego(2900, 600);
+
     planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png");
 }
 
@@ -67,7 +71,8 @@ Fase1::~Fase1() {
 
 void Fase1::trocaEstado(int opcao) {
     if(!(ptrJogador->getVivo())) 
-        ptrJogo->irParaMenu();
+        ptrJogo->irParaMenu(),
+        ptrJogador->reset();
     else if 
         (gerenciadorColisoes->getVetorInimigos().empty()) ptrJogo->irParaMenu();
 }

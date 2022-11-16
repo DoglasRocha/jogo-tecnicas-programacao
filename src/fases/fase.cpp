@@ -5,6 +5,7 @@
 #include "../../Includes/Entidades/Obstaculos/arbusto.hpp"
 #include "../../Includes/Entidades/Obstaculos/fogo.hpp"
 #include "../../Includes/Entidades/Personagens/Inimigos/narigudo.hpp"
+#include "../../Includes/Entidades/Personagens/Inimigos/morcego.hpp"
 #include <iostream>
 
 using namespace entidades::obstaculos;
@@ -83,6 +84,12 @@ void Fase::criaFogo(int posX, int posY) {
     Fogo *novoFogo = new Fogo(posX, posY);
     listaDeEntidades.append(novoFogo);
     gerenciadorColisoes->addObstaculo(novoFogo);
+}
+
+void Fase::criaMorcego(int posX, int posY) {
+    Morcego *novoMorcego = new Morcego(posX, posY);
+    listaDeEntidades.append(novoMorcego);
+    gerenciadorColisoes->addInimigo(novoMorcego);
 }
 
 void Fase::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY,
