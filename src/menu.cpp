@@ -26,7 +26,12 @@ Menu::Menu(GerenciadorEventos *gE, Jogo *ptrJogo)
         
 Menu::~Menu()
 {
-    
+    ListaEntidades::Node *node;
+    for (node = listaDeBotoes.begin(); node != listaDeBotoes.end(); node = node->getNext())
+        delete dynamic_cast<Botao *>(node->getDado());
+
+    delete dynamic_cast<Botao *>(node->getDado());
+    delete planoDeFundo;
 }
 
 void Menu::desenhar()

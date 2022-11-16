@@ -22,8 +22,8 @@ Botao::Botao(int posY, string stringTextura) : Botao()
 
 Botao::~Botao() 
 {
-    textura = nullptr;
-    shape = nullptr;
+    delete textura;
+    delete shape;
 }
 
 void Botao::desenhar() 

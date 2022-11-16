@@ -14,8 +14,7 @@ Arbusto::Arbusto(int posX, int posY)
 }
 
 Arbusto::~Arbusto(){
-    textura = nullptr;
-    shape = nullptr;
+
 }
 
 float Arbusto::getAltura()

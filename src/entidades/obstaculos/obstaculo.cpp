@@ -17,8 +17,8 @@ Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) {
 }
 
 Obstaculo::~Obstaculo() {
-    //delete shape;
-    //delete textura;
+    delete shape;
+    delete textura;
 }
 
 int Obstaculo::getTamX() {
