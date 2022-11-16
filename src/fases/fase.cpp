@@ -102,10 +102,3 @@ void Fase::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, in
     }
 
 }
-
-void Fase::trocaEstado(int opcao)
-{
-    cout << "Teste" << endl;
-    if(!(ptrJogador->getVivo())) ptrJogo->irParaMenu();
-    else if (gerenciadorColisoes->getVetorInimigos().empty()) ptrJogo->irParaMenu();
-}

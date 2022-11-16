@@ -3,6 +3,7 @@
 //
 
 #include "../../Includes/Fases/fase1.hpp"
+#include "../../Includes/jogo.hpp"
 
 Fase1::Fase1(GerenciadorColisoes *gC,
              GerenciadorEventos *gE,
@@ -61,4 +62,12 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
 }
 
 Fase1::~Fase1() {
+
+}
+
+void Fase1::trocaEstado(int opcao) {
+    if(!(ptrJogador->getVivo())) 
+        ptrJogo->irParaMenu();
+    else if 
+        (gerenciadorColisoes->getVetorInimigos().empty()) ptrJogo->irParaMenu();
 }

@@ -11,5 +11,5 @@ public:
           Jogador *ptrJogador=nullptr,
           Jogo *ptrJogo=nullptr);
     ~Fase1();
-    void trocaEstado(int opcao=0) {}
+    void trocaEstado(int opcao=0);
 };
