@@ -26,7 +26,7 @@ namespace fases
              GerenciadorEventos *gE=nullptr,
              Jogador *ptrJogador_=nullptr,
              Jogo *ptrJogo=nullptr);
-        ~Fase();
+        virtual ~Fase();
         virtual void executar();
         virtual void processaEventos();
         void desenhar();

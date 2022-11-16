@@ -15,7 +15,8 @@ private:
     GerenciadorColisoes *gerenciadorColisoes;
     GerenciadorEventos *gerenciadorEventos;
     Jogador cj;
-    Estado *estadoAtual;
+    Estado *estadoAtual,
+           *estadoAntigo;
 
 public:
 	Jogo();

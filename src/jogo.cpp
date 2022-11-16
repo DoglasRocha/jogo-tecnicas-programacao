@@ -26,12 +26,12 @@ Jogo::Jogo()
     Ente::setGerenciadorGrafico(gerenciadorGrafico);
     gerenciadorColisoes->setJogador(&cj);
     estadoAtual = new Menu(gerenciadorEventos, this);
+    estadoAntigo = nullptr;
     
     while (gerenciadorGrafico->verificaJanelaAberta())
     {
         gerenciadorGrafico->limpaJanela();
         estadoAtual->executar();
-        //fase1.executar();
         sleep(milliseconds(20));
         gerenciadorGrafico->mostraElementos();
     }
@@ -42,13 +42,18 @@ Jogo::~Jogo() {
 }
 
 void Jogo::irParaFase1() {
-    delete dynamic_cast<Menu *>(estadoAtual);
-
+    cj.reset();
+    if (estadoAntigo)
+        delete estadoAntigo;
+    estadoAntigo = estadoAtual;
     estadoAtual = new Fase1(gerenciadorColisoes, gerenciadorEventos, &cj, this);
 }
 
 void Jogo::irParaMenu() {
-    delete dynamic_cast<Fase *>(estadoAtual);
+    cj.reset();
+    if (estadoAntigo)
+        delete estadoAntigo;
+    estadoAntigo = estadoAtual;
 
     estadoAtual = new Menu(gerenciadorEventos, this);
 }

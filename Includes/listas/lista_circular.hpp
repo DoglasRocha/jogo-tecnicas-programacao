@@ -55,13 +55,12 @@ namespace Listas {
             length = 0;
         }
 
-        ~ListaCircular() {
+        virtual ~ListaCircular() {
             Node *tmp;
             for (Node *aux = head; aux != tail; aux = tmp) {
                 tmp = aux->getNext();
                 delete aux;
             }
-
             delete tmp;
         }
 

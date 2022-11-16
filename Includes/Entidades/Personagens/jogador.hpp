@@ -18,5 +18,6 @@ namespace entidades::personagens {
         void repelirY();
         void lentidao();
         void queimar();
+        void reset();
 	};	
 }

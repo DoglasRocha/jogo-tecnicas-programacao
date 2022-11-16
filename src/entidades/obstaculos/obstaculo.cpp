@@ -4,16 +4,19 @@ using entidades::obstaculos::Obstaculo;
 
 Obstaculo::Obstaculo() {}
 
-Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) {
+Obstaculo::Obstaculo(int tamX, int tamY) {
+    shape = new RectangleShape(Vector2f(tamX, tamY));
+    textura = new Texture();
+}
+
+Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) :
+Obstaculo(tamX, tamY) {
     this->tamX = tamX;
     this->tamY = tamY;
     this->x = x;
     this->y = y;
 
-    shape = new RectangleShape(Vector2f(tamX, tamY));
     shape->setPosition(x, y);
-
-    textura = new Texture();
 }
 
 Obstaculo::~Obstaculo() {

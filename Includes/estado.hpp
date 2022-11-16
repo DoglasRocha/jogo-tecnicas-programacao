@@ -7,7 +7,7 @@ class Estado {
 
     public:
         Estado(Jogo *ptrJogo=nullptr);
-        ~Estado();
+        virtual ~Estado();
         virtual void trocaEstado(int opcao=0) = 0;
         virtual void executar() = 0;
 };

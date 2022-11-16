@@ -103,3 +103,11 @@ void Jogador::queimar()
     num_vidas--;
     velX *= 1.4;
 }
+
+void Jogador::reset() {
+    num_vidas = 100;
+    x = 700;
+    y = 500;
+    sprite.setPosition(x, y);
+    ptrGG->centralizarJanela(x);
+}

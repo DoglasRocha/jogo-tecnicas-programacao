@@ -18,6 +18,7 @@ namespace entidades::obstaculos
 
     public:
         Obstaculo();
+        Obstaculo(int tamX, int tamY);
         Obstaculo(int tamX, int tamY, int x, int y);
         virtual ~Obstaculo();
         int getTamX();
