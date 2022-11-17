@@ -71,9 +71,7 @@ Fase1::~Fase1() {
 
 void Fase1::trocaEstado(int opcao) {
     if(!(ptrJogador->getVivo())) 
-        ptrJogo->irParaMenu(),
-        ptrJogador->reset();
-    else if 
-        (gerenciadorColisoes->getVetorInimigos().empty()) 
-            ptrJogo->irParaMenu();
+        ptrJogo->irParaMenu();
+    else if (gerenciadorColisoes->getVetorInimigos().empty()) 
+        ptrJogo->irParaMenu();
 }

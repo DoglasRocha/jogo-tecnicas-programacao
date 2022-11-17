@@ -14,7 +14,6 @@ GerenciadorGrafico::GerenciadorGrafico()
 
 GerenciadorGrafico::~GerenciadorGrafico() 
 {
-	delete instance;
     delete window;
 }
 

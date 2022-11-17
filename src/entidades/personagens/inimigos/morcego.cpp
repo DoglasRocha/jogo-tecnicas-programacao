@@ -42,7 +42,9 @@ void entidades::personagens::Morcego::colideX() {
 }
 
 void  entidades::personagens::Morcego::colideY() {
-    velY = -1;
+    std::cout << "chama" << std::endl;
+    velY = 0;
+    empuxo = -2;
 }
 
 int  entidades::personagens::Morcego::getAtaque() {
@@ -59,7 +61,7 @@ void entidades::personagens::Morcego::queimar(){
 
 void entidades::personagens::Morcego::moverY() {
     if (y < 100)
-        velY = -velY;
+        velY = 1, empuxo = 0;
     
     animar();
     sprite.move(0.f, (float)velY);
@@ -67,9 +69,5 @@ void entidades::personagens::Morcego::moverY() {
 }
 
 void entidades::personagens::Morcego::setEmpuxo(int novoEmpuxo) {
-    
-}
-
-void entidades::personagens::Morcego::setVelY(int novaVel) {
     
 }

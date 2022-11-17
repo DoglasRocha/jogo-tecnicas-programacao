@@ -23,6 +23,5 @@ namespace entidades::personagens {
         void queimar();
         int getAtaque();
         void setEmpuxo(int novoEmpuxo);
-        void setVelY(int novaVel);
     };
 }

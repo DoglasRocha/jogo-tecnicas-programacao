@@ -41,9 +41,12 @@ Jogo::~Jogo() {
     GerenciadorEventos::deleteInstance();
     GerenciadorColisoes::deleteInstance();
     GerenciadorGrafico::deleteInstance();
+    delete estadoAntigo;
+    delete estadoAtual;
 }
 
 void Jogo::irParaFase1() {
+    cj.reset();
     if (estadoAntigo)
         delete estadoAntigo;
     estadoAntigo = estadoAtual;
@@ -51,6 +54,7 @@ void Jogo::irParaFase1() {
 }
 
 void Jogo::irParaMenu() {
+    cj.reset();
     if (estadoAntigo)
         delete estadoAntigo;
     estadoAntigo = estadoAtual;

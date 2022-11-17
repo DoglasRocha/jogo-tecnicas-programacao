@@ -38,7 +38,7 @@ namespace Gerenciadores
     }
 
     GerenciadorColisoes::~GerenciadorColisoes() {
-        delete instance;
+        
     }
 
     void GerenciadorColisoes::aplicaGravidade(Personagem *personagem)
