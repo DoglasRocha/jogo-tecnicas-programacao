@@ -22,6 +22,13 @@ Gerenciadores::GerenciadorEventos *Gerenciadores::GerenciadorEventos::getInstanc
     return instance;
 }
 
+void Gerenciadores::GerenciadorEventos::deleteInstance() {
+    if (instance) {
+        delete instance;
+        instance = nullptr;
+    }
+}
+
 void Gerenciadores::GerenciadorEventos::setGerenciadorGrafico(Gerenciadores::GerenciadorGrafico *ptrGerenGraf) {
     gG = ptrGerenGraf;
 }

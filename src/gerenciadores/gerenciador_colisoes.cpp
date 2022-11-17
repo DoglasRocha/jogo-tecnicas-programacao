@@ -20,6 +20,13 @@ namespace Gerenciadores
         return instance;
     }
 
+    void GerenciadorColisoes::deleteInstance() {
+        if (instance) {
+            delete instance;
+            instance = nullptr;
+        }
+    }
+
     GerenciadorColisoes *GerenciadorColisoes::addInimigo(Inimigo *ptrInimigo) {
         vetorInimigos.push_back(ptrInimigo);
         return instance;

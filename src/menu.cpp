@@ -106,7 +106,7 @@ void Menu::processaEventos()
                     this->operator++();
                     break;
                 
-                case (Keyboard::Enter):
+                case (Keyboard::Return):
                     // if(cont == 1); // Fase 1
                     // if(cont == 2);// (*acao2)(); // Fase 2
                     // if(cont == 3);// (*acao3)(); // Leaderboard

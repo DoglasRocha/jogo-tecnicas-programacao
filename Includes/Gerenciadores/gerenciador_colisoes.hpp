@@ -27,6 +27,7 @@ namespace Gerenciadores {
     public:
         ~GerenciadorColisoes();
         static GerenciadorColisoes *getInstance();
+        static void deleteInstance();
         GerenciadorColisoes *addInimigo(Inimigo *ptrInimigo);
         GerenciadorColisoes *addObstaculo(Obstaculo *ptrObstaculo);
         void aplicaGravidade(Personagem *personagem);

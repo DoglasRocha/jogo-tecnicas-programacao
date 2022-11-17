@@ -17,6 +17,7 @@ namespace Gerenciadores {
     public:
         ~GerenciadorEventos();
         static GerenciadorEventos *getInstance();
+        static void deleteInstance();
         void setGerenciadorGrafico(GerenciadorGrafico *ptrGerenGraf);
         bool getEvento(sf::Event &evento);
     };

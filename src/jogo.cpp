@@ -38,7 +38,9 @@ Jogo::Jogo()
 }
 
 Jogo::~Jogo() {
-
+    GerenciadorEventos::deleteInstance();
+    GerenciadorColisoes::deleteInstance();
+    GerenciadorGrafico::deleteInstance();
 }
 
 void Jogo::irParaFase1() {

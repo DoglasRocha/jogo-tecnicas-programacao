@@ -25,6 +25,13 @@ GerenciadorGrafico *GerenciadorGrafico::getInstance() {
 	return instance;
 }
 
+void GerenciadorGrafico::deleteInstance() {
+    if (instance) {
+        delete instance;
+        instance = nullptr;
+    }
+}
+
 RenderWindow *GerenciadorGrafico::getWindow()
 {
 	return window;

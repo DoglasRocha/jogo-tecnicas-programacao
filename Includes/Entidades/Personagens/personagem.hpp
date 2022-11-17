@@ -29,7 +29,7 @@ namespace entidades::personagens
         int getVelX();
         int getVelY();
         void setQtdPulos(int pulos);
-        int getQtdPulos();
+        int getQtdPulos(); 
         Drawable *getDraw();
         Sprite* getSprite();
         virtual void processarEventos(Event evento) = 0;
