@@ -38,5 +38,6 @@ namespace Gerenciadores {
         void setJogador(Jogador *ptrJogador);
         void executaColisoesObstaculos(Personagem *ptrPersonagem);
         void executaColisaoJogadorComInimigo();
+        void limparListas();
     };
 }

@@ -24,6 +24,17 @@ namespace Listas {
             }
             node->getDado()->desenhar();
         }
+
+        void limparLista() {
+            std::cout << "aqui entra" << std::endl;
+            Node *aux;
+            for (aux = head; aux != tail; aux = aux->getNext()) {
+                std::cout << "aqui" << std::endl;
+                delete aux->getDado();
+            }
+            std::cout << "aqui final" << std::endl;
+            delete aux->getDado();
+        }
     };  
 }
 

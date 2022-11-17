@@ -180,4 +180,9 @@ namespace Gerenciadores
         bJogadorFuturo.left += deltaX;
         //mostraHitbox(bJogadorFuturo.left, bJogadorFuturo.top, bJogadorFuturo.width, bJogadorFuturo.height);
     }
+
+    void GerenciadorColisoes::limparListas() {
+        vetorInimigos.clear();
+        //listaObstaculos.clear();
+    }
 }
