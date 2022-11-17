@@ -25,7 +25,7 @@ Morcego() {
 }
 
 entidades::personagens::Morcego::~Morcego() {
-    ListaCircular<Texture>::Node *tmp;
+    ListaTexturas::Node *tmp;
     for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
         tmp = noAtual->getNext();
         delete noAtual->getDado();
@@ -42,9 +42,11 @@ void entidades::personagens::Morcego::colideX() {
 }
 
 void  entidades::personagens::Morcego::colideY() {
-    std::cout << "chama" << std::endl;
     velY = 0;
-    empuxo = -2;
+    if (!empuxo)
+        empuxo = -2;
+    else
+        empuxo = 0;
 }
 
 int  entidades::personagens::Morcego::getAtaque() {

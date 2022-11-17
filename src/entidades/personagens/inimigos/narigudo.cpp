@@ -31,7 +31,7 @@ Narigudo::Narigudo() {
 };
 
 Narigudo::~Narigudo() {
-    ListaCircular<Texture>::Node *tmp;
+    ListaTexturas::Node *tmp;
     for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
         tmp = noAtual->getNext();
         delete noAtual->getDado();
