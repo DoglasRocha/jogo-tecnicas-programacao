@@ -47,16 +47,20 @@ Jogo::~Jogo() {
 
 void Jogo::irParaFase1() {
     cj.reset();
-    if (estadoAntigo)
+    if (estadoAntigo) {
         delete estadoAntigo;
+        estadoAntigo = nullptr;
+    }
     estadoAntigo = estadoAtual;
     estadoAtual = new Fase1(gerenciadorColisoes, gerenciadorEventos, &cj, this);
 }
 
 void Jogo::irParaMenu() {
     cj.reset();
-    if (estadoAntigo)
+    if (estadoAntigo) {
         delete estadoAntigo;
+        estadoAntigo = nullptr;
+    }
     estadoAntigo = estadoAtual;
 
     estadoAtual = new Menu(gerenciadorEventos, this);

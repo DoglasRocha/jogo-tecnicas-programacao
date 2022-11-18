@@ -27,9 +27,7 @@ Fase::Fase(GerenciadorColisoes *gC,
 Fase::~Fase() {
     delete planoDeFundo;
     gerenciadorColisoes->limparListas();
-    std::cout << "aqui1" << std::endl;
     listaDeEntidades.limparLista();
-    std::cout << "aqui2" << std::endl;
 }
 
 void Fase::gerencia_colisoes()

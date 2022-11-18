@@ -26,7 +26,6 @@ Menu::Menu(GerenciadorEventos *gE, Jogo *ptrJogo)
         
 Menu::~Menu()
 {
-    
     ListaEntidades::Node *node;
     for (node = listaDeBotoes.begin(); node != listaDeBotoes.end(); node = node->getNext())
         delete node->getDado();

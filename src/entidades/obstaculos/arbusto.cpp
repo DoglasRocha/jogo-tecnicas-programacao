@@ -14,7 +14,6 @@ Arbusto::Arbusto(int posX, int posY)
 }
 
 Arbusto::~Arbusto(){
-
 }
 
 float Arbusto::getAltura()

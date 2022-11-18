@@ -4,8 +4,11 @@
 
 #ifndef JOGO_TECNICAS_PROGRAMACAO_LISTA_ENTIDADES_HPP
 #define JOGO_TECNICAS_PROGRAMACAO_LISTA_ENTIDADES_HPP
+#include "../Entidades/Personagens/jogador.hpp"
 #include "lista_circular.hpp"
 #include "../Entidades/entidade.hpp"
+
+using entidades::personagens::Jogador;
 
 namespace Listas {
     class ListaEntidades : public ListaCircular<entidades::Entidade> {
@@ -15,7 +18,9 @@ namespace Listas {
 
         }
 
-        ~ListaEntidades() {}
+        ~ListaEntidades() {
+
+        }
 
         void desenhaEntidades() {
             Node *node;
@@ -26,14 +31,14 @@ namespace Listas {
         }
 
         void limparLista() {
-            std::cout << "aqui entra" << std::endl;
             Node *aux;
             for (aux = head; aux != tail; aux = aux->getNext()) {
-                std::cout << "aqui" << std::endl;
-                delete aux->getDado();
+                if (!dynamic_cast<Jogador *>(aux->getDado())) {
+                    delete aux->getDado();
+                }
             }
-            std::cout << "aqui final" << std::endl;
-            delete aux->getDado();
+            if (!dynamic_cast<Jogador *>(aux->getDado()))
+                delete aux->getDado();
         }
     };  
 }

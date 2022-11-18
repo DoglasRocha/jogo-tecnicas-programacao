@@ -1,4 +1,5 @@
 #include "../../Includes/Entidades/entidade.hpp"
+#include <iostream>
 
 using entidades::Entidade;
 
@@ -9,7 +10,6 @@ Entidade::Entidade()
 
 Entidade::~Entidade()
 {
-
 }
 
 void Entidade::executar()

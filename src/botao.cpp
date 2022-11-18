@@ -1,4 +1,5 @@
 #include "../Includes/botao.hpp"
+#include <iostream>
 using namespace std;
 
 Botao::Botao() : 
