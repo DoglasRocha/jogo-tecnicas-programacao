@@ -13,7 +13,7 @@ entidades::personagens::Inimigo() {
     sprite.setTexture(*(noAtual->getDado()));
     x = y = 400;
     setOriginToCenter();
-    escalarSprite(2, 2);
+    escalarSprite(3, 3);
 
 }
 

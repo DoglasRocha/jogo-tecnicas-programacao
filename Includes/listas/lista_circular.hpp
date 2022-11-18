@@ -64,11 +64,11 @@ namespace Listas {
             delete tmp;
         }
 
-        Node *begin() {
+        Node *begin() const {
             return head;
         }
 
-        Node *end() {
+        Node *end() const {
             return tail;
         }
 
@@ -89,7 +89,7 @@ namespace Listas {
             return this;
         }
 
-        int getLength() {
+        int getLength() const {
             return length;
         }
 
