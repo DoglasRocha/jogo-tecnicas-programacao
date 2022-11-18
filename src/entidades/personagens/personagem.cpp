@@ -13,6 +13,7 @@ tempoAnimacao(milliseconds(125)) {
 }
 
 entidades::personagens::Personagem::~Personagem() {
+    listaTexturas.limparLista();
 }
 
 void entidades::personagens::Personagem::moverX() {

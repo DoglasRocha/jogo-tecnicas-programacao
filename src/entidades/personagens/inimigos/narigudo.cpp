@@ -31,12 +31,12 @@ Narigudo::Narigudo() {
 };
 
 Narigudo::~Narigudo() {
-    ListaTexturas::Node *tmp;
-    for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
-        tmp = noAtual->getNext();
-        delete noAtual->getDado();
-    }
-    delete noAtual->getDado();
+    // ListaTexturas::Node *tmp;
+    // for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
+    //     tmp = noAtual->getNext();
+    //     delete noAtual->getDado();
+    // }
+    // delete noAtual->getDado();
 }
 
 void Narigudo::processarEventos(Event evento) {

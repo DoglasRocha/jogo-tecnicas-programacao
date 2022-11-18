@@ -92,6 +92,8 @@ namespace Listas {
         int getLength() {
             return length;
         }
+
+        virtual void limparLista() = 0;
     };
 }
 
