@@ -82,7 +82,7 @@ void entidades::personagens::Jogador::moverX() {
         velX = 0;
 }
 
-void Jogador::repelirX(int direcao) {
+void Jogador::repelirX(const int direcao) {
     if (direcao < 0)
         velX = -50;
     else

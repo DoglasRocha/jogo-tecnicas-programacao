@@ -13,7 +13,7 @@ namespace entidades::personagens {
 
     public:
         Morcego();
-        Morcego(int x, int y);
+        Morcego(const int x, const int y);
         ~Morcego();
         void processarEventos(Event evento);
         void colideX();
@@ -21,7 +21,7 @@ namespace entidades::personagens {
         void moverY();
         void lentidao();
         void queimar();
-        int getAtaque();
-        void setEmpuxo(int novoEmpuxo);
+        int getAtaque() const;
+        void setEmpuxo(const int novoEmpuxo);
     };
 }

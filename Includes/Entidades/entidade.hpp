@@ -20,9 +20,9 @@ namespace entidades
         int getEmpuxo() const;
         virtual void setEmpuxo(int novoEmpuxo) = 0;
         virtual sf::Drawable *getDraw() = 0;
-        int getX();
-        int getY();
-        void setX(int novoX);
-        void setY(int novoY);
+        int getX() const;
+        int getY() const;
+        void setX(const int novoX);
+        void setY(const int novoY);
     };
 }

@@ -7,7 +7,7 @@
 
 using namespace sf;
 
-entidades::obstaculos::Plataforma::Plataforma(int tamX, int tamY, int posX, int posY) :
+entidades::obstaculos::Plataforma::Plataforma(const int tamX, const int tamY, const int posX, const int posY) :
 Obstaculo(tamX, tamY, posX, posY) 
 {
     empuxo = -1;
@@ -26,7 +26,7 @@ void entidades::obstaculos::Plataforma::processarEventos(Event evento) {
 
 }
 
-void entidades::obstaculos::Plataforma::setEmpuxo(int novoEmpuxo) {
+void entidades::obstaculos::Plataforma::setEmpuxo(const int novoEmpuxo) {
 
 }
 

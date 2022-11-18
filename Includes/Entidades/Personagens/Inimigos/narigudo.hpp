@@ -14,11 +14,11 @@ namespace entidades::personagens
 
     public:
         Narigudo();
-        Narigudo(int x, int y);
+        Narigudo(const int x, const int y);
         ~Narigudo();
         void processarEventos(Event evento);
         void colideX();
-        int getAtaque();
+        int getAtaque() const;
         void lentidao();
         void queimar();
     };

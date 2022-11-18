@@ -17,7 +17,7 @@ entidades::personagens::Inimigo() {
 
 }
 
-entidades::personagens::Morcego::Morcego(int x, int y) :
+entidades::personagens::Morcego::Morcego(const int x, const int y) :
 Morcego() {
     this->x = x, this->y = y;
     velY = -1;
@@ -49,7 +49,7 @@ void  entidades::personagens::Morcego::colideY() {
         empuxo = 0;
 }
 
-int  entidades::personagens::Morcego::getAtaque() {
+int  entidades::personagens::Morcego::getAtaque() const {
     return ataque + forcaAsas;
 }
 
@@ -70,6 +70,6 @@ void entidades::personagens::Morcego::moverY() {
     y += velY;
 }
 
-void entidades::personagens::Morcego::setEmpuxo(int novoEmpuxo) {
+void entidades::personagens::Morcego::setEmpuxo(const int novoEmpuxo) {
     
 }

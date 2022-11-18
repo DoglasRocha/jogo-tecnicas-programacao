@@ -22,7 +22,7 @@ entidades::personagens::Inimigo() {
     escalarSprite(.25, .25);
 };
 
-Narigudo::Narigudo(int x, int y) :
+Narigudo::Narigudo(const int x, const int y) :
 Narigudo::Narigudo() {
     
     this->x = x, this->y = y;
@@ -49,7 +49,7 @@ void Narigudo::colideX() {
     escalarSprite(-1, 1);
 }
 
-int Narigudo::getAtaque() {
+int Narigudo::getAtaque() const {
     return ataque + forcaEspirro;
 }
 

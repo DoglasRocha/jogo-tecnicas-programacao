@@ -4,12 +4,12 @@ using entidades::obstaculos::Obstaculo;
 
 Obstaculo::Obstaculo() {}
 
-Obstaculo::Obstaculo(int tamX, int tamY) {
+Obstaculo::Obstaculo(const int tamX, const int tamY) {
     shape = new RectangleShape(Vector2f(tamX, tamY));
     textura = new Texture();
 }
 
-Obstaculo::Obstaculo(int tamX, int tamY, int x, int y) :
+Obstaculo::Obstaculo(const int tamX, const int tamY, const int x, const int y) :
 Obstaculo(tamX, tamY) {
     this->tamX = tamX;
     this->tamY = tamY;
@@ -24,19 +24,19 @@ Obstaculo::~Obstaculo() {
     delete textura;
 }
 
-int Obstaculo::getTamX() {
+int Obstaculo::getTamX() const {
     return tamX;
 }
 
-void Obstaculo::setTamX(int novoTamX) {
+void Obstaculo::setTamX(const int novoTamX) {
     tamX = novoTamX;
 }
 
-int Obstaculo::getTamY() {
+int Obstaculo::getTamY() const {
     return tamY;
 }
 
-void Obstaculo::setTamY(int novoTamY) {
+void Obstaculo::setTamY(const int novoTamY) {
     tamY = novoTamY;
 }
 
@@ -52,6 +52,6 @@ void entidades::obstaculos::Obstaculo::desenhar() {
     ptrGG->desenhaElemento(*shape);
 }
 
-bool entidades::obstaculos::Obstaculo::getAtravessar(){
+bool entidades::obstaculos::Obstaculo::getAtravessar() const {
     return atravessavel;
 }
