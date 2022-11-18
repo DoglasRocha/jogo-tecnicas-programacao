@@ -127,7 +127,7 @@ void entidades::personagens::Personagem::colideY() {
     qtdPulos = 0;
 }
 
-int entidades::personagens::Personagem::getAtaque() const {
+int entidades::personagens::Personagem::getAtaque() {
     return ataque;
 }
 

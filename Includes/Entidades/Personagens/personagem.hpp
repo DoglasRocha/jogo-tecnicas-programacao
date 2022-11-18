@@ -44,7 +44,7 @@ namespace entidades::personagens
         void desenhar();
         virtual void colideX() = 0;
         virtual void colideY();
-        virtual int getAtaque() const;
+        virtual int getAtaque();
         virtual void recebeAtaque(Personagem *personagem);
         void checaVivo();
         bool getVivo() const;

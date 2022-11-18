@@ -1,7 +1,10 @@
 #include "../../../../Includes/Entidades/Personagens/Inimigos/morcego.hpp"
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
 
 entidades::personagens::Morcego::Morcego() :
-entidades::personagens::Inimigo() {
+entidades::personagens::Inimigo(2000) {
     sentido = "ESQUERDA";
     num_vidas = 40;
     ataque = 10;
@@ -25,12 +28,6 @@ Morcego() {
 }
 
 entidades::personagens::Morcego::~Morcego() {
-    // ListaTexturas::Node *tmp;
-    // for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
-    //     tmp = noAtual->getNext();
-    //     delete noAtual->getDado();
-    // }
-    // delete noAtual->getDado();
 }
 
 void entidades::personagens::Morcego::processarEventos(Event evento) {
@@ -49,8 +46,13 @@ void  entidades::personagens::Morcego::colideY() {
         empuxo = 0;
 }
 
-int  entidades::personagens::Morcego::getAtaque() const {
-    return ataque + forcaAsas;
+int  entidades::personagens::Morcego::getAtaque() {
+    if (relogioAtaque.getElapsedTime() >= tempoAtaque) {
+        relogioAtaque.restart();
+        return ataque + forcaAsas;
+    }
+
+    return 0;
 }
 
 void entidades::personagens::Morcego::lentidao(){

@@ -21,7 +21,7 @@ namespace entidades::personagens {
         void moverY();
         void lentidao();
         void queimar();
-        int getAtaque() const;
+        int getAtaque();
         void setEmpuxo(const int novoEmpuxo);
     };
 }
