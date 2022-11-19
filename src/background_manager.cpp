@@ -6,7 +6,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-BackgroundManager::BackgroundManager(std::string pathToImage) {
+BackgroundManager::BackgroundManager(const std::string pathToImage) {
 
     std::stringstream buffer;
     buffer << "texturas/" << pathToImage;

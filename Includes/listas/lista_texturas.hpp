@@ -15,7 +15,17 @@ namespace Listas {
 
         }
 
-        ~ListaTexturas() {}
+        ~ListaTexturas() {
+
+        }
+
+        void limparLista() {
+            Node *aux;
+            for (aux = head; aux != tail; aux = aux->getNext()) {
+                delete aux->getDado();
+            }
+            delete aux->getDado();
+        }
     };
 }
 

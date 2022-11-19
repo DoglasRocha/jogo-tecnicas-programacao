@@ -18,7 +18,7 @@ private:
     sf::Texture *textura;
 
 public:
-    BackgroundManager(std::string pathToImage="");
+    BackgroundManager(const std::string pathToImage="");
     ~BackgroundManager();
     void desenhar();
 };

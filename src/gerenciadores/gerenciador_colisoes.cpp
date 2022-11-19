@@ -117,7 +117,7 @@ namespace Gerenciadores
         }
 
         bPersFuturo.left += deltaX;
-        //mostraHitbox(bPersFuturo.left, bPersFuturo.top, bPersFuturo.width, bPersFuturo.height);
+        mostraHitbox(bPersFuturo.left, bPersFuturo.top, bPersFuturo.width, bPersFuturo.height);
     }
 
     void GerenciadorColisoes::mostraHitbox(int x, int y, int width, int height) {
@@ -178,7 +178,7 @@ namespace Gerenciadores
         }
 
         bJogadorFuturo.left += deltaX;
-        //mostraHitbox(bJogadorFuturo.left, bJogadorFuturo.top, bJogadorFuturo.width, bJogadorFuturo.height);
+        mostraHitbox(bJogadorFuturo.left, bJogadorFuturo.top, bJogadorFuturo.width, bJogadorFuturo.height);
     }
 
     void GerenciadorColisoes::limparListas() {

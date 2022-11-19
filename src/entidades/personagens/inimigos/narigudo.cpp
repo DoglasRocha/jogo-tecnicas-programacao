@@ -8,7 +8,7 @@
 using entidades::personagens::Narigudo;
 
 Narigudo::Narigudo() :
-entidades::personagens::Inimigo() {
+entidades::personagens::Inimigo(500) {
     sentido = "ESQUERDA";
     num_vidas = 20;
     ataque = 5;
@@ -22,7 +22,7 @@ entidades::personagens::Inimigo() {
     escalarSprite(.25, .25);
 };
 
-Narigudo::Narigudo(int x, int y) :
+Narigudo::Narigudo(const int x, const int y) :
 Narigudo::Narigudo() {
     
     this->x = x, this->y = y;
@@ -31,12 +31,6 @@ Narigudo::Narigudo() {
 };
 
 Narigudo::~Narigudo() {
-    ListaTexturas::Node *tmp;
-    for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
-        tmp = noAtual->getNext();
-        delete noAtual->getDado();
-    }
-    delete noAtual->getDado();
 }
 
 void Narigudo::processarEventos(Event evento) {
@@ -50,7 +44,12 @@ void Narigudo::colideX() {
 }
 
 int Narigudo::getAtaque() {
-    return ataque + forcaEspirro;
+    if (relogioAtaque.getElapsedTime() >= tempoAtaque) {
+        relogioAtaque.restart();
+        return ataque + forcaEspirro;
+    }
+
+    return 0;
 }
 
 void Narigudo::lentidao(){

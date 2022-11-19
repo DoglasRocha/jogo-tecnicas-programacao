@@ -8,6 +8,13 @@ entidades::personagens::Personagem() {
 
 }
 
+Inimigo::Inimigo(const float tempoAtaqueMs) :
+tempoAtaque(milliseconds(tempoAtaqueMs)),
+entidades::personagens::Personagem()
+{
+
+}
+
 entidades::personagens::Inimigo::~Inimigo() {
 }
 

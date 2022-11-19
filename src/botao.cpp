@@ -9,7 +9,7 @@ Botao::Botao() :
 
 }
 
-Botao::Botao(int posY, string stringTextura) : Botao()
+Botao::Botao(const int posY, const string stringTextura) : Botao()
 {
     x = 550;
     y = posY;
@@ -52,7 +52,7 @@ void Botao::processarEventos(Event evento)
 
 }
 
-void Botao::setEmpuxo(int novoEmpuxo)
+void Botao::setEmpuxo(const int novoEmpuxo)
 {
     
 }

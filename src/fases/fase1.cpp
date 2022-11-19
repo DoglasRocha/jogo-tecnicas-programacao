@@ -59,8 +59,8 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
         );
 
     criaMorcego(100, 300);
-    criaMorcego(2300, 400);
-    criaMorcego(2900, 600);
+    criaMorcego(1400, 600);
+    criaMorcego(3350, 600);
 
     planoDeFundo = new BackgroundManager("pixel_art_forest/Background.png");
 }

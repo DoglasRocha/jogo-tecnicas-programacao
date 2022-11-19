@@ -1,6 +1,6 @@
 #include "../../../Includes/Entidades/Obstaculos/arbusto.hpp"
 
-Arbusto::Arbusto(int posX, int posY)
+Arbusto::Arbusto(const int posX, const int posY)
 {
     atravessavel = 1;
     altura = (float(rand())/RAND_MAX) + 1;
@@ -16,7 +16,7 @@ Arbusto::Arbusto(int posX, int posY)
 Arbusto::~Arbusto(){
 }
 
-float Arbusto::getAltura()
+float Arbusto::getAltura() const
 {
     return altura;
 }

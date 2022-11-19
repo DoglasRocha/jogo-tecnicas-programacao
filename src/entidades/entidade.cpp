@@ -21,11 +21,11 @@ int entidades::Entidade::getEmpuxo() const {
     return empuxo;
 }
 
-int entidades::Entidade::getX() {
+int entidades::Entidade::getX() const {
     return x;
 }
 
-int entidades::Entidade::getY() {
+int entidades::Entidade::getY() const {
     return y;
 }
 

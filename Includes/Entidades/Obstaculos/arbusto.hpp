@@ -9,9 +9,9 @@ class Arbusto : public Obstaculo
         float altura;
 
     public:
-        Arbusto(int posX, int posY);
+        Arbusto(const int posX, const int posY);
         ~Arbusto();
-        float getAltura();
+        float getAltura() const;
         void processarEventos(sf::Event evento);
         void setEmpuxo(int novoEmpuxo);  
         void interage(Personagem *ptrJogador);

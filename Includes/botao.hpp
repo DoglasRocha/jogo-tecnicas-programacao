@@ -13,12 +13,12 @@ class Botao : public Entidade
 
     public:
         Botao();
-        Botao(int posY, string texturastring);
+        Botao(const int posY, const string texturastring);
         ~Botao();
-        void executar(); // //
-        void processarEventos(Event evento); //
-        Drawable *getDraw(); //
+        void executar();
+        void processarEventos(Event evento);
+        Drawable *getDraw();
         Shape *getShape();
-        void desenhar(); // //
-        void setEmpuxo(int novoEmpuxo); //
+        void desenhar();
+        void setEmpuxo(const int novoEmpuxo); 
 };

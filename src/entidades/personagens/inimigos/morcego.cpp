@@ -1,7 +1,10 @@
 #include "../../../../Includes/Entidades/Personagens/Inimigos/morcego.hpp"
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
 
 entidades::personagens::Morcego::Morcego() :
-entidades::personagens::Inimigo() {
+entidades::personagens::Inimigo(2000) {
     sentido = "ESQUERDA";
     num_vidas = 40;
     ataque = 10;
@@ -13,11 +16,11 @@ entidades::personagens::Inimigo() {
     sprite.setTexture(*(noAtual->getDado()));
     x = y = 400;
     setOriginToCenter();
-    escalarSprite(2, 2);
+    escalarSprite(3, 3);
 
 }
 
-entidades::personagens::Morcego::Morcego(int x, int y) :
+entidades::personagens::Morcego::Morcego(const int x, const int y) :
 Morcego() {
     this->x = x, this->y = y;
     velY = -1;
@@ -25,12 +28,6 @@ Morcego() {
 }
 
 entidades::personagens::Morcego::~Morcego() {
-    ListaTexturas::Node *tmp;
-    for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
-        tmp = noAtual->getNext();
-        delete noAtual->getDado();
-    }
-    delete noAtual->getDado();
 }
 
 void entidades::personagens::Morcego::processarEventos(Event evento) {
@@ -50,7 +47,12 @@ void  entidades::personagens::Morcego::colideY() {
 }
 
 int  entidades::personagens::Morcego::getAtaque() {
-    return ataque + forcaAsas;
+    if (relogioAtaque.getElapsedTime() >= tempoAtaque) {
+        relogioAtaque.restart();
+        return ataque + forcaAsas;
+    }
+
+    return 0;
 }
 
 void entidades::personagens::Morcego::lentidao(){
@@ -70,6 +72,6 @@ void entidades::personagens::Morcego::moverY() {
     y += velY;
 }
 
-void entidades::personagens::Morcego::setEmpuxo(int novoEmpuxo) {
+void entidades::personagens::Morcego::setEmpuxo(const int novoEmpuxo) {
     
 }

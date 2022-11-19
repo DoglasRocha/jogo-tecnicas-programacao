@@ -6,10 +6,10 @@ namespace entidades::obstaculos {
     class Parede : public Obstaculo
     {
         public:
-            Parede(int tamX, int tamY, int posX, int posY);
+            Parede(const int tamX, const int tamY, const int posX, const int posY);
             ~Parede();
             void processarEventos(sf::Event evento);
-            void setEmpuxo(int novoEmpuxo);
+            void setEmpuxo(const int novoEmpuxo);
             void interage(Personagem *ptrJogador);
 };
 }

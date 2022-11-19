@@ -1,6 +1,6 @@
 #include "../../../Includes/Entidades/Obstaculos/fogo.hpp"
 
-Fogo::Fogo(int posX, int posY)
+Fogo::Fogo(const int posX, const int posY)
 {
     atravessavel = 1;
     intensidade++;
@@ -18,7 +18,7 @@ Fogo::~Fogo()
     intensidade--;
 }
 
-int Fogo::getIntensidade()
+int Fogo::getIntensidade() const
 {
     return intensidade;
 }

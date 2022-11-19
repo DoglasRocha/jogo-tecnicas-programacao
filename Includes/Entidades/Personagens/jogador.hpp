@@ -14,7 +14,7 @@ namespace entidades::personagens {
         void processarEventos(Event evento);
         void colideX();
         void moverX();
-        void repelirX(int direcao);
+        void repelirX(const int direcao);
         void repelirY();
         void lentidao();
         void queimar();

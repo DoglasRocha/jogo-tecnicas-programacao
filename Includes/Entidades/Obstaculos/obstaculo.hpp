@@ -18,17 +18,17 @@ namespace entidades::obstaculos
 
     public:
         Obstaculo();
-        Obstaculo(int tamX, int tamY);
-        Obstaculo(int tamX, int tamY, int x, int y);
+        Obstaculo(const int tamX, const int tamY);
+        Obstaculo(const int tamX, const int tamY, const int x, const int y);
         virtual ~Obstaculo();
-        int getTamX();
-        void setTamX(int novoTamX);
-        int getTamY();
-        void setTamY(int novoTamY);
+        int getTamX() const;
+        void setTamX(const int novoTamX);
+        int getTamY() const;
+        void setTamY(const int novoTamY);
         Drawable *getDraw();
         Shape *getShape();
         void desenhar();
-        bool getAtravessar();
+        bool getAtravessar() const;
         virtual void interage(Personagem *ptrJogador) = 0;
 	};
 }
