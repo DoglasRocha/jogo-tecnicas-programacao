@@ -1,7 +1,7 @@
 ifeq ($(OS), Windows_NT)
-	MOVE=move
+	DELETE=del
 else
-	MOVE=mv
+	DELETE=rm
 endif
 
 COMPILE := g++ -I./SFML/include -c
@@ -32,5 +32,4 @@ link:
 	g++ $(outputs) -o game -L./SFML/lib -lsfml-graphics -lsfml-window -lsfml-network -lsfml-audio -lsfml-system
 
 clean:
-	del *.o
-	cls
+	$(DELETE) *.o
