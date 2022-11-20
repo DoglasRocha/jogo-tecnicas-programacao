@@ -11,6 +11,7 @@ namespace entidades::personagens {
     private:
         RectangleShape barra;
         RectangleShape fundoBarra;
+        int pontuacao = 0;
 
     public:
         Jogador();
@@ -24,5 +25,7 @@ namespace entidades::personagens {
         void queimar();
         void reset();
         void desenhaBarraVida();
+        int getPontuacao();
+        void ganhaPontuacao(int pont);
 	};	
 }

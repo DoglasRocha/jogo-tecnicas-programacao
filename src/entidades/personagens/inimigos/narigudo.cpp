@@ -9,6 +9,7 @@ using entidades::personagens::Narigudo;
 
 Narigudo::Narigudo() :
 entidades::personagens::Inimigo(500) {
+    pontos = 10;
     sentido = "ESQUERDA";
     num_vidas = 20;
     ataque = 5;

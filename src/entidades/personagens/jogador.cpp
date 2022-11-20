@@ -7,15 +7,6 @@ entidades::personagens::Jogador::Jogador() {
     num_vidas = 100;
     ataque = 20;
 
-    RectangleShape barra(Vector2f(num_vidas * 2, 25));
-    RectangleShape fundoBarra(Vector2f(200, 25));
-
-    barra.setFillColor(Color::Green);
-    fundoBarra.setFillColor(Color::Red);
-
-    Vector2f posicaoView = ptrGG->getCentroView();
-    barra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
-    fundoBarra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
 
     carregarTexturas("Sprites/cj/cjandar", 0, 6);
     noAtual = listaTexturas.begin();
@@ -124,8 +115,27 @@ void Jogador::reset() {
 }
 
 void Jogador::desenhaBarraVida(){
+    RectangleShape barra(Vector2f(num_vidas * 2, 25));
+    RectangleShape fundoBarra(Vector2f(200, 25));
+
+    barra.setFillColor(Color::Green);
+    fundoBarra.setFillColor(Color::Red);
+
+    Vector2f posicaoView = ptrGG->getCentroView();
+    barra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
+    fundoBarra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
     barra.setSize(Vector2f(num_vidas*2, 25));
 
     ptrGG->desenhaElemento(fundoBarra);
     ptrGG->desenhaElemento(barra);
+}
+
+int Jogador::getPontuacao()
+{
+    return pontuacao;
+}
+
+void Jogador::ganhaPontuacao(int pont)
+{
+    pontuacao += pont;
 }

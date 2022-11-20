@@ -46,6 +46,7 @@ void Fase::desenhar() {
     planoDeFundo->desenhar();
     listaDeEntidades.desenhaEntidades();
     ptrJogador->desenhaBarraVida();
+    cout << ptrJogador->getPontuacao() << endl;
 }
 
 void Fase::processaEventos() {

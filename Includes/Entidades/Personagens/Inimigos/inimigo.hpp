@@ -21,5 +21,6 @@ namespace entidades::personagens
         virtual void colideX() = 0;
         void lentidao();
         void queimar();
+        int getPontos();
 	};
 }

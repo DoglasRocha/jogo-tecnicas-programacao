@@ -149,6 +149,7 @@ namespace Gerenciadores
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
             if (!vetorInimigos[i]->getVivo()) 
             {
+                jogador->ganhaPontuacao(vetorInimigos[i]->getPontos());
                 it = vetorInimigos.begin() + i;
                 vetorInimigos.erase(it);
             }

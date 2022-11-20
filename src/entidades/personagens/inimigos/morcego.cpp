@@ -5,6 +5,7 @@ using namespace sf;
 
 entidades::personagens::Morcego::Morcego() :
 entidades::personagens::Inimigo(2000) {
+    pontos = 50;
     sentido = "ESQUERDA";
     num_vidas = 40;
     ataque = 10;

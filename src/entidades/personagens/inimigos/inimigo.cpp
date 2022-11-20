@@ -25,3 +25,7 @@ void entidades::personagens::Inimigo::lentidao(){
 void entidades::personagens::Inimigo::queimar(){
 
 }
+
+int entidades::personagens::Inimigo::getPontos(){
+    return pontos;
+}
