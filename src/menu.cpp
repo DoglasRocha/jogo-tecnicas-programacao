@@ -130,7 +130,7 @@ void Menu::trocaEstado(int opcao) {
             break;
 
         case (2):
-            //ptrJogo->irParaFase2();
+            ptrJogo->irParaFase2();
             break;
 
         case (3):

@@ -7,6 +7,16 @@ entidades::personagens::Jogador::Jogador() {
     num_vidas = 100;
     ataque = 20;
 
+    RectangleShape barra(Vector2f(num_vidas * 2, 25));
+    RectangleShape fundoBarra(Vector2f(200, 25));
+
+    barra.setFillColor(Color::Green);
+    fundoBarra.setFillColor(Color::Red);
+
+    Vector2f posicaoView = ptrGG->getCentroView();
+    barra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
+    fundoBarra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
+
     carregarTexturas("Sprites/cj/cjandar", 0, 6);
     noAtual = listaTexturas.begin();
     sprite.setTexture(*noAtual->getDado());
@@ -34,7 +44,7 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1);
                     sentido = "DIREITA";
                 }
-                velX = 4;
+                velX = 6;
                 break;
 
             case (Keyboard::Left):
@@ -42,7 +52,7 @@ void entidades::personagens::Jogador::processarEventos(Event evento) {
                     sprite.scale(-1.f, 1);
                     sentido = "ESQUERDA";
                 }
-                velX = -4;
+                velX = -6;
                 break;
 
             case (Keyboard::Up):
@@ -111,4 +121,11 @@ void Jogador::reset() {
     vivo = true;
     sprite.setPosition(x, y);
     ptrGG->centralizarJanela(x);
+}
+
+void Jogador::desenhaBarraVida(){
+    barra.setSize(Vector2f(num_vidas*2, 25));
+
+    ptrGG->desenhaElemento(fundoBarra);
+    ptrGG->desenhaElemento(barra);
 }

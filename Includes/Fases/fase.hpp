@@ -20,7 +20,7 @@ namespace fases
         ListaEntidades listaDeEntidades;
         Jogador *ptrJogador;
         BackgroundManager *planoDeFundo;
-
+        
     public:
         Fase(GerenciadorColisoes *gC=nullptr,
              GerenciadorEventos *gE=nullptr,

@@ -45,6 +45,7 @@ void Fase::executar() {
 void Fase::desenhar() {
     planoDeFundo->desenhar();
     listaDeEntidades.desenhaEntidades();
+    ptrJogador->desenhaBarraVida();
 }
 
 void Fase::processaEventos() {

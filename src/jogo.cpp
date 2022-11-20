@@ -2,6 +2,7 @@
 #include "../Includes/ente.hpp"
 #include "../Includes/menu.hpp"
 #include "../Includes/Fases/fase1.hpp"
+#include "../Includes/Fases/fase2.hpp"
 #include <cstdlib>
 #include <ctime>
 
@@ -53,6 +54,16 @@ void Jogo::irParaFase1() {
     }
     estadoAntigo = estadoAtual;
     estadoAtual = new Fase1(gerenciadorColisoes, gerenciadorEventos, &cj, this);
+}
+
+void Jogo::irParaFase2() {
+    cj.reset();
+    if (estadoAntigo) {
+        delete estadoAntigo;
+        estadoAntigo = nullptr;
+    }
+    estadoAntigo = estadoAtual;
+    estadoAtual = new Fase2(gerenciadorColisoes, gerenciadorEventos, &cj, this);
 }
 
 void Jogo::irParaMenu() {

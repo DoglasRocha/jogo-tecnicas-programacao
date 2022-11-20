@@ -8,6 +8,10 @@ using namespace sf;
 namespace entidades::personagens {
 	class Jogador : public Personagem
 	{
+    private:
+        RectangleShape barra;
+        RectangleShape fundoBarra;
+
     public:
         Jogador();
         ~Jogador();
@@ -19,5 +23,6 @@ namespace entidades::personagens {
         void lentidao();
         void queimar();
         void reset();
+        void desenhaBarraVida();
 	};	
 }
