@@ -8,7 +8,7 @@ entidades::personagens::Inimigo(2000) {
     pontos = 50;
     sentido = "ESQUERDA";
     num_vidas = 40;
-    ataque = 10;
+    ataque = 20;
     forcaAsas = rand() % 5;
     velY = 1;
 
@@ -69,6 +69,13 @@ void entidades::personagens::Morcego::moverY() {
         velY = 1, empuxo = 0;
     
     animar();
+
+    if (velY <= -8)
+        velY = -8;
+
+    if (velY >= 8)
+        velY = 8;
+
     sprite.move(0.f, (float)velY);
     y += velY;
 }

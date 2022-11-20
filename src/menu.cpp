@@ -26,10 +26,7 @@ Menu::Menu(GerenciadorEventos *gE, Jogo *ptrJogo)
         
 Menu::~Menu()
 {
-    ListaEntidades::Node *node;
-    for (node = listaDeBotoes.begin(); node != listaDeBotoes.end(); node = node->getNext())
-        delete node->getDado();
-    delete node->getDado();
+    listaDeBotoes.limparLista();
     delete planoDeFundo;
 }
 
@@ -106,10 +103,6 @@ void Menu::processaEventos()
                     break;
                 
                 case (Keyboard::Return):
-                    // if(cont == 1); // Fase 1
-                    // if(cont == 2);// (*acao2)(); // Fase 2
-                    // if(cont == 3);// (*acao3)(); // Leaderboard
-                    // if(cont == 4) ptrGG->fechaJanela();
                     trocaEstado(cont);
                     break;
             }

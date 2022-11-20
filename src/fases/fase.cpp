@@ -36,17 +36,17 @@ void Fase::gerencia_colisoes()
 }
 
 void Fase::executar() {
+
     gerencia_colisoes();
     processaEventos();
-    trocaEstado();
     desenhar();
+    trocaEstado();
 }
 
 void Fase::desenhar() {
     planoDeFundo->desenhar();
     listaDeEntidades.desenhaEntidades();
     ptrJogador->desenhaBarraVida();
-    cout << ptrJogador->getPontuacao() << endl;
 }
 
 void Fase::processaEventos() {

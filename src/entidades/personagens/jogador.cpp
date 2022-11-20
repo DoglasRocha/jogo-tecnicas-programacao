@@ -17,12 +17,7 @@ entidades::personagens::Jogador::Jogador() {
 }
 
 entidades::personagens::Jogador::~Jogador() {
-    // ListaTexturas::Node *tmp;
-    // for (noAtual = listaTexturas.begin(); noAtual != listaTexturas.end(); noAtual = tmp) {
-    //     tmp = noAtual->getNext();
-    //     delete noAtual->getDado();
-    // }
-    // delete noAtual->getDado();
+    
 }
 
 void entidades::personagens::Jogador::processarEventos(Event evento) {

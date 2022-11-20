@@ -1,3 +1,5 @@
 #!/bin/sh
 
-LD_LIBRARY_PATH=./SFML/lib ./game
+export LD_LIBRARY_PATH=$LB_LIBRARY_PATH:./SFML/lib
+
+./game

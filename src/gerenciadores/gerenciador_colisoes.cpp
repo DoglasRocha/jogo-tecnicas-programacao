@@ -184,6 +184,6 @@ namespace Gerenciadores
 
     void GerenciadorColisoes::limparListas() {
         vetorInimigos.clear();
-        //listaObstaculos.clear();
+        listaObstaculos.clear();
     }
 }

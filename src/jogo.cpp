@@ -73,6 +73,5 @@ void Jogo::irParaMenu() {
         estadoAntigo = nullptr;
     }
     estadoAntigo = estadoAtual;
-
     estadoAtual = new Menu(gerenciadorEventos, this);
 }
