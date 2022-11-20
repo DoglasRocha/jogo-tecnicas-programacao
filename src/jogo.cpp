@@ -48,6 +48,7 @@ Jogo::~Jogo() {
 
 void Jogo::irParaFase1() {
     cj.reset();
+    gerenciadorColisoes->limparListas();
     if (estadoAntigo) {
         delete estadoAntigo;
         estadoAntigo = nullptr;
@@ -58,6 +59,7 @@ void Jogo::irParaFase1() {
 
 void Jogo::irParaFase2() {
     cj.reset();
+    gerenciadorColisoes->limparListas();
     if (estadoAntigo) {
         delete estadoAntigo;
         estadoAntigo = nullptr;
@@ -68,6 +70,7 @@ void Jogo::irParaFase2() {
 
 void Jogo::irParaMenu() {
     cj.reset();
+    gerenciadorColisoes->limparListas();
     if (estadoAntigo) {
         delete estadoAntigo;
         estadoAntigo = nullptr;
