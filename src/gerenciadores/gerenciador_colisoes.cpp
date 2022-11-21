@@ -10,7 +10,7 @@ namespace Gerenciadores
 {
 
     GerenciadorColisoes::GerenciadorColisoes():gravidade(1) {
-
+        ptrProjetil = nullptr;
     }
 
     GerenciadorColisoes *GerenciadorColisoes::getInstance() {
@@ -66,6 +66,7 @@ namespace Gerenciadores
                 vetorInimigos[i]->colideY();
         }
         executarColisoesJogador();
+        if(ptrProjetil) executaColisaoProjetilComEntidade();
     }
 
     void GerenciadorColisoes::executarColisoesJogador() {
@@ -132,6 +133,10 @@ namespace Gerenciadores
         jogador = ptrJogador;
     }
 
+    void GerenciadorColisoes::setProjetil(Projetil *ptrProjetil_){
+        ptrProjetil = ptrProjetil_; 
+    }
+
     vector<Inimigo*> GerenciadorColisoes::getVetorInimigos(){
         return vetorInimigos;
     }
@@ -181,6 +186,36 @@ namespace Gerenciadores
         bJogadorFuturo.left += deltaX;
         mostraHitbox(bJogadorFuturo.left, bJogadorFuturo.top, bJogadorFuturo.width, bJogadorFuturo.height);
     }
+
+    void GerenciadorColisoes::executaColisaoProjetilComEntidade(){
+        ptrProjetil->setVelY(gravidade * 2);
+        FloatRect bProjetil = ptrProjetil->getSprite()->getGlobalBounds();
+        int deltaX = ptrProjetil->getVelX(),
+            deltaY = ptrProjetil->getVelY() + ptrProjetil->getEmpuxo();
+        
+         FloatRect boundsJogador = jogador->getSprite()->getGlobalBounds();
+
+         if (bProjetil.intersects(boundsJogador)) {
+                if (boundsJogador.left < bProjetil.left)
+                        jogador->repelirX(-1);
+                else
+                        jogador->repelirX(1);
+                ptrProjetil->reset();
+                    
+                jogador->recebeAtaque(ptrProjetil->getAtaque());
+        }
+        else{
+            ptrProjetil->moverX();
+            ptrProjetil->moverY();
+        }
+
+        std::list<Obstaculo *>::iterator it;
+        for (it = listaObstaculos.begin(); it != listaObstaculos.end(); it++) {
+            FloatRect boundsObstaculo = (*it)->getShape()->getGlobalBounds();
+            if (boundsObstaculo.intersects(bProjetil)) ptrProjetil->reset();           
+        }
+    }
+                
 
     void GerenciadorColisoes::limparListas() {
         vetorInimigos.clear();

@@ -1,5 +1,9 @@
 #include "../../Includes/Fases/fase2.hpp"
 #include "../../Includes/jogo.hpp"
+#include "../../Includes/Entidades/Personagens/Inimigos/minotauro.hpp"
+#include "../../Includes/Entidades/projetil.hpp"
+
+using namespace entidades;
 
 Fase2::Fase2(GerenciadorColisoes *gC,
              GerenciadorEventos *gE,
@@ -57,6 +61,7 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
     criaMorcego(100, 300);
     criaMorcego(1400, 600);
     criaMorcego(3350, 600);
+    criaMinotauro(2500, 600);
 
     planoDeFundo = new BackgroundManager("medieval_castle/background.png");
 }
@@ -70,4 +75,19 @@ void Fase2::trocaEstado(int opcao) {
         ptrJogo->irParaMenu();
     else if (gerenciadorColisoes->getVetorInimigos().empty()) 
         ptrJogo->irParaMenu();
+}
+
+void Fase2::criaMinotauro(int posX, int posY) {
+    Minotauro *novoMinotauro = new Minotauro(posX, posY - 50);
+    if (novoMinotauro != nullptr)
+        listaDeEntidades.append(novoMinotauro),
+        gerenciadorColisoes->addInimigo(novoMinotauro);
+        criaProjetil(novoMinotauro);
+}
+
+void Fase2::criaProjetil(Minotauro* ptrMino) {
+    Projetil *novoProjetil = new Projetil(ptrMino);
+    if (novoProjetil != nullptr)
+        listaDeEntidades.append(novoProjetil),
+        gerenciadorColisoes->setProjetil(novoProjetil);
 }

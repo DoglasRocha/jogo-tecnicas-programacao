@@ -21,13 +21,13 @@ entidades::personagens::Inimigo(500) {
     x = y = 200;
     setOriginToCenter();
     escalarSprite(.25, .25);
+    velX = -1;
 };
 
 Narigudo::Narigudo(const int x, const int y) :
 Narigudo::Narigudo() {
     
     this->x = x, this->y = y;
-    velX = -1;
     sprite.setPosition(x, y);
 };
 

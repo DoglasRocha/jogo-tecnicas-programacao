@@ -136,6 +136,11 @@ void entidades::personagens::Personagem::recebeAtaque(Personagem *personagem) {
     checaVivo();
 }
 
+void entidades::personagens::Personagem::recebeAtaque(int dano) {
+    num_vidas -= dano;
+    checaVivo();
+}
+
 void entidades::personagens::Personagem::checaVivo(){
     if (num_vidas <= 0) 
         vivo = false; 

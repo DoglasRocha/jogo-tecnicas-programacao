@@ -3,12 +3,13 @@
 #include "../Entidades/Personagens/Inimigos/inimigo.hpp"
 #include "../Entidades/Obstaculos/obstaculo.hpp"
 #include "../Entidades/Personagens/jogador.hpp"
+#include "../Entidades/projetil.hpp"
 
 #include <vector>
 #include <list>
 
 using namespace sf;
-using namespace entidades::personagens;
+using namespace entidades;
 using entidades::obstaculos::Obstaculo;
 
 namespace Gerenciadores {
@@ -17,6 +18,7 @@ namespace Gerenciadores {
         static GerenciadorColisoes *instance;
         const int gravidade;
         Jogador *jogador;
+        Projetil *ptrProjetil;
         std::vector<Inimigo *> vetorInimigos;
         std::list<Obstaculo *> listaObstaculos;
 
@@ -36,8 +38,10 @@ namespace Gerenciadores {
         void executarColisoesJogador();
         void mostraHitbox(int x, int y, int width, int height);
         void setJogador(Jogador *ptrJogador);
+        void setProjetil(Projetil *ptrProjetil_);
         void executaColisoesObstaculos(Personagem *ptrPersonagem);
         void executaColisaoJogadorComInimigo();
+        void executaColisaoProjetilComEntidade();
         void limparListas();
     };
 }
