@@ -16,13 +16,15 @@ using namespace std;
 Fase::Fase(GerenciadorColisoes *gC,
            GerenciadorEventos *gE,
            Jogador *ptrJogador_,
-           Jogo *ptrJogo) :
+           Jogo *ptrJogo,
+           Jogador *ptrJogador2_) :
            Estado(ptrJogo)
 {
     gerenciadorColisoes = gC;
     gerenciadorEventos = gE;
     ptrJogador = ptrJogador_;
-    ptrJogador2 = nullptr;
+    ptrJogador2 = ptrJogador2_;
+    listaDeEntidades.append(ptrJogador);
 }
 
 Fase::~Fase() {

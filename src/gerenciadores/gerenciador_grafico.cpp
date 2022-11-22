@@ -6,7 +6,7 @@ using namespace sf;
 
 GerenciadorGrafico::GerenciadorGrafico()
 {
-    window = new RenderWindow(VideoMode(1400, 1000), "Jogo");
+    window = new RenderWindow(VideoMode(1400, 1000), "Johnson Adventures++");
     window->setFramerateLimit(40);
     view = new View({700, 500}, {1400, 1000});
     window->setView(*view);

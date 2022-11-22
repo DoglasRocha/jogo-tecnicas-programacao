@@ -8,7 +8,8 @@
 Fase1::Fase1(GerenciadorColisoes *gC,
              GerenciadorEventos *gE,
              Jogador *ptrJogador,
-             Jogo *ptrJogo) :
+             Jogo *ptrJogo,
+             Jogador *ptrJogador2) :
 Fase(gC, gE, ptrJogador, ptrJogo) {
 
     int infoPlataformas[11][4] = {
@@ -31,8 +32,6 @@ Fase(gC, gE, ptrJogador, ptrJogo) {
         {200, 2500, 800},
         {500, 3500, 500}
     };
-
-    listaDeEntidades.append(ptrJogador);
 
     for (int i = 0; i < 3; i++)
         criaPlataforma(

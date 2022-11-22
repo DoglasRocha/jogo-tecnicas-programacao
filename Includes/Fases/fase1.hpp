@@ -9,7 +9,8 @@ public:
     Fase1(GerenciadorColisoes *gC=nullptr,
           GerenciadorEventos *gE=nullptr,
           Jogador *ptrJogador=nullptr,
-          Jogo *ptrJogo=nullptr);
+          Jogo *ptrJogo=nullptr,
+          Jogador *ptrJogador2=nullptr);
     ~Fase1();
     void trocaEstado(int opcao=0);
 };
