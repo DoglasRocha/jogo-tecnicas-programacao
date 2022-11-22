@@ -15,8 +15,8 @@ namespace entidades::personagens {
 
     public:
         Jogador();
-        ~Jogador();
-        void processarEventos(Event evento);
+        virtual ~Jogador();
+        virtual void processarEventos(Event evento) = 0;
         void colideX();
         void moverX();
         void repelirX(const int direcao);
@@ -24,7 +24,7 @@ namespace entidades::personagens {
         void lentidao();
         void queimar();
         void reset();
-        void desenhaBarraVida();
+        virtual void desenhaBarraVida() = 0;
         int getPontuacao();
         void ganhaPontuacao(int pont);
 	};	

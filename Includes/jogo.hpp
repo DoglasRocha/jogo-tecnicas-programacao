@@ -1,5 +1,6 @@
 #pragma once
-#include "Entidades/Personagens/jogador.hpp"
+#include "Entidades/Personagens/jogador1.hpp"
+#include "Entidades/Personagens/jogador2.hpp"
 #include "Gerenciadores/gerenciador_colisoes.hpp"
 #include "Gerenciadores/gerenciador_grafico.hpp"
 #include "Gerenciadores/gerenciador_eventos.hpp"
@@ -14,7 +15,8 @@ private:
 	GerenciadorGrafico *gerenciadorGrafico;
     GerenciadorColisoes *gerenciadorColisoes;
     GerenciadorEventos *gerenciadorEventos;
-    Jogador cj;
+    Jogador1 cj;
+    Jogador2 smoke;
     Estado *estadoAtual,
            *estadoAntigo;
 

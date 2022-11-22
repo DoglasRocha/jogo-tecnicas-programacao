@@ -18,6 +18,7 @@ namespace Gerenciadores {
         static GerenciadorColisoes *instance;
         const int gravidade;
         Jogador *jogador;
+        Jogador *jogador2;
         Projetil *ptrProjetil;
         std::vector<Inimigo *> vetorInimigos;
         std::list<Obstaculo *> listaObstaculos;
@@ -38,6 +39,7 @@ namespace Gerenciadores {
         void executarColisoesJogador();
         void mostraHitbox(int x, int y, int width, int height);
         void setJogador(Jogador *ptrJogador);
+        void setJogador2(Jogador *ptrJogador);
         void setProjetil(Projetil *ptrProjetil_);
         void executaColisoesObstaculos(Personagem *ptrPersonagem);
         void executaColisaoJogadorComInimigo();

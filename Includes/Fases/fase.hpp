@@ -6,6 +6,8 @@
 #include "../Gerenciadores/gerenciador_eventos.hpp"
 #include "../listas/lista_entidades.hpp"
 #include "../background_manager.hpp"
+#include "../Entidades/Personagens/jogador1.hpp"
+#include "../Entidades/Personagens/jogador2.hpp"
 
 using namespace Gerenciadores;
 using Listas::ListaEntidades;
@@ -18,7 +20,7 @@ namespace fases
         GerenciadorColisoes *gerenciadorColisoes;
         GerenciadorEventos *gerenciadorEventos;
         ListaEntidades listaDeEntidades;
-        Jogador *ptrJogador;
+        Jogador *ptrJogador, *ptrJogador2;
         BackgroundManager *planoDeFundo;
         
     public:

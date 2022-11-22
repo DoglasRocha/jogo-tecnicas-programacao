@@ -11,6 +11,7 @@ namespace Gerenciadores
 
     GerenciadorColisoes::GerenciadorColisoes():gravidade(1) {
         ptrProjetil = nullptr;
+        jogador2 = nullptr;
     }
 
     GerenciadorColisoes *GerenciadorColisoes::getInstance() {
@@ -131,6 +132,10 @@ namespace Gerenciadores
 
     void GerenciadorColisoes::setJogador(Jogador *ptrJogador) {
         jogador = ptrJogador;
+    }
+
+    void GerenciadorColisoes::setJogador2(Jogador *ptrJogador) {
+        jogador2 = ptrJogador;
     }
 
     void GerenciadorColisoes::setProjetil(Projetil *ptrProjetil_){
