@@ -60,6 +60,8 @@ void entidades::Projetil::setEmpuxo(int novoEmpuxo){
 }
 
 void entidades::Projetil::reset(){
+    if (!ptrMino->getVivo()) return;
+
     sentido = ptrMino->getSentido();
     if(sentido == "ESQUERDA")
     {
