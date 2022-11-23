@@ -41,6 +41,7 @@ void MenuJogadores::desenhar()
         tempBotao = dynamic_cast<Botao*>(listaDeBotoes.end()->getDado());
         tempBotao->getShape()->setOutlineThickness(10);
     }
+    listaDeBotoes.desenhaEntidades();
 }
 
 void MenuJogadores::resetaBotoes()
@@ -54,7 +55,7 @@ void MenuJogadores::resetaBotoes()
 
 void MenuJogadores::operator++()
 {
-    if(cont < 1) cont++;
+    if(cont < 2) cont++;
     else cont = 1;
 }
 
@@ -98,12 +99,12 @@ void MenuJogadores::executar()
 void MenuJogadores::trocaEstado(int opcao) {
     switch (opcao) {
         case (1):
-            if (fase = 1) ptrJogo->irParaFase1(false);
+            if (fase == 1) ptrJogo->irParaFase1(false);
             else ptrJogo->irParaFase2(false);
             break;
 
         case (2):
-            if (fase = 1) ptrJogo->irParaFase1(true);
+            if (fase == 1) ptrJogo->irParaFase1(true);
             else ptrJogo->irParaFase2(true);
             break;
     }

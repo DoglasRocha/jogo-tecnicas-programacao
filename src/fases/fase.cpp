@@ -49,7 +49,11 @@ void Fase::desenhar() {
     planoDeFundo->desenhar();
     listaDeEntidades.desenhaEntidades();
     ptrJogador->desenhaBarraVida();
-    if (ptrJogador2) ptrJogador2->desenhaBarraVida();
+    if (ptrJogador2) 
+    {
+        ptrJogador2->desenhaBarraVida();
+        ptrJogador2->desenhar();
+    }
 }
 
 void Fase::processaEventos() {
