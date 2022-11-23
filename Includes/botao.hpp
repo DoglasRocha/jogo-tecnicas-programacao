@@ -1,3 +1,4 @@
+#pragma once
 #include "./Entidades/entidade.hpp"
 #include <string>
 using entidades::Entidade;

@@ -8,8 +8,9 @@ using namespace entidades;
 Fase2::Fase2(GerenciadorColisoes *gC,
              GerenciadorEventos *gE,
              Jogador *ptrJogador,
-             Jogo *ptrJogo) :
-Fase(gC, gE, ptrJogador, ptrJogo) {
+             Jogo *ptrJogo,
+             Jogador *ptrJogador2) :
+Fase(gC, gE, ptrJogador, ptrJogo, ptrJogador2) {
 
     int infoPlataformas[11][4] = {
         {1000, 50, 32, 950},

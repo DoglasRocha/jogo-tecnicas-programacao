@@ -13,7 +13,8 @@ public:
     Fase2(GerenciadorColisoes *gC=nullptr,
           GerenciadorEventos *gE=nullptr,
           Jogador *ptrJogador=nullptr,
-          Jogo *ptrJogo=nullptr);
+          Jogo *ptrJogo=nullptr,
+          Jogador *ptrJogador2=nullptr);
     ~Fase2();
     void trocaEstado(int opcao=0);
     void criaMinotauro(int posX, int posY);

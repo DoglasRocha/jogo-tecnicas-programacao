@@ -1,36 +1,32 @@
-#include "../Includes/menu.hpp"
+#include "../Includes/menu_jogadores.hpp"
 #include "../Includes/jogo.hpp"
 #include <string>
 #include <sstream>
 #include <iostream>
 using namespace std;
 
-Menu::Menu(GerenciadorEventos *gE, Jogo *ptrJogo)
+MenuJogadores::MenuJogadores(GerenciadorEventos *gE, Jogo *ptrJogo, int fase_)
 {
     this->ptrJogo = ptrJogo;
     gerenciadorEventos = gE;
     planoDeFundo = new BackgroundManager("fundo_botoes_menu/background.png");
 
-    Botao *novoBotao = new Botao(250,"texturas/fundo_botoes_menu/botao1.png");
-    listaDeBotoes.append(novoBotao);
-
-    novoBotao = new Botao(425,"texturas/fundo_botoes_menu/botao2.png");
+    Botao *novoBotao = new Botao(425,"texturas/fundo_botoes_menu/botao1p.png");
     listaDeBotoes.append(novoBotao);
   
-    novoBotao = new Botao(600,"texturas/fundo_botoes_menu/botao3.png");
+    novoBotao = new Botao(600,"texturas/fundo_botoes_menu/botao2p.png");
     listaDeBotoes.append(novoBotao);
 
-    novoBotao = new Botao(775,"texturas/fundo_botoes_menu/botao4.png");
-    listaDeBotoes.append(novoBotao);
+    fase = fase_;
 }
         
-Menu::~Menu()
+MenuJogadores::~MenuJogadores()
 {
     listaDeBotoes.limparLista();
     delete planoDeFundo;
 }
 
-void Menu::desenhar()
+void MenuJogadores::desenhar()
 {
     planoDeFundo->desenhar();
     Botao *tempBotao;
@@ -42,50 +38,33 @@ void Menu::desenhar()
     }
     if(cont == 2)
     {
-        tempBotao = dynamic_cast<Botao*>(listaDeBotoes.begin()->getNext()->getDado());
-        tempBotao->getShape()->setOutlineThickness(10);
-    }
-    if(cont == 3)
-    {
-        tempBotao = dynamic_cast<Botao*>(listaDeBotoes.begin()->getNext()->getNext()->getDado());
-        tempBotao->getShape()->setOutlineThickness(10);
-    }
-    if(cont == 4)
-    {
         tempBotao = dynamic_cast<Botao*>(listaDeBotoes.end()->getDado());
         tempBotao->getShape()->setOutlineThickness(10);
     }
-    listaDeBotoes.desenhaEntidades();
 }
 
-void Menu::resetaBotoes()
+void MenuJogadores::resetaBotoes()
 {
     Botao *tempBotao = dynamic_cast<Botao*>(listaDeBotoes.begin()->getDado());
-    tempBotao->getShape()->setOutlineThickness(0);
-
-    tempBotao = dynamic_cast<Botao*>(listaDeBotoes.begin()->getNext()->getDado());
-    tempBotao->getShape()->setOutlineThickness(0);
-    
-    tempBotao = dynamic_cast<Botao*>(listaDeBotoes.begin()->getNext()->getNext()->getDado());
     tempBotao->getShape()->setOutlineThickness(0);
 
     tempBotao = dynamic_cast<Botao*>(listaDeBotoes.end()->getDado());
     tempBotao->getShape()->setOutlineThickness(0);
 }
 
-void Menu::operator++()
+void MenuJogadores::operator++()
 {
-    if(cont < 4) cont++;
+    if(cont < 1) cont++;
     else cont = 1;
 }
 
-void Menu::operator--()
+void MenuJogadores::operator--()
 {
     if (cont > 1) cont--;
-    else cont = 4;
+    else cont = 2;
 }
 
-void Menu::processaEventos()
+void MenuJogadores::processaEventos()
 {
     Event evento;
     while (gerenciadorEventos->getEvento(evento)) {
@@ -110,27 +89,22 @@ void Menu::processaEventos()
     }
 }
 
-void Menu::executar()
+void MenuJogadores::executar()
 {
     desenhar();
     processaEventos();
 }
 
-void Menu::trocaEstado(int opcao) {
+void MenuJogadores::trocaEstado(int opcao) {
     switch (opcao) {
         case (1):
-            ptrJogo->irParaMenuJogadores(1);
+            if (fase = 1) ptrJogo->irParaFase1(false);
+            else ptrJogo->irParaFase2(false);
             break;
 
         case (2):
-            ptrJogo->irParaMenuJogadores(2);
+            if (fase = 1) ptrJogo->irParaFase1(true);
+            else ptrJogo->irParaFase2(true);
             break;
-
-        case (3):
-            //ptrJogo->irParaRanking();
-            break;
-
-        case (4):
-            ptrGG->fechaJanela();
     }
 }

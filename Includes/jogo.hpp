@@ -23,8 +23,9 @@ private:
 public:
 	Jogo();
 	~Jogo();
-    void irParaFase1();
-    void irParaFase2();
+    void irParaFase1(bool coop);
+    void irParaFase2(bool coop);
     void irParaRanking();
     void irParaMenu();
+    void irParaMenuJogadores(int fase);
 };

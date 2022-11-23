@@ -10,7 +10,7 @@ Fase1::Fase1(GerenciadorColisoes *gC,
              Jogador *ptrJogador,
              Jogo *ptrJogo,
              Jogador *ptrJogador2) :
-Fase(gC, gE, ptrJogador, ptrJogo) {
+Fase(gC, gE, ptrJogador, ptrJogo, ptrJogador2) {
 
     int infoPlataformas[11][4] = {
         {1000, 50, 32, 950},
@@ -71,6 +71,9 @@ Fase1::~Fase1() {
 void Fase1::trocaEstado(int opcao) {
     if(!(ptrJogador->getVivo())) 
         ptrJogo->irParaMenu();
-    else if (gerenciadorColisoes->getVetorInimigos().empty()) 
-        ptrJogo->irParaFase2();
+    else if (gerenciadorColisoes->getVetorInimigos().empty()){
+        if (ptrJogador2) ptrJogo->irParaFase2(1);
+        else ptrJogo->irParaFase2(1);
+    } 
+        
 }
