@@ -18,7 +18,7 @@ namespace entidades::personagens {
         virtual ~Jogador();
         virtual void processarEventos(Event evento) = 0;
         void colideX();
-        void moverX();
+        virtual void moverX();
         void repelirX(const int direcao);
         void repelirY();
         void lentidao();

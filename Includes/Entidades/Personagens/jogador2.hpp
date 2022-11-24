@@ -8,5 +8,6 @@ class Jogador2 : public personagens::Jogador{
     Jogador2();
     ~Jogador2();
     void desenhaBarraVida();
+    void moverX();
     void processarEventos(sf::Event evento);
 };
