@@ -77,3 +77,11 @@ void Jogador2::desenhaBarraVida(){
     ptrGG->desenhaElemento(fundoBarra);
     ptrGG->desenhaElemento(barra);
 }
+
+void Jogador2::moverX() {
+    sprite.move((float)velX, 0.f);
+    x += velX;
+
+    if (velX == 50 || velX == -50)
+        velX = 0;
+}
