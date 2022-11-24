@@ -48,8 +48,7 @@ Fase(gC, gE, ptrJogador, ptrJogo, ptrJogador2) {
             infoPlataformas[i][0],
             infoPlataformas[i][1],
             infoPlataformas[i][2],
-            infoPlataformas[i][3],
-            true, false, true
+            infoPlataformas[i][3]
         );
 
     for (int i = 0; i < 4; i++)
@@ -91,4 +90,18 @@ void Fase2::criaProjetil(Minotauro* ptrMino) {
     if (novoProjetil != nullptr)
         listaDeEntidades.append(novoProjetil),
         gerenciadorColisoes->setProjetil(novoProjetil);
+}
+
+void Fase2::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY)
+{
+    criaPlataforma(tamX, tamY, posX, posY);
+    if ((contNarigudo < 3) || (rand() % 2)) {
+        criaNarigudo(posX + (rand() % (tamX - 100)), posY);
+        contNarigudo++;
+    }
+
+    if ((contFogo < 3) || (rand() % 5)) {
+        criaFogo(posX + (rand() % (tamX - 100)), posY);
+        contFogo++;
+    }
 }

@@ -16,4 +16,5 @@ public:
           Jogador *ptrJogador2=nullptr);
     ~Fase1();
     void trocaEstado(int opcao=0);
+    void criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY);
 };

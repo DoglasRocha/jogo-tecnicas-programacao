@@ -106,21 +106,3 @@ void Fase::criaMorcego(int posX, int posY) {
         listaDeEntidades.append(novoMorcego),
         gerenciadorColisoes->addInimigo(novoMorcego);
 }
-
-void Fase::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY,
-    bool geraNarigudo, bool geraArbusto, bool geraFogo) 
-{
-    criaPlataforma(tamX, tamY, posX, posY);
-    if (geraNarigudo && rand() % 2) {
-        criaNarigudo(posX + (rand() % (tamX - 100)), posY);
-    }
-
-    if (geraArbusto && rand() % 5) {
-        criaArbusto(posX + (rand() % (tamX - 100)), posY);
-    }
-
-    if (geraFogo && rand() % 2) {
-        criaFogo(posX + (rand() % (tamX - 100)), posY);
-    }
-
-}

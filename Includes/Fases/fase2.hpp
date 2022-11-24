@@ -22,4 +22,5 @@ public:
     void trocaEstado(int opcao=0);
     void criaMinotauro(int posX, int posY);
     void criaProjetil(Minotauro* ptrMino);
+    void criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY);
 };

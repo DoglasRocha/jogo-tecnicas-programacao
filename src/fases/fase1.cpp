@@ -46,8 +46,7 @@ Fase(gC, gE, ptrJogador, ptrJogo, ptrJogador2) {
             infoPlataformas[i][0],
             infoPlataformas[i][1],
             infoPlataformas[i][2],
-            infoPlataformas[i][3],
-            true, true, false
+            infoPlataformas[i][3]
         );
 
     for (int i = 0; i < 4; i++)
@@ -69,10 +68,29 @@ Fase1::~Fase1() {
 }
 
 void Fase1::trocaEstado(int opcao) {
-    if(!(ptrJogador->getVivo())) 
-        ptrJogo->irParaMenu();
+    if(!(ptrJogador->getVivo())){
+        if(ptrJogador2){
+            if(!(ptrJogador2->getVivo())) ptrJogo->irParaMenu();
+        }
+        else ptrJogo->irParaMenu();
+    } 
+
     else if (gerenciadorColisoes->getVetorInimigos().empty()){
         if (ptrJogador2) ptrJogo->irParaFase2(1);
-        else ptrJogo->irParaFase2(1);
+        else ptrJogo->irParaFase2(0);
     }     
+}
+
+void Fase1::criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY)
+{
+    criaPlataforma(tamX, tamY, posX, posY);
+    if ((contNarigudo < 3) || (rand() % 2)) {
+        criaNarigudo(posX + (rand() % (tamX - 100)), posY);
+        contNarigudo++;
+    }
+
+    if ((contArbusto < 3) || (rand() % 5)) {
+        criaArbusto(posX + (rand() % (tamX - 100)), posY);
+        contArbusto++;
+    }
 }

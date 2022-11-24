@@ -42,7 +42,6 @@ namespace fases
         void criaArbusto(int posX, int posY);
         void criaFogo(int posX, int posY);
         void criaMorcego(int posX, int posY);
-        void criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY, 
-            bool geraNarigudo=true, bool geraArbusto=true, bool geraFogo=true);
+        virtual void criaPlataformaComAgregadosAleatorios(int tamX, int tamY, int posX, int posY) = 0;
     };
 }
