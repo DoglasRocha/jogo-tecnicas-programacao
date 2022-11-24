@@ -81,7 +81,7 @@ namespace Gerenciadores
             ptrJogador->colideX();
         if (moveY)
             ptrJogador->moverY(),
-            aplicaGravidade(jogador);
+            aplicaGravidade(ptrJogador);
         else
             ptrJogador->colideY();
     }
