@@ -67,6 +67,7 @@ namespace Gerenciadores
                 vetorInimigos[i]->colideY();
         }
         executarColisoesJogador();
+        executarColisoesJogador2();
         if(ptrProjetil) executaColisaoProjetilComEntidade();
     }
 
@@ -83,6 +84,22 @@ namespace Gerenciadores
             aplicaGravidade(jogador);
         else
             jogador->colideY();
+    }
+
+    void GerenciadorColisoes::executarColisoesJogador2() {
+        if (!jogador2) return;
+        moveX = moveY = true;
+        executaColisaoJogadorComInimigo();
+        executaColisoesObstaculos(jogador2);
+        if (moveX) 
+            jogador2->moverX();
+        else
+            jogador2->colideX();
+        if (moveY)
+            jogador2->moverY(),
+            aplicaGravidade(jogador2);
+        else
+            jogador2->colideY();
     }
 
     void GerenciadorColisoes::executaColisoesObstaculos(Personagem *ptrPersonagem) {
@@ -209,6 +226,20 @@ namespace Gerenciadores
                     
                 jogador->recebeAtaque(ptrProjetil->getAtaque());
         }
+
+        if(jogador2){
+             FloatRect boundsJogador2 = jogador2->getSprite()->getGlobalBounds();
+             if (bProjetil.intersects(boundsJogador2)) {
+                if (boundsJogador2.left < bProjetil.left)
+                        jogador2->repelirX(-1);
+                else
+                        jogador2->repelirX(1);
+                ptrProjetil->reset();
+                    
+                jogador2->recebeAtaque(ptrProjetil->getAtaque());
+            }
+        }
+
         else{
             ptrProjetil->moverX();
             ptrProjetil->moverY();

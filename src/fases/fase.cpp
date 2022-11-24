@@ -25,6 +25,7 @@ Fase::Fase(GerenciadorColisoes *gC,
     ptrJogador = ptrJogador_;
     ptrJogador2 = ptrJogador2_;
     listaDeEntidades.append(ptrJogador);
+    if (ptrJogador2) listaDeEntidades.append(ptrJogador2);
 }
 
 Fase::~Fase() {
@@ -49,11 +50,7 @@ void Fase::desenhar() {
     planoDeFundo->desenhar();
     listaDeEntidades.desenhaEntidades();
     ptrJogador->desenhaBarraVida();
-    if (ptrJogador2) 
-    {
-        ptrJogador2->desenhaBarraVida();
-        ptrJogador2->desenhar();
-    }
+    if (ptrJogador2) ptrJogador2->desenhaBarraVida();
 }
 
 void Fase::processaEventos() {

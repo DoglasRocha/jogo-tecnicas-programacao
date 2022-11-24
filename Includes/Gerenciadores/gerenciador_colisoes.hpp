@@ -37,6 +37,7 @@ namespace Gerenciadores {
         void executar();
         std::vector<Inimigo*> getVetorInimigos();
         void executarColisoesJogador();
+        void executarColisoesJogador2();
         void mostraHitbox(int x, int y, int width, int height);
         void setJogador(Jogador *ptrJogador);
         void setJogador2(Jogador *ptrJogador);
