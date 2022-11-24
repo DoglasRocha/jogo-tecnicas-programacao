@@ -5,6 +5,9 @@ using fases::Fase;
 
 class Fase1 : public Fase
 {
+private:
+    int contArbusto = 0; 
+
 public:
     Fase1(GerenciadorColisoes *gC=nullptr,
           GerenciadorEventos *gE=nullptr,

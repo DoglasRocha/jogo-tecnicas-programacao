@@ -22,6 +22,7 @@ namespace fases
         ListaEntidades listaDeEntidades;
         Jogador *ptrJogador, *ptrJogador2;
         BackgroundManager *planoDeFundo;
+        int contNarigudo = 0, contMorcego = 0;
         
     public:
         Fase(GerenciadorColisoes *gC=nullptr,

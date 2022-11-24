@@ -36,14 +36,13 @@ namespace Gerenciadores {
         void aplicaGravidade(Personagem *personagem);
         void executar();
         std::vector<Inimigo*> getVetorInimigos();
-        void executarColisoesJogador();
-        void executarColisoesJogador2();
+        void executarColisoesJogador(Jogador *ptrJogador);
         void mostraHitbox(int x, int y, int width, int height);
         void setJogador(Jogador *ptrJogador);
         void setJogador2(Jogador *ptrJogador);
         void setProjetil(Projetil *ptrProjetil_);
         void executaColisoesObstaculos(Personagem *ptrPersonagem);
-        void executaColisaoJogadorComInimigo();
+        void executaColisaoJogadorComInimigo(Jogador *ptrJogador);
         void executaColisaoProjetilComEntidade();
         void limparListas();
     };

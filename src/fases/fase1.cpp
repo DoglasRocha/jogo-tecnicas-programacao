@@ -74,6 +74,5 @@ void Fase1::trocaEstado(int opcao) {
     else if (gerenciadorColisoes->getVetorInimigos().empty()){
         if (ptrJogador2) ptrJogo->irParaFase2(1);
         else ptrJogo->irParaFase2(1);
-    } 
-        
+    }     
 }

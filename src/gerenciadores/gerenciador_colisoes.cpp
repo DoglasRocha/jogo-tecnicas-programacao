@@ -66,40 +66,24 @@ namespace Gerenciadores
             else
                 vetorInimigos[i]->colideY();
         }
-        executarColisoesJogador();
-        executarColisoesJogador2();
+        executarColisoesJogador(jogador);
+        executarColisoesJogador(jogador2);
         if(ptrProjetil) executaColisaoProjetilComEntidade();
     }
 
-    void GerenciadorColisoes::executarColisoesJogador() {
+    void GerenciadorColisoes::executarColisoesJogador(Jogador *ptrJogador) {
         moveX = moveY = true;
-        executaColisaoJogadorComInimigo();
-        executaColisoesObstaculos(jogador);
+        executaColisaoJogadorComInimigo(ptrJogador);
+        executaColisoesObstaculos(ptrJogador);
         if (moveX) 
-            jogador->moverX();
+            ptrJogador->moverX();
         else
-            jogador->colideX();
+            ptrJogador->colideX();
         if (moveY)
-            jogador->moverY(),
+            ptrJogador->moverY(),
             aplicaGravidade(jogador);
         else
-            jogador->colideY();
-    }
-
-    void GerenciadorColisoes::executarColisoesJogador2() {
-        if (!jogador2) return;
-        moveX = moveY = true;
-        executaColisaoJogadorComInimigo();
-        executaColisoesObstaculos(jogador2);
-        if (moveX) 
-            jogador2->moverX();
-        else
-            jogador2->colideX();
-        if (moveY)
-            jogador2->moverY(),
-            aplicaGravidade(jogador2);
-        else
-            jogador2->colideY();
+            ptrJogador->colideY();
     }
 
     void GerenciadorColisoes::executaColisoesObstaculos(Personagem *ptrPersonagem) {
@@ -163,12 +147,12 @@ namespace Gerenciadores
         return vetorInimigos;
     }
 
-    void GerenciadorColisoes::executaColisaoJogadorComInimigo() {
+    void GerenciadorColisoes::executaColisaoJogadorComInimigo(Jogador *ptrJogador) {
 
-        FloatRect bJogador = jogador->getSprite()->getGlobalBounds(),
+        FloatRect bJogador = ptrJogador->getSprite()->getGlobalBounds(),
             bJogadorFuturo = bJogador;
-        int deltaX = jogador->getVelX(),
-            deltaY = jogador->getVelY() + jogador->getEmpuxo();
+        int deltaX = ptrJogador->getVelX(),
+            deltaY = ptrJogador->getVelY() + ptrJogador->getEmpuxo();
         vector<Inimigo*>::iterator it;
 
         bJogadorFuturo.top += deltaY, bJogadorFuturo.left += deltaX;
@@ -176,7 +160,7 @@ namespace Gerenciadores
         for (int i = 0, l = vetorInimigos.size(); i < l; i++) {
             if (!vetorInimigos[i]->getVivo()) 
             {
-                jogador->ganhaPontuacao(vetorInimigos[i]->getPontos());
+                ptrJogador->ganhaPontuacao(vetorInimigos[i]->getPontos());
                 it = vetorInimigos.begin() + i;
                 vetorInimigos.erase(it);
             }
@@ -188,20 +172,20 @@ namespace Gerenciadores
                 bJogadorFuturo.left += deltaX;
                 if (boundsInimigo.intersects(bJogadorFuturo)) {
                     if (bJogadorFuturo.left < boundsInimigo.left)
-                        jogador->repelirX(-1);
+                        ptrJogador->repelirX(-1);
                     else
-                        jogador->repelirX(1);
+                        ptrJogador->repelirX(1);
                     
-                    jogador->recebeAtaque(vetorInimigos[i]);
+                    ptrJogador->recebeAtaque(vetorInimigos[i]);
                 }
                 
                 bJogadorFuturo = bJogador;
                 bJogadorFuturo.top += deltaY;
                 if (boundsInimigo.intersects(bJogadorFuturo) &&
                     bJogador.top + bJogador.height < boundsInimigo.top)
-                    jogador->repelirY(), 
+                    ptrJogador->repelirY(), 
                     moveY = false,
-                    vetorInimigos[i]->recebeAtaque(jogador);
+                    vetorInimigos[i]->recebeAtaque(ptrJogador);
             }
         }
 

@@ -27,7 +27,7 @@ Jogo::Jogo()
     gerenciadorEventos->setGerenciadorGrafico(gerenciadorGrafico);
     Ente::setGerenciadorGrafico(gerenciadorGrafico);
     gerenciadorColisoes->setJogador(&cj);
-    gerenciadorColisoes->setJogador(&smoke);
+    gerenciadorColisoes->setJogador2(&smoke);
     estadoAtual = new Menu(gerenciadorEventos, this);
     estadoAntigo = nullptr;
     

@@ -9,6 +9,9 @@ using fases::Fase;
 
 class Fase2 : public Fase
 {
+private:
+    int contFogo = 0;
+
 public:
     Fase2(GerenciadorColisoes *gC=nullptr,
           GerenciadorEventos *gE=nullptr,
