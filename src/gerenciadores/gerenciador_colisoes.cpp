@@ -224,10 +224,9 @@ namespace Gerenciadores
             }
         }
 
-        else{
-            ptrProjetil->moverX();
-            ptrProjetil->moverY();
-        }
+        ptrProjetil->moverX();
+        ptrProjetil->moverY();
+        
 
         std::list<Obstaculo *>::iterator it;
         for (it = listaObstaculos.begin(); it != listaObstaculos.end(); it++) {
