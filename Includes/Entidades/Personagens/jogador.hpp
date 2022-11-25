@@ -9,8 +9,6 @@ namespace entidades::personagens {
 	class Jogador : public Personagem
 	{
     private:
-        RectangleShape barra;
-        RectangleShape fundoBarra;
         int pontuacao = 0;
 
     public:
