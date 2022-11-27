@@ -37,7 +37,7 @@ Ranking::Ranking(GerenciadorEventos *gE, Jogo *ptrJogo)
     textoGameOver.setFillColor(sf::Color::White);
     textoGameOver.setOutlineColor(sf::Color::Black);
     textoGameOver.setOutlineThickness(10);
-    textoGameOver.setPosition(Vector2f(300, 400));
+    textoGameOver.setPosition(Vector2f(100, 400));
     textoGameOver.setString("GAME OVER. Digite seu nome:");
 }
 
@@ -111,16 +111,30 @@ void Ranking::salvarArquivo(int pontos)
     
     Event evento;
 
-    while(evento.key.code != Keyboard::Return){
+    int flag = 0;
+
+    while(flag == 0){
+        ptrGG->limpaJanela();
+        desenhar();
+        ptrGG->desenhaElemento(textoInput);
+        ptrGG->desenhaElemento(textoGameOver);
+        while (gerenciadorEventos->getEvento(evento)) {
+            if (evento.type == Event::Closed) ptrGG->fechaJanela();
             if(evento.type == Event::TextEntered){
-            inputJogador += evento.text.unicode;
-            textoInput.setString(inputJogador);
-            ptrGG->desenhaElemento(textoInput);
-            ptrGG->desenhaElemento(textoGameOver);
+                inputJogador += evento.text.unicode;
+                textoInput.setString(inputJogador);
+            }
+            if (evento.type == Event::KeyPressed){
+                    if(evento.key.code == Keyboard::Enter) {
+                    flag = 1;
+                }
+            }
         }
+        ptrGG->mostraElementos();
     }
 	
-    aux.nome = inputJogador;
+    string auxInput = inputJogador.toAnsiString();
+    aux.nome = auxInput;
 	aux.pontos = pontos;
 
 	listaRanking.push_back(aux);
@@ -152,9 +166,9 @@ void Ranking::salvarArquivo(int pontos)
 void Ranking::escreveJogadores()
 {
     vector<infoJogador>::iterator it;
+    int cont = 1;
     for(it = listaRanking.begin(); it != listaRanking.end(); it++)
     {
-        int cont = 1;
         Text aux, aux2, divisor;
         aux.setString((*it).nome);
         aux2.setString(to_string((*it).pontos));

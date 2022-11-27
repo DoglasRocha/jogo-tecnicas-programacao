@@ -90,6 +90,8 @@ void Jogo::irParaMenu() {
 }
 
 void Jogo::irParaRanking() {
+    cj.reset();
+    smoke.reset();
     gerenciadorColisoes->limparListas();
     if (estadoAntigo) {
         delete estadoAntigo;

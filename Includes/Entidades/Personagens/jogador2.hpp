@@ -5,7 +5,7 @@ using namespace entidades;
 
 namespace entidades::personagens{
     class Jogador2 : public personagens::Jogador{
-        public:
+    public:
         Jogador2();
         ~Jogador2();
         void desenhaBarraVida();

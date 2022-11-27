@@ -8,6 +8,8 @@ entidades::personagens::Jogador::Jogador() {
     sentido = "DIREITA";
     num_vidas = 100;
     ataque = 20;
+
+    font.loadFromFile("texturas/VCR_OSD_MONO.ttf");
 }
 
 entidades::personagens::Jogador::~Jogador() {
@@ -46,7 +48,8 @@ void Jogador::lentidao()
 void Jogador::queimar()
 {
     num_vidas--;
-    velX *= 1.4;
+    if(sentido == "ESQUERDA") velX = -9;
+    else velX = 9;
 }
 
 void Jogador::reset() {

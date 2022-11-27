@@ -10,6 +10,10 @@ namespace entidades::personagens {
 	{
     private:
         int pontuacao = 0;
+    
+    protected:
+        Text textoBarraVida;
+        Font font;
 
     public:
         Jogador();

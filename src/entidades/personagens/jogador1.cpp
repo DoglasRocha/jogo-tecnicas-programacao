@@ -10,6 +10,13 @@ Jogador1::Jogador1() : Jogador(){
     x = 700, y = 500;
     setOriginToCenter();
     escalarSprite(3.0, 3.0);
+
+    textoBarraVida.setFont(font);
+    textoBarraVida.setCharacterSize(25);
+    textoBarraVida.setFillColor(sf::Color::White);
+    textoBarraVida.setOutlineColor(sf::Color::Black);
+    textoBarraVida.setOutlineThickness(10);
+    textoBarraVida.setString("1P");
 }
 
 Jogador1::~Jogador1(){
@@ -73,6 +80,9 @@ void Jogador1::desenhaBarraVida(){
     fundoBarra.setPosition(posicaoView.x - 650, posicaoView.y - 450);
     barra.setSize(Vector2f(num_vidas*2, 25));
 
+    textoBarraVida.setPosition(posicaoView.x - 690, posicaoView.y - 450);
+
     ptrGG->desenhaElemento(fundoBarra);
     ptrGG->desenhaElemento(barra);
+    ptrGG->desenhaElemento(textoBarraVida);
 }

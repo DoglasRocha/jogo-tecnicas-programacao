@@ -10,6 +10,13 @@ Jogador2::Jogador2() : Jogador(){
     x = 700, y = 500;
     setOriginToCenter();
     escalarSprite(3.0, 3.0);
+
+    textoBarraVida.setFont(font);
+    textoBarraVida.setCharacterSize(25);
+    textoBarraVida.setFillColor(sf::Color::White);
+    textoBarraVida.setOutlineColor(sf::Color::Black);
+    textoBarraVida.setOutlineThickness(10);
+    textoBarraVida.setString("2P");
 }
 
 Jogador2::~Jogador2(){
@@ -70,12 +77,15 @@ void Jogador2::desenhaBarraVida(){
     fundoBarra.setFillColor(Color::Red);
 
     Vector2f posicaoView = ptrGG->getCentroView();
-    barra.setPosition(posicaoView.x +450, posicaoView.y - 450);
+    barra.setPosition(posicaoView.x + 450, posicaoView.y - 450);
     fundoBarra.setPosition(posicaoView.x + 450, posicaoView.y - 450);
     barra.setSize(Vector2f(num_vidas*2, 25));
 
+    textoBarraVida.setPosition(posicaoView.x + 660, posicaoView.y - 450);
+
     ptrGG->desenhaElemento(fundoBarra);
     ptrGG->desenhaElemento(barra);
+    ptrGG->desenhaElemento(textoBarraVida);
 }
 
 void Jogador2::moverX() {
