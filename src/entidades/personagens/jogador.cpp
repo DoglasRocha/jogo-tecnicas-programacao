@@ -1,4 +1,6 @@
 #include "../../../Includes/Entidades/Personagens/jogador.hpp"
+#include <iostream>
+using namespace std;
 
 using entidades::personagens::Jogador;
 
@@ -54,6 +56,11 @@ void Jogador::reset() {
     vivo = true;
     sprite.setPosition(x, y);
     ptrGG->centralizarJanela(x);
+}
+
+void Jogador::resetaPontuacao()
+{
+    pontuacao = 0;
 }
 
 int Jogador::getPontuacao()

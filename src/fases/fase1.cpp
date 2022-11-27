@@ -70,9 +70,9 @@ Fase1::~Fase1() {
 void Fase1::trocaEstado(int opcao) {
     if(!(ptrJogador->getVivo())){
         if(ptrJogador2){
-            if(!(ptrJogador2->getVivo())) ptrJogo->irParaMenu();
+            if(!(ptrJogador2->getVivo())) ptrJogo->irParaRanking();
         }
-        else ptrJogo->irParaMenu();
+        else ptrJogo->irParaRanking();
     } 
 
     else if (gerenciadorColisoes->getVetorInimigos().empty()){

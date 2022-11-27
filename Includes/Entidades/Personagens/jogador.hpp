@@ -23,6 +23,7 @@ namespace entidades::personagens {
         void queimar();
         void reset();
         virtual void desenhaBarraVida() = 0;
+        void resetaPontuacao();
         int getPontuacao();
         void ganhaPontuacao(int pont);
 	};	

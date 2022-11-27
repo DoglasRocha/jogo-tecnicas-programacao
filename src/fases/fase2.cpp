@@ -71,10 +71,14 @@ Fase2::~Fase2() {
 }
 
 void Fase2::trocaEstado(int opcao) {
-    if(!(ptrJogador->getVivo())) 
-        ptrJogo->irParaMenu();
-    else if (gerenciadorColisoes->getVetorInimigos().empty()) 
-        ptrJogo->irParaMenu();
+    if(!(ptrJogador->getVivo())){
+        if(ptrJogador2){
+            if (!(ptrJogador2->getVivo())) ptrJogo->irParaRanking();
+        }
+        else ptrJogo->irParaRanking();
+    }
+
+    else if (gerenciadorColisoes->getVetorInimigos().empty()) ptrJogo->irParaRanking();
 }
 
 void Fase2::criaMinotauro(int posX, int posY) {

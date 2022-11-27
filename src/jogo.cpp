@@ -4,6 +4,7 @@
 #include "../Includes/menu_jogadores.hpp"
 #include "../Includes/Fases/fase1.hpp"
 #include "../Includes/Fases/fase2.hpp"
+#include "../Includes/ranking.hpp"
 #include <cstdlib>
 #include <ctime>
 
@@ -77,6 +78,8 @@ void Jogo::irParaFase2(bool coop) {
 void Jogo::irParaMenu() {
     cj.reset();
     smoke.reset();
+    cj.resetaPontuacao();
+    smoke.resetaPontuacao();
     gerenciadorColisoes->limparListas();
     if (estadoAntigo) {
         delete estadoAntigo;
@@ -84,6 +87,16 @@ void Jogo::irParaMenu() {
     }
     estadoAntigo = estadoAtual;
     estadoAtual = new Menu(gerenciadorEventos, this);
+}
+
+void Jogo::irParaRanking() {
+    gerenciadorColisoes->limparListas();
+    if (estadoAntigo) {
+        delete estadoAntigo;
+        estadoAntigo = nullptr;
+    }
+    estadoAntigo = estadoAtual;
+    estadoAtual = new Ranking(gerenciadorEventos, this);
 }
 
 void Jogo::irParaMenuJogadores(int fase) {
@@ -94,4 +107,13 @@ void Jogo::irParaMenuJogadores(int fase) {
     }
     estadoAntigo = estadoAtual;
     estadoAtual = new MenuJogadores(gerenciadorEventos, this, fase);
+}
+
+int Jogo::getPontuacao() {
+    return (cj.getPontuacao() + smoke.getPontuacao());
+}
+
+void Jogo::resetaPontuacao() {
+    cj.resetaPontuacao();
+    smoke.resetaPontuacao();
 }

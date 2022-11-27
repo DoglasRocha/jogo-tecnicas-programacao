@@ -23,6 +23,8 @@ private:
 public:
 	Jogo();
 	~Jogo();
+    int getPontuacao();
+    void resetaPontuacao();
     void irParaFase1(bool coop);
     void irParaFase2(bool coop);
     void irParaRanking();
