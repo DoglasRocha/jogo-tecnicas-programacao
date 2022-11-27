@@ -12,7 +12,8 @@ Ranking::Ranking(GerenciadorEventos *gE, Jogo *ptrJogo)
 
     try
     {
-        ifstream file("ranking.txt");
+        ifstream file;
+        file.open("ranking.txt");
         if(file) lerArquivo();
         else throw(ifstream::failure("Erro na abertura do arquivo"));
     }
@@ -86,19 +87,19 @@ void Ranking::lerArquivo()
 void Ranking::salvarArquivo(int pontos)
 {
     ofstream arq;
-    arq.open("ranking.txt");
+    arq.open("ranking.txt", std::ofstream::trunc);
 	if (!arq) {
 		cout << "Erro ao abrir Arquivo." << endl;
 	}
 
-	infoJogador aux2;
+	infoJogador aux;
 
 	cout << "Digite nome do jogador:" << endl;
-	cin >> aux2.nome;
+	cin >> aux.nome;
 
-	aux2.pontos = pontos;
+	aux.pontos = pontos;
 
-	listaRanking.push_back(aux2);
+	listaRanking.push_back(aux);
 	
 	int i, j;
 	for (i = 0; i < listaRanking.size() - 1; i++) {
@@ -113,9 +114,11 @@ void Ranking::salvarArquivo(int pontos)
 		listaRanking.resize(10);
 	}
 
-	for (int i = 0; i < listaRanking.size(); i++) {
+	for (int i = 0; i < (listaRanking.size() - 1); i++) {
 		arq << listaRanking[i].nome << ' ' << listaRanking[i].pontos << endl;
 	}
+
+    arq << listaRanking[listaRanking.size() - 1].nome << ' ' << listaRanking[listaRanking.size() - 1].pontos;
 
 	arq.close();
 
