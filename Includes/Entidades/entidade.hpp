@@ -10,7 +10,7 @@ namespace entidades
     class Entidade : public Ente
     {
     protected:
-        int empuxo, x, y;
+        int empuxo = 0, x, y, velX, velY;
     public:
         Entidade();
         virtual ~Entidade();
@@ -24,5 +24,9 @@ namespace entidades
         int getY() const;
         void setX(const int novoX);
         void setY(const int novoY);
+        void setVelX(const int novaVel);
+        void setVelY(const int novaVel);
+        int getVelX() const;
+        int getVelY() const;
     };
 }

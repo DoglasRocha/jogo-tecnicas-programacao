@@ -18,6 +18,8 @@ class Menu : public Ente, public Estado
         BackgroundManager *planoDeFundo;
         ListaEntidades listaDeBotoes;
         Jogo *ptrJogo;
+        Text titulo;
+        Font font;
 
     public:
         Menu(GerenciadorEventos *gE=nullptr, Jogo *ptrJogo=nullptr);

@@ -35,6 +35,7 @@ namespace Gerenciadores
 
     GerenciadorColisoes *GerenciadorColisoes::addObstaculo(Obstaculo *ptrObstaculo) {
         listaObstaculos.push_back(ptrObstaculo);
+        ptrObstaculo->setEmpuxo(-(gravidade));
         return instance;
     }
 
@@ -42,10 +43,10 @@ namespace Gerenciadores
         
     }
 
-    void GerenciadorColisoes::aplicaGravidade(Personagem *personagem)
+    void GerenciadorColisoes::aplicaGravidade(Entidade *entidade)
     {
-        personagem->setVelY(personagem->getVelY() + gravidade + personagem->getEmpuxo());
-        personagem->setEmpuxo(personagem->getEmpuxo() + gravidade);
+        entidade->setVelY(entidade->getVelY() + gravidade + entidade->getEmpuxo());
+        entidade->setEmpuxo(entidade->getEmpuxo() + gravidade);
     }
 
     void GerenciadorColisoes::executar() {
@@ -66,6 +67,11 @@ namespace Gerenciadores
             else
                 vetorInimigos[i]->colideY();
         }
+
+        for (list<Obstaculo*>::iterator it = listaObstaculos.begin(); it!= listaObstaculos.end(); it++) {
+            aplicaGravidade(*it);
+        }
+
         executarColisoesJogador(jogador);
         executarColisoesJogador(jogador2);
         if(ptrProjetil) executaColisaoProjetilComEntidade();

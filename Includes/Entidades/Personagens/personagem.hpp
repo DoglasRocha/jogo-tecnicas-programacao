@@ -10,7 +10,7 @@ namespace entidades::personagens
 {
     class Personagem : public Entidade {
     protected:
-        int num_vidas, velX, velY, qtdPulos, ataque;
+        int num_vidas, qtdPulos, ataque;
         bool vivo;
         Sprite sprite;
         ListaTexturas listaTexturas;
@@ -24,10 +24,6 @@ namespace entidades::personagens
         virtual ~Personagem();
         virtual void moverX();
         virtual void moverY();
-        void setVelX(const int novaVel);
-        void setVelY(const int novaVel);
-        int getVelX() const;
-        int getVelY() const;
         void setQtdPulos(const int pulos);
         int getQtdPulos() const; 
         Drawable *getDraw();

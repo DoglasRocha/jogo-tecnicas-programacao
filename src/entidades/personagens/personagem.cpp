@@ -26,22 +26,6 @@ void entidades::personagens::Personagem::moverY() {
     y += velY;
 }
 
-void entidades::personagens::Personagem::setVelX(const int novaVel) {
-    velX = novaVel;
-}
-
-void entidades::personagens::Personagem::setVelY(const int novaVel) {
-    velY = novaVel;
-}
-
-int entidades::personagens::Personagem::getVelX() const {
-    return velX;
-}
-
-int entidades::personagens::Personagem::getVelY() const {
-    return velY;
-}
-
 std::string entidades::personagens::Personagem::getSentido() const {
     return sentido;
 }

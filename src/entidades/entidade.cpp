@@ -36,3 +36,19 @@ void entidades::Entidade::setX(const int novoX) {
 void entidades::Entidade::setY(const int novoY) {
     y = novoY;
 }
+
+void entidades::Entidade::setVelX(const int novaVel) {
+    velX = novaVel;
+}
+
+void entidades::Entidade::setVelY(const int novaVel) {
+    velY = novaVel;
+}
+
+int entidades::Entidade::getVelX() const {
+    return velX;
+}
+
+int entidades::Entidade::getVelY() const {
+    return velY;
+}

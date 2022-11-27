@@ -33,7 +33,7 @@ namespace Gerenciadores {
         static void deleteInstance();
         GerenciadorColisoes *addInimigo(Inimigo *ptrInimigo);
         GerenciadorColisoes *addObstaculo(Obstaculo *ptrObstaculo);
-        void aplicaGravidade(Personagem *personagem);
+        void aplicaGravidade(Entidade *entidade);
         void executar();
         std::vector<Inimigo*> getVetorInimigos();
         void executarColisoesJogador(Jogador *ptrJogador);
