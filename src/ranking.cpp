@@ -24,6 +24,21 @@ Ranking::Ranking(GerenciadorEventos *gE, Jogo *ptrJogo)
     }
     
     font.loadFromFile("texturas/VCR_OSD_MONO.ttf");
+
+    textoInput.setFont(font);
+    textoInput.setCharacterSize(75);
+    textoInput.setFillColor(sf::Color::White);
+    textoInput.setOutlineColor(sf::Color::Black);
+    textoInput.setOutlineThickness(10);
+    textoInput.setPosition(Vector2f(100, 500));
+    
+    textoGameOver.setFont(font);
+    textoGameOver.setCharacterSize(75);
+    textoGameOver.setFillColor(sf::Color::White);
+    textoGameOver.setOutlineColor(sf::Color::Black);
+    textoGameOver.setOutlineThickness(10);
+    textoGameOver.setPosition(Vector2f(300, 400));
+    textoGameOver.setString("GAME OVER. Digite seu nome:");
 }
 
 Ranking::~Ranking()
@@ -93,10 +108,19 @@ void Ranking::salvarArquivo(int pontos)
 	}
 
 	infoJogador aux;
+    
+    Event evento;
 
-	cout << "Digite nome do jogador:" << endl;
-	cin >> aux.nome;
-
+    while(evento.key.code != Keyboard::Return){
+            if(evento.type == Event::TextEntered){
+            inputJogador += evento.text.unicode;
+            textoInput.setString(inputJogador);
+            ptrGG->desenhaElemento(textoInput);
+            ptrGG->desenhaElemento(textoGameOver);
+        }
+    }
+	
+    aux.nome = inputJogador;
 	aux.pontos = pontos;
 
 	listaRanking.push_back(aux);
@@ -128,5 +152,39 @@ void Ranking::salvarArquivo(int pontos)
 void Ranking::escreveJogadores()
 {
     vector<infoJogador>::iterator it;
-    for(it = listaRanking.begin(); it != listaRanking.end(); it++) cout << (*it).nome << " - " << (*it).pontos << endl;
+    for(it = listaRanking.begin(); it != listaRanking.end(); it++)
+    {
+        int cont = 1;
+        Text aux, aux2, divisor;
+        aux.setString((*it).nome);
+        aux2.setString(to_string((*it).pontos));
+        divisor.setString(" - ");
+
+        aux.setFont(font);
+        aux.setCharacterSize(75);
+        aux.setFillColor(sf::Color::White);
+        aux.setOutlineColor(sf::Color::Black);
+        aux.setOutlineThickness(10);
+        aux.setPosition(Vector2f(200, 75 * cont));
+        
+        aux2.setFont(font);
+        aux2.setCharacterSize(75);
+        aux2.setFillColor(sf::Color::White);
+        aux2.setOutlineColor(sf::Color::Black);
+        aux2.setOutlineThickness(10);
+        aux2.setPosition(Vector2f(1000, 75 * cont));
+
+        divisor.setFont(font);
+        divisor.setCharacterSize(75);
+        divisor.setFillColor(sf::Color::White);
+        divisor.setOutlineColor(sf::Color::Black);
+        divisor.setOutlineThickness(10);
+        divisor.setPosition(Vector2f(690, 75 * cont));
+
+        ptrGG->desenhaElemento(aux);
+        ptrGG->desenhaElemento(aux2);
+        ptrGG->desenhaElemento(divisor);
+
+        cont++;
+    }
 }

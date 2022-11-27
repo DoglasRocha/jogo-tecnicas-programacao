@@ -22,9 +22,10 @@ class Ranking : public Ente, public Estado
         GerenciadorEventos *gerenciadorEventos;
         BackgroundManager *planoDeFundo;
         Jogo *ptrJogo;
-        Text titulo;
         Font font;
         vector<infoJogador> listaRanking;
+        String inputJogador;
+        Text textoInput, textoGameOver;
 
     public:
         Ranking(GerenciadorEventos *gE=nullptr, Jogo *ptrJogo=nullptr);
