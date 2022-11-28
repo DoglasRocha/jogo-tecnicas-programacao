@@ -14,7 +14,8 @@ entidades::Projetil::Projetil(Minotauro* ptrMino_){
 }
 
 entidades::Projetil::~Projetil(){
-
+    delete sprite;
+    delete textura;
 }
 
 void entidades::Projetil::moverX() {

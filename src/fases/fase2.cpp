@@ -66,8 +66,8 @@ Fase(gC, gE, ptrJogador, ptrJogo, ptrJogador2) {
     planoDeFundo = new BackgroundManager("medieval_castle/background.png");
 }
 
-Fase2::~Fase2() {
-
+Fase2::~Fase2(){
+    gerenciadorColisoes->deletaProjetil();
 }
 
 void Fase2::trocaEstado(int opcao) {
@@ -77,7 +77,6 @@ void Fase2::trocaEstado(int opcao) {
         }
         else ptrJogo->irParaRanking();
     }
-
     else if (gerenciadorColisoes->getVetorInimigos().empty()) ptrJogo->irParaRanking();
 }
 

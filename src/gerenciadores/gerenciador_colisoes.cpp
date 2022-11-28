@@ -246,4 +246,9 @@ namespace Gerenciadores
         vetorInimigos.clear();
         listaObstaculos.clear();
     }
+
+    void GerenciadorColisoes::deletaProjetil() {
+        //delete ptrProjetil; Por alguma razão que só Deus sabe, isso crasha o jogo.
+        ptrProjetil = nullptr;
+    }
 }

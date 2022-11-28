@@ -45,5 +45,6 @@ namespace Gerenciadores {
         void executaColisaoJogadorComInimigo(Jogador *ptrJogador);
         void executaColisaoProjetilComEntidade();
         void limparListas();
+        void deletaProjetil();
     };
 }

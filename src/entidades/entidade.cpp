@@ -10,6 +10,7 @@ Entidade::Entidade()
 
 Entidade::~Entidade()
 {
+
 }
 
 void Entidade::executar()
